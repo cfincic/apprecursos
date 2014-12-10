@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Legajo:</strong>
+  <%= @agente.legajo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @agente.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @agente.apellido %>
+</p>
+
+<h2>Contactos Registrados</h2>
+<% @agente.contactos.each do |con| %>
+  <p>
+    <strong>Contacto:</strong>
+    <%= con.telefono %>
+  </p>
+ 
+  <p>
+    <%= con.email %>
+  </p>
+<% end %>
+
+<h2>Agregar Contacto:</h2>
+<%= form_for([@agente, @agente.contactos.build]) do |f| %>
+  <p>
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_agente_path(@agente) %> |
+<%= link_to 'Back', agentes_path %>

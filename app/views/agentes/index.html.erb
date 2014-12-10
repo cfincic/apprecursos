@@ -1,0 +1,29 @@
+<h1>Listing agentes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Legajo</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agentes.each do |agente| %>
+      <tr>
+        <td><%= agente.legajo %></td>
+        <td><%= agente.nombre %></td>
+        <td><%= agente.apellido %></td>
+        <td><%= link_to 'Show', agente %></td>
+        <td><%= link_to 'Edit', edit_agente_path(agente) %></td>
+        <td><%= link_to 'Destroy', agente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agente', new_agente_path %>
