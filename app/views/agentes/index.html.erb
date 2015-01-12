@@ -1,6 +1,6 @@
-<h1>Listing agentes</h1>
+<h1>Listado de Agentes</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Legajo</th>
@@ -16,9 +16,9 @@
         <td><%= agente.legajo %></td>
         <td><%= agente.nombre %></td>
         <td><%= agente.apellido %></td>
-        <td><%= link_to 'Show', agente %></td>
-        <td><%= link_to 'Edit', edit_agente_path(agente) %></td>
-        <td><%= link_to 'Destroy', agente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', agente %></td>
+        <td><%= link_to 'Editar', edit_agente_path(agente) %></td>
+        <td><%= link_to 'Borrar', agente, method: :delete, data: { confirm: 'Seguro que desea borrar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Agente', new_agente_path %>
+<%= link_to 'Nuevo Agente', new_agente_path %>
