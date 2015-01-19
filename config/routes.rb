@@ -1,5 +1,9 @@
 Apprecursos::Application.routes.draw do
 
+  resources :situacion_revista
+
+  resources :tipo_documentos
+
   resources :agentes do
     resources :contactos
   end

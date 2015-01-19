@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203234338) do
+ActiveRecord::Schema.define(version: 20150112235429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,5 +33,17 @@ ActiveRecord::Schema.define(version: 20141203234338) do
   end
 
   add_index "contactos", ["agente_id"], name: "index_contactos_on_agente_id", using: :btree
+
+  create_table "situacion_revista", force: true do |t|
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipo_documentos", force: true do |t|
+    t.string   "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
