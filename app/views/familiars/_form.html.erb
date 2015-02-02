@@ -1,0 +1,45 @@
+<%= form_for([@agrente, @familiar]) do |f| %>
+  <% if @familiar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@familiar.errors.count, "error") %> prohibited this familiar from being saved:</h2>
+
+      <ul>
+      <% @familiar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :relacion %><br>
+    <%= f.text_field :relacion %>
+  </div>
+  <div class="field">
+    <%= f.label :cuil %><br>
+    <%= f.text_field :cuil %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_nac %><br>
+    <%= f.datetime_select :fecha_nac %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar_nac %><br>
+    <%= f.text_field :lugar_nac %>
+  </div>
+  <div class="field">
+    <%= f.label :agrente_id %><br>
+    <%= f.text_field :agrente_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

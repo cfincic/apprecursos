@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cuil:</strong>
+  <%= @agrente.cuil %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @agrente.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @agrente.apellido %>
+</p>
+
+<p>
+  <strong>Tipodocumento:</strong>
+  <%= @agrente.tipo_documento.tipo %>
+</p>
+
+<p>
+  <strong>Numero doc:</strong>
+  <%= @agrente.numero_doc %>
+</p>
+
+<p>
+  <strong>Fecha nac:</strong>
+  <%= @agrente.fecha_nac %>
+</p>
+
+<p>
+  <strong>Lugar nac:</strong>
+  <%= @agrente.lugar_nac %>
+</p>
+
+<p>
+  <strong>Nacionalidad:</strong>
+  <%= @agrente.nacionalidad %>
+</p>
+
+<p>
+  <strong>Estado civil:</strong>
+  <%= @agrente.estado_civil %>
+</p>
+
+<p>
+  <strong>Es discapacitado:</strong>
+  <%= @agrente.es_discapacitado %>
+</p>
+
+<p>
+  <strong>Expira certificado:</strong>
+  <%= @agrente.expira_certificado %>
+</p>
+<%= link_to 'Familiares a Cargo', agrente_familiars_path(@agrente) %></br>
+<%= link_to 'Datos de Contacto', agrente_dato_contactos_path(@agrente) %></br>
+<%= link_to 'Editar', edit_agrente_path(@agrente) %> |
+<%= link_to 'Volver', agrentes_path %>

@@ -1,0 +1,41 @@
+<h1>Datos de Contacto de <%= @agente.nombre %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Telefono casa</th>
+      <th>Telefono celu</th>
+      <th>Email</th>
+      <th>Direccion</th>
+      <th>Ciudad</th>
+      <th>Cod postal</th>
+      <th>Provincia</th>
+      <th>Otro</th>
+      <th>Agrente</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dato_contactos.each do |dato_contacto| %>
+      <tr>
+        <td><%= dato_contacto.telefono_casa %></td>
+        <td><%= dato_contacto.telefono_celu %></td>
+        <td><%= dato_contacto.email %></td>
+        <td><%= dato_contacto.direccion %></td>
+        <td><%= dato_contacto.ciudad %></td>
+        <td><%= dato_contacto.cod_postal %></td>
+        <td><%= dato_contacto.provincia %></td>
+        <td><%= dato_contacto.otro %></td>
+        <td><%= dato_contacto.agrente %></td>
+        <td><%= link_to 'Show', agrente_dato_contacto_path(dato_contacto.agrente, dato_contacto) %></td>
+        <td><%= link_to 'Edit', edit_agrente_dato_contacto_path(dato_contacto.agrente, dato_contacto) %></td>
+        <td><%= link_to 'Destroy', agrente_dato_contacto_path(dato_contacto.agrente, dato_contacto), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dato contacto', new_agrente_dato_contacto_path(@agente) %>

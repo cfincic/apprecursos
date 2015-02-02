@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Telefono casa:</strong>
+  <%= @dato_contacto.telefono_casa %>
+</p>
+
+<p>
+  <strong>Telefono celu:</strong>
+  <%= @dato_contacto.telefono_celu %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @dato_contacto.email %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @dato_contacto.direccion %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @dato_contacto.ciudad %>
+</p>
+
+<p>
+  <strong>Cod postal:</strong>
+  <%= @dato_contacto.cod_postal %>
+</p>
+
+<p>
+  <strong>Provincia:</strong>
+  <%= @dato_contacto.provincia %>
+</p>
+
+<p>
+  <strong>Otro:</strong>
+  <%= @dato_contacto.otro %>
+</p>
+
+<p>
+  <strong>Agrente:</strong>
+  <%= @dato_contacto.agrente %>
+</p>
+
+<%= link_to 'Edit', edit_dato_contacto_path(@dato_contacto) %> |
+<%= link_to 'Back', dato_contactos_path %>

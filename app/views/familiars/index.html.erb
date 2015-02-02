@@ -1,0 +1,37 @@
+<h1>Familiares a cargo de <%= @agrente.nombre %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Relacion</th>
+      <th>Cuil</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Fecha nac</th>
+      <th>Lugar nac</th>
+      <th>Agrente</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @familiars.each do |familiar| %>
+      <tr>
+        <td><%= familiar.relacion %></td>
+        <td><%= familiar.cuil %></td>
+        <td><%= familiar.nombre %></td>
+        <td><%= familiar.apellido %></td>
+        <td><%= familiar.fecha_nac %></td>
+        <td><%= familiar.lugar_nac %></td>
+        <td><%= familiar.agrente %></td>
+        <td><%= link_to 'Ver', agrente_familiar_path(@agrente, familiar) %></td>
+        <td><%= link_to 'Editar', edit_agrente_familiar_path(@agrente, familiar) %></td>
+        <td><%= link_to 'Eliminar', agrente_familiar_path(@agrente, familiar), method: :delete, data: { confirm: 'Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Familiar', new_agrente_familiar_path(@agrente) %>

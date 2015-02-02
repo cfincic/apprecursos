@@ -1,0 +1,35 @@
+<h1>Listado de Agentes</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>CUIL</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Tipo de Documento</th>
+      <th>Número documento</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agrentes.each do |agrente| %>
+      <tr>
+        <td><%= agrente.cuil %></td>
+        <td><%= agrente.nombre %></td>
+        <td><%= agrente.apellido %></td>
+        <td><%= agrente.tipo_documento.tipo  %></td>
+        <td><%= agrente.numero_doc %></td>
+        
+        <td><%= link_to 'Ver', agrente %></td>
+        <td><%= link_to 'Editar', edit_agrente_path(agrente) %></td>
+        <td><%= link_to 'Eliminar', agrente, method: :delete, data: { confirm: 'Estás segura nena?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Agente', new_agrente_path %>

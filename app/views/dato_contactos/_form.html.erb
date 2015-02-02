@@ -1,0 +1,53 @@
+<%= form_for([@agente, @dato_contacto]) do |f| %>
+  <% if @dato_contacto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dato_contacto.errors.count, "error") %> prohibited this dato_contacto from being saved:</h2>
+
+      <ul>
+      <% @dato_contacto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :telefono_casa %><br>
+    <%= f.text_field :telefono_casa %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_celu %><br>
+    <%= f.text_field :telefono_celu %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_postal %><br>
+    <%= f.text_field :cod_postal %>
+  </div>
+  <div class="field">
+    <%= f.label :provincia %><br>
+    <%= f.text_field :provincia %>
+  </div>
+  <div class="field">
+    <%= f.label :otro %><br>
+    <%= f.text_field :otro %>
+  </div>
+  <div class="field">
+    <%= f.label :agrente_id %><br>
+    <%= f.text_field :agrente_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

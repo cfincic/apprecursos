@@ -1,0 +1,61 @@
+<%= form_for(@agrente) do |f| %>
+  <% if @agrente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agrente.errors.count, "error") %> prohibited this agrente from being saved:</h2>
+
+      <ul>
+      <% @agrente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cuil %><br>
+    <%= f.text_field :cuil %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :TipoDocumento %><br>
+    <%= f.collection_select("tipo_documento_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
+  </div>
+  <div class="field">
+    <%= f.label :numero_doc %><br>
+    <%= f.text_field :numero_doc %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_nac %><br>
+    <%= f.datetime_select :fecha_nac %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar_nac %><br>
+    <%= f.text_field :lugar_nac %>
+  </div>
+  <div class="field">
+    <%= f.label :nacionalidad %><br>
+    <%= f.text_field :nacionalidad %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_civil %><br>
+    <%= f.text_field :estado_civil %>
+  </div>
+  <div class="field">
+    <%= f.label :es_discapacitado %><br>
+    <%= f.text_field :es_discapacitado %>
+  </div>
+  <div class="field">
+    <%= f.label :expira_certificado %><br>
+    <%= f.datetime_select :expira_certificado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
