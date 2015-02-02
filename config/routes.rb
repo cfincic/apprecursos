@@ -1,11 +1,23 @@
 Apprecursos::Application.routes.draw do
 
+  resources :sedes
+
+  resources :agrentes
+
   resources :situacion_revista
 
   resources :tipo_documentos
 
   resources :agentes do
     resources :contactos
+  end
+
+  resources :agrentes do
+    resources :familiars
+  end
+
+  resources :agrentes do
+    resources :dato_contactos
   end
 
 
