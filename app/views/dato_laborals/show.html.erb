@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong>Datos Laborales de:</strong>
+  <%= @dato_laboral.agrente.nombre %> &nbsp
+  <%= @dato_laboral.agrente.apellido %>
+</h1>
+
+<p>
+  <strong>Num legajo:</strong>
+  <%= @dato_laboral.num_legajo %>
+</p>
+
+<p>
+  <strong>Sede:</strong>
+  <%= @dato_laboral.sede %>
+</p>
+
+<p>
+  <strong>Interno:</strong>
+  <%= @dato_laboral.interno %>
+</p>
+
+<p>
+  <strong>Fecha ingreso:</strong>
+  <%= @dato_laboral.fecha_ingreso %>
+</p>
+
+<p>
+  <strong>Situ revista:</strong>
+  <%= @dato_laboral.situ_revista %>
+</p>
+
+<p>
+  <strong>Agrupamiento:</strong>
+  <%= @dato_laboral.agrupamiento %>
+</p>
+
+<p>
+  <strong>Nivel:</strong>
+  <%= @dato_laboral.nivel %>
+</p>
+
+<p>
+  <strong>Grado:</strong>
+  <%= @dato_laboral.grado %>
+</p>
+
+<p>
+  <strong>Tramo:</strong>
+  <%= @dato_laboral.tramo %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @dato_laboral.cargo %>
+</p>
+
+<p>
+  <strong>Obj cargo:</strong>
+  <%= @dato_laboral.obj_cargo %>
+</p>
+
+<p>
+  <strong>Tareas cargo:</strong>
+  <%= @dato_laboral.tareas_cargo %>
+</p>
+
+<p>
+  <strong>Depende direccion:</strong>
+  <%= @dato_laboral.depende_direccion %>
+</p>
+
+<p>
+  <strong>Jefe directo:</strong>
+  <%= @dato_laboral.jefe_directo %>
+</p>
+
+<p>
+  <strong>Sueldo bruto:</strong>
+  <%= @dato_laboral.sueldo_bruto %>
+</p>
+
+<p>
+  <strong>Sueldo neto:</strong>
+  <%= @dato_laboral.sueldo_neto %>
+</p>
+
+<p>
+  <strong>Cant personas acargo:</strong>
+  <%= @dato_laboral.cant_personas_acargo %>
+</p>
+
+<%= link_to 'Editar', edit_agrente_dato_laboral_path(@dato_laboral.agrente, @dato_laboral) %> |
+<%= link_to 'Volver', agrente_dato_laborals_path %>

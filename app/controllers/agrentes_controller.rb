@@ -31,7 +31,7 @@ class AgrentesController < ApplicationController
 
     respond_to do |format|
       if @agrente.save
-        format.html { redirect_to @agrente, notice: 'Agrente was successfully created.' }
+        format.html { redirect_to @agrente, notice: 'Bien ahi! Creaste un Agente.' }
         format.json { render :show, status: :created, location: @agrente }
       else
         format.html { render :new }
@@ -72,6 +72,6 @@ class AgrentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agrente_params
-      params.require(:agrente).permit(:cuil, :nombre, :apellido, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado)
+      params.require(:agrente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :ciudad, :cod_postal, :provincia, :otro)
     end
 end

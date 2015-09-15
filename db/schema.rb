@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127232901) do
+ActiveRecord::Schema.define(version: 20150204221530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,21 @@ ActiveRecord::Schema.define(version: 20150127232901) do
     t.string   "cuil"
     t.string   "nombre"
     t.string   "apellido"
+    t.integer  "num_legajo"
     t.integer  "tipo_documento_id"
     t.string   "numero_doc"
     t.datetime "fecha_nac"
     t.string   "lugar_nac"
     t.string   "nacionalidad"
     t.string   "estado_civil"
+    t.string   "telefono_casa"
+    t.string   "telefono_celu"
+    t.string   "email"
+    t.string   "direccion"
+    t.string   "ciudad"
+    t.string   "cod_postal"
+    t.string   "provincia"
+    t.string   "otro"
     t.boolean  "es_discapacitado"
     t.datetime "expira_certificado"
     t.datetime "created_at"
@@ -67,6 +76,30 @@ ActiveRecord::Schema.define(version: 20150127232901) do
   end
 
   add_index "dato_contactos", ["agrente_id"], name: "index_dato_contactos_on_agrente_id", using: :btree
+
+  create_table "dato_laborals", force: true do |t|
+    t.integer  "agrente_id"
+    t.integer  "sede"
+    t.integer  "interno"
+    t.date     "fecha_ingreso"
+    t.integer  "situ_revista"
+    t.string   "agrupamiento"
+    t.string   "nivel"
+    t.string   "grado"
+    t.string   "tramo"
+    t.string   "cargo"
+    t.text     "obj_cargo"
+    t.text     "tareas_cargo"
+    t.string   "depende_direccion"
+    t.integer  "jefe_directo"
+    t.decimal  "sueldo_bruto"
+    t.decimal  "sueldo_neto"
+    t.integer  "cant_personas_acargo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dato_laborals", ["agrente_id"], name: "index_dato_laborals_on_agrente_id", using: :btree
 
   create_table "familiars", force: true do |t|
     t.string   "relacion"

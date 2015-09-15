@@ -20,6 +20,10 @@ Apprecursos::Application.routes.draw do
     resources :dato_contactos
   end
 
+  resources :agrentes do
+    resources :dato_laborals
+  end
+
 
   root  'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

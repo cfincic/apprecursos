@@ -1,0 +1,85 @@
+<%= form_for([@agente, @dato_laboral]) do |f| %>
+  <% if @dato_laboral.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dato_laboral.errors.count, "error") %> prohibited this dato_laboral from being saved:</h2>
+
+      <ul>
+      <% @dato_laboral.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="hide">
+    <%= f.label :agrente_id %><br>
+    <%= f.text_field :agrente_id %>
+  </div> 
+  <div class="field">
+    <%= f.label :sede %><br>
+    <%= f.number_field :sede %>
+  </div>
+  <div class="field">
+    <%= f.label :interno %><br>
+    <%= f.number_field :interno %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_ingreso %><br>
+    <%= f.date_select :fecha_ingreso %>
+  </div>
+  <div class="field">
+    <%= f.label "Situación de revista" %><br>
+    <%= f.number_field :situ_revista %>
+  </div>
+  <div class="field">
+    <%= f.label :agrupamiento %><br>
+    <%= f.text_field :agrupamiento %>
+  </div>
+  <div class="field">
+    <%= f.label :nivel %><br>
+    <%= f.text_field :nivel %>
+  </div>
+  <div class="field">
+    <%= f.label :grado %><br>
+    <%= f.text_field :grado %>
+  </div>
+  <div class="field">
+    <%= f.label :tramo %><br>
+    <%= f.text_field :tramo %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo %><br>
+    <%= f.text_field :cargo %>
+  </div>
+  <div class="field">
+    <%= f.label "Objeto del Cargo" %><br>
+    <%= f.text_area :obj_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label "Tareas a Cargo" %><br>
+    <%= f.text_area :tareas_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label "Dirección de la que depende" %><br>
+    <%= f.text_field :depende_direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :jefe_directo %><br>
+    <%= f.number_field :jefe_directo %>
+  </div>
+  <div class="field">
+    <%= f.label :sueldo_bruto %><br>
+    <%= f.text_field :sueldo_bruto %>
+  </div>
+  <div class="field">
+    <%= f.label :sueldo_neto %><br>
+    <%= f.text_field :sueldo_neto %>
+  </div>
+  <div class="field">
+    <%= f.label "Cantidad de personas a cargo" %><br>
+    <%= f.number_field :cant_personas_acargo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

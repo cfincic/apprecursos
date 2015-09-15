@@ -22,6 +22,8 @@ class DatoContactosController < ApplicationController
 
   # GET /dato_contactos/1/edit
   def edit
+    @agente = Agrente.find(params[:agrente_id])
+    @dato_contacto = DatoContacto.find(params[:id])
   end
 
   # POST /dato_contactos
@@ -48,7 +50,8 @@ class DatoContactosController < ApplicationController
   def update
     respond_to do |format|
       if @dato_contacto.update(dato_contacto_params)
-        format.html { redirect_to @dato_contacto, notice: 'Dato contacto was successfully updated.' }
+        @agente = Agrente.find(params[:agrente_id])
+        format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully updated.' }
         format.json { render :show, status: :ok, location: @dato_contacto }
       else
         format.html { render :edit }

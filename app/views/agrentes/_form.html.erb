@@ -23,6 +23,10 @@
     <%= f.label :apellido %><br>
     <%= f.text_field :apellido %>
   </div>
+    <div class="field">
+    <%= f.label :num_legajo %><br>
+    <%= f.text_field :num_legajo %>
+  </div>
   <div class="field">
     <%= f.label :TipoDocumento %><br>
     <%= f.collection_select("tipo_documento_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
@@ -55,6 +59,43 @@
     <%= f.label :expira_certificado %><br>
     <%= f.datetime_select :expira_certificado %>
   </div>
+  <h1>Datos de Contacto</h1>
+
+  <div class="field">
+    <%= f.label :telefono_casa %><br>
+    <%= f.text_field :telefono_casa %>
+  </div>
+    <div class="field">
+    <%= f.label :telefono_celu %><br>
+    <%= f.text_field :telefono_celu %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+    <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+    <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+    <div class="field">
+    <%= f.label :provincia %><br>
+    <%= f.text_field :provincia %>
+  </div>
+    <div class="field">
+    <%= f.label :cod_postal %><br>
+    <%= f.text_field :cod_postal %>
+  </div>
+    <div class="field">
+    <%= f.label :otro %><br>
+    <%= f.text_field :otro %>
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

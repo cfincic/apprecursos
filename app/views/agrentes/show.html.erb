@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <strong>Legajo:</strong>
+  <%= @agrente.num_legajo %>
+</p>
+
+<p>
   <strong>Fecha nac:</strong>
   <%= @agrente.fecha_nac %>
 </p>
@@ -54,7 +59,42 @@
   <strong>Expira certificado:</strong>
   <%= @agrente.expira_certificado %>
 </p>
+
+<h1>Datos de Contacto</h1>
+<p>
+  <strong>Teléfono Casa:</strong>
+  <%= @agrente.telefono_casa %>
+</p>
+<p>
+  <strong>Teléfono Celular:</strong>
+  <%= @agrente.telefono_celu %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @agrente.email %>
+</p>
+<p>
+  <strong>Dirección:</strong>
+  <%= @agrente.direccion %>
+</p>
+<p>
+  <strong>Ciudad:</strong>
+  <%= @agrente.ciudad %>
+</p>
+<p>
+  <strong>Código Postal:</strong>
+  <%= @agrente.cod_postal %>
+</p>
+<p>
+  <strong>Provincia:</strong>
+  <%= @agrente.provincia %>
+</p>
+<p>
+  <strong>Otro:</strong>
+  <%= @agrente.otro %>
+</p>
+
+<%= link_to 'Datos Laborales', new_agrente_dato_laboral_path(@agrente) %></br>
 <%= link_to 'Familiares a Cargo', agrente_familiars_path(@agrente) %></br>
-<%= link_to 'Datos de Contacto', agrente_dato_contactos_path(@agrente) %></br>
 <%= link_to 'Editar', edit_agrente_path(@agrente) %> |
 <%= link_to 'Volver', agrentes_path %>
