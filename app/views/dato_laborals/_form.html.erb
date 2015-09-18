@@ -11,26 +11,23 @@
     </div>
   <% end %>
 
-<div class="hide">
-    <%= f.label :agrente_id %><br>
-    <%= f.text_field :agrente_id %>
+  <div class="hide">
+    <%= f.label :agente_id %><br>
+    <%= f.text_field :agente_id %>
   </div> 
   <div class="field">
-    <%= f.label :sede %><br>
-    <%= f.number_field :sede %>
+      <%= f.label :sede%><br /> 
+      <%= f.collection_select :sede_id, @sedes, :id, :descripcion %>
   </div>
   <div class="field">
     <%= f.label :interno %><br>
-    <%= f.number_field :interno %>
+    <%= f.text_field :interno %>
   </div>
   <div class="field">
     <%= f.label :fecha_ingreso %><br>
     <%= f.date_select :fecha_ingreso %>
   </div>
-  <div class="field">
-    <%= f.label "Situación de revista" %><br>
-    <%= f.number_field :situ_revista %>
-  </div>
+
   <div class="field">
     <%= f.label :agrupamiento %><br>
     <%= f.text_field :agrupamiento %>
@@ -41,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :grado %><br>
-    <%= f.text_field :grado %>
+    <%= f.number_field :grado %>
   </div>
   <div class="field">
     <%= f.label :tramo %><br>
@@ -65,7 +62,7 @@
   </div>
   <div class="field">
     <%= f.label :jefe_directo %><br>
-    <%= f.number_field :jefe_directo %>
+    <%= f.text_field :jefe_directo %>
   </div>
   <div class="field">
     <%= f.label :sueldo_bruto %><br>

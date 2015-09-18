@@ -2,14 +2,9 @@
 
 <h1>
   <strong>Datos Laborales de:</strong>
-  <%= @dato_laboral.agrente.nombre %> &nbsp
-  <%= @dato_laboral.agrente.apellido %>
+  <%= @dato_laboral.agente.nombre %> &nbsp
+  <%= @dato_laboral.agente.apellido %>
 </h1>
-
-<p>
-  <strong>Num legajo:</strong>
-  <%= @dato_laboral.num_legajo %>
-</p>
 
 <p>
   <strong>Sede:</strong>
@@ -91,5 +86,5 @@
   <%= @dato_laboral.cant_personas_acargo %>
 </p>
 
-<%= link_to 'Editar', edit_agrente_dato_laboral_path(@dato_laboral.agrente, @dato_laboral) %> |
-<%= link_to 'Volver', agrente_dato_laborals_path %>
+<%= link_to 'Editar', edit_agente_dato_laboral_path(@dato_laboral.agente, @dato_laboral) %> |
+<%= link_to 'Volver', agente_dato_laborals_path %>

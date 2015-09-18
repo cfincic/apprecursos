@@ -1,0 +1,29 @@
+<%= form_for(@agente) do |f| %>
+  <% if @agente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agente.errors.count, "error") %> prohibited this agente from being saved:</h2>
+
+      <ul>
+      <% @agente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :legajo %><br>
+    <%= f.text_field :legajo %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="actions">
+    <%= f.submit :Crear %>
+  </div>
+<% end %>

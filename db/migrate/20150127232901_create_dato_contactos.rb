@@ -9,7 +9,7 @@ class CreateDatoContactos < ActiveRecord::Migration
       t.string :cod_postal
       t.string :provincia
       t.string :otro
-      t.references :agrente, index: true
+      t.references :agente, index: true
 
       t.timestamps
     end

@@ -14,11 +14,17 @@ class AgentesController < ApplicationController
 
   # GET /agentes/new
   def new
-    @agente = Agente.new
+    @agente= Agente.new
+    @tipo_documentos = TipoDocumento.all
+    @provincias = Provincia.order(:detalle)
+    @localidades = Localidad.order(:detalle)
   end
 
   # GET /agentes/1/edit
   def edit
+    @tipo_documentos = TipoDocumento.all
+    @provincias = Provincia.order(:detalle)
+    @localidades = Localidad.order(:detalle)
   end
 
   # POST /agentes
@@ -27,12 +33,12 @@ class AgentesController < ApplicationController
     @agente = Agente.new(agente_params)
 
     respond_to do |format|
-      if @agente.save
-        format.html { redirect_to @agente, notice: 'El Agente ha sido creado.' }
-        format.json { render :show, status: :created, location: @agente }
+      if@agente.save
+        format.html { redirect_to @agente, notice: 'Bien ahi! Creaste n Agente.' }
+        format.json { render :show, status: :created, locatin: @agente }
       else
         format.html { render :new }
-        format.json { render json: @agente.errors, status: :unprocessable_entity }
+        format.json { render json: @agente.errors, status: :unprocessble_entity }
       end
     end
   end
@@ -42,11 +48,11 @@ class AgentesController < ApplicationController
   def update
     respond_to do |format|
       if @agente.update(agente_params)
-        format.html { redirect_to @agente, notice: 'El Agente ha sido actualizado.' }
-        format.json { render :show, status: :ok, location: @agente }
+        format.html { redirect_to @agente, notice: 'Agente was successfull updated.' }
+        format.json { render :show, status: :ok, locatin: @agente }
       else
         format.html { render :edit }
-        format.json { render json: @agente.errors, status: :unprocessable_entity }
+        format.json { render json: @agente.errors, status: :unprocessble_entity }
       end
     end
   end
@@ -56,7 +62,7 @@ class AgentesController < ApplicationController
   def destroy
     @agente.destroy
     respond_to do |format|
-      format.html { redirect_to agentes_url, notice: 'El Agente ha sido borrado.' }
+      format.html { redirect_to agentes_url, notice: 'Agente was successfully estroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +75,6 @@ class AgentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agente_params
-      params.require(:agente).permit(:legajo, :nombre, :apellido)
+      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :ciudad, :cod_postal, :provncia, :otro)
     end
 end

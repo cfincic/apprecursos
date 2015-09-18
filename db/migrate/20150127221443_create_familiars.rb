@@ -7,7 +7,7 @@ class CreateFamiliars < ActiveRecord::Migration
       t.string :apellido
       t.datetime :fecha_nac
       t.string :lugar_nac
-      t.references :agrente, index: true
+      t.references :agente, index: true
 
       t.timestamps
     end

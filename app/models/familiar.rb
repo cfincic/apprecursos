@@ -1,3 +1,3 @@
 class Familiar < ActiveRecord::Base
-  belongs_to :agrente
+  belongs_to :agente
 end

@@ -2,7 +2,7 @@ Apprecursos::Application.routes.draw do
 
   resources :sedes
 
-  resources :agrentes
+  resources :agentes
 
   resources :situacion_revista
 
@@ -12,15 +12,15 @@ Apprecursos::Application.routes.draw do
     resources :contactos
   end
 
-  resources :agrentes do
+  resources :agentes do
     resources :familiars
   end
 
-  resources :agrentes do
+  resources :agentes do
     resources :dato_contactos
   end
 
-  resources :agrentes do
+  resources :agentes do
     resources :dato_laborals
   end
 

@@ -11,6 +11,14 @@
 # end
 
 # These inflection rules are supported but not enabled by default:
-# ActiveSupport::Inflector.inflections(:en) do |inflect|
-#   inflect.acronym 'RESTful'
-# end
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+	inflect.irregular 'agente', 'agentes'
+	inflect.irregular 'contacto', 'contactos'  
+	inflect.irregular 'dato_contacto', 'dato_contactos'  
+	inflect.irregular 'dato_laboral', 'dato_laborals'  
+	inflect.irregular 'familiar', 'familiars'  
+	inflect.irregular 'contacto', 'contactos'  
+	inflect.irregular 'tipo_documento', 'tipo_documentos'  
+  	inflect.irregular 'provincia', 'provincias'	
+ 	inflect.irregular 'localidad', 'localidades'
+end

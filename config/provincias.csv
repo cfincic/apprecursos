@@ -1,0 +1,25 @@
+id,Codigo,Descripción,Codigo_id
+1,18,"CORRIENTES                                         ",1800
+2,22,"CHACO                                              ",1800
+3,34,"FORMOSA                                            ",1800
+4,54,"MISIONES                                           ",1800
+5,10,"CATAMARCA                                          ",1801
+6,38,"JUJUY                                              ",1801
+7,66,"SALTA                                              ",1801
+8,86,"SANTIAGO DEL ESTERO                                ",1801
+9,90,"TUCUMAN                                            ",1801
+10,26,"CHUBUT                                            ",1802
+11,42,"LA PAMPA                                          ",1802
+12,58,"NEUQUEN                                           ",1802
+13,62,"RIO NEGRO                                         ",1802
+14,78,"SANTA CRUZ                                        ",1802
+15,94,"T. DEL FUEGO ANT. E ISLAS DEL AT                  ",1802
+16,46,"LA RIOJA                                          ",1803
+17,50,"MENDOZA                                           ",1803
+18,70,"SAN JUAN                                          ",1803
+19,74,"SAN LUIS                                          ",1803
+20,2,"CIUDAD AUTONOMA DE BUENOS AIRES                    ",1804
+21,6,"BUENOS AIRES                                       ",1804
+22,14,"CORDOBA                                           ",1805
+23,30,"ENTRE RIOS                                        ",1805
+24,82,"SANTA FE                                          ",1805

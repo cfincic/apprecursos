@@ -5,7 +5,7 @@ class DatoContactosController < ApplicationController
   # GET /dato_contactos.json
   def index
    
-    @agente = Agrente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agrente_id])
      @dato_contactos = @agente.dato_contactos
   end
 
@@ -17,12 +17,12 @@ class DatoContactosController < ApplicationController
   # GET /dato_contactos/new
   def new
     @dato_contacto = DatoContacto.new
-    @agente = Agrente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agrente_id])
   end
 
   # GET /dato_contactos/1/edit
   def edit
-    @agente = Agrente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agrente_id])
     @dato_contacto = DatoContacto.find(params[:id])
   end
 
@@ -30,12 +30,12 @@ class DatoContactosController < ApplicationController
   # POST /dato_contactos.json
   def create
     #@dato_contacto = DatoContacto.new(dato_contacto_params)
-    @agrente = Agrente.find(params[:agrente_id])
-    @dato_contacto = @agrente.dato_contactos.build(dato_contacto_params)
+    @agente = Agente.find(params[:agrente_id])
+    @dato_contacto = @agente.dato_contactos.build(dato_contacto_params)
 
     respond_to do |format|
       if @dato_contacto.save
-        @agente = Agrente.find(params[:agrente_id])
+        @agente = Agente.find(params[:agrente_id])
         format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully created.' }
         format.json { render :show, status: :created, location: @dato_contacto }
       else
@@ -50,7 +50,7 @@ class DatoContactosController < ApplicationController
   def update
     respond_to do |format|
       if @dato_contacto.update(dato_contacto_params)
-        @agente = Agrente.find(params[:agrente_id])
+        @agente = Agente.find(params[:agrente_id])
         format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully updated.' }
         format.json { render :show, status: :ok, location: @dato_contacto }
       else
@@ -63,7 +63,7 @@ class DatoContactosController < ApplicationController
   # DELETE /dato_contactos/1
   # DELETE /dato_contactos/1.json
   def destroy
-    @agente = Agrente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agrente_id])
     @dato_contacto.destroy
     respond_to do |format|
       format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully destroyed.' }

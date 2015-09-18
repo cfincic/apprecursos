@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Legajo:</strong>
-  <%= @agente.legajo %>
+  <strong>Cuil:</strong>
+  <%= @agente.cuil %>
 </p>
 
 <p>
@@ -15,32 +15,86 @@
   <%= @agente.apellido %>
 </p>
 
-<h2>Contactos Registrados</h2>
-<% @agente.contactos.each do |con| %>
-  <p>
-    <strong>Contacto:</strong>
-    <%= con.telefono %>
-  </p>
- 
-  <p>
-    <%= con.email %>
-  </p>
-<% end %>
+<p>
+  <strong>Tipodocumento:</strong>
+  <%= @agente.tipo_documento.tipo %>
+</p>
 
-<h2>Agregar Contacto:</h2>
-<%= form_for([@agente, @agente.contactos.build]) do |f| %>
-  <p>
-    <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<p>
+  <strong>Numero doc:</strong>
+  <%= @agente.numero_doc %>
+</p>
 
-<%= link_to 'Edit', edit_agente_path(@agente) %> |
-<%= link_to 'Back', agentes_path %>
+<p>
+  <strong>Legajo:</strong>
+  <%= @agente.num_legajo %>
+</p>
+
+<p>
+  <strong>Fecha nac:</strong>
+  <%= @agente.fecha_nac %>
+</p>
+
+<p>
+  <strong>Lugar nac:</strong>
+  <%= @agente.lugar_nac %>
+</p>
+
+<p>
+  <strong>Nacionalidad:</strong>
+  <%= @agente.nacionalidad %>
+</p>
+
+<p>
+  <strong>Estado civil:</strong>
+  <%= @agente.estado_civil %>
+</p>
+
+<p>
+  <strong>Es discapacitado:</strong>
+  <%= @agente.es_discapacitado %>
+</p>
+
+<p>
+  <strong>Expira certificado:</strong>
+  <%= @agente.expira_certificado %>
+</p>
+
+<h1>Datos de Contacto</h1>
+<p>
+  <strong>Teléfono Casa:</strong>
+  <%= @agente.telefono_casa %>
+</p>
+<p>
+  <strong>Teléfono Celular:</strong>
+  <%= @agente.telefono_celu %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @agente.email %>
+</p>
+<p>
+  <strong>Dirección:</strong>
+  <%= @agente.direccion %>
+</p>
+<p>
+  <strong>Ciudad:</strong>
+  <%= @agente.ciudad %>
+</p>
+<p>
+  <strong>Código Postal:</strong>
+  <%= @agente.cod_postal %>
+</p>
+<p>
+  <strong>Provincia:</strong>
+  <%= @agente.provincia %>
+</p>
+<p>
+  <strong>Otro:</strong>
+  <%= @agente.otro %>
+</p>
+
+<%= link_to 'Datos Laborales', agente_dato_laborals_path(@agente) %></br>
+<%= link_to 'Familiares a Cargo', agente_familiars_path(@agente) %></br>
+<%= link_to 'Editar', edit_agente_path(@agente) %> |
+<%= link_to 'Volver', agentes_path %>

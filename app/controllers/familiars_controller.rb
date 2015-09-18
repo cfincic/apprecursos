@@ -5,8 +5,8 @@ class FamiliarsController < ApplicationController
   # GET /familiars.json
   def index
     
-    @agrente = Agrente.find(params[:agrente_id])
-    @familiars = @agrente.familiars
+    @agente = Agente.find(params[:agrente_id])
+    @familiars = @agente.familiars
   end
 
   # GET /familiars/1
@@ -17,12 +17,12 @@ class FamiliarsController < ApplicationController
   # GET /familiars/new
   def new
     @familiar = Familiar.new
-    @agrente = Agrente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agrente_id])
   end
 
   # GET /familiars/1/edit
   def edit
-    @agrente = Agrente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agrente_id])
     @familiar = Familiar.find(params[:id])
   end
 
@@ -30,11 +30,11 @@ class FamiliarsController < ApplicationController
   # POST /familiars.json
   def create
     #@familiar = Familiar.new(familiar_params)
-    @agrente = Agrente.find(params[:agrente_id])
-    @familiar = @agrente.familiars.build(familiar_params)
+    @agente = Agente.find(params[:agrente_id])
+    @familiar = @agente.familiars.build(familiar_params)
     respond_to do |format|
       if @familiar.save
-        format.html { redirect_to agrente_familiars_path(@agrente), notice: 'Familiar was successfully created.' }
+        format.html { redirect_to agente_familiars_path(@agente), notice: 'Familiar was successfully created.' }
         format.json { render :show, status: :created, location: @familiar }
       else
         format.html { render :new }
@@ -48,8 +48,8 @@ class FamiliarsController < ApplicationController
   def update
     respond_to do |format|
       if @familiar.update(familiar_params)
-        @agrente = Agrente.find(params[:agrente_id])
-        format.html { redirect_to agrente_familiars_path(@agrente), notice: 'Familiar was successfully updated.' }
+        @agente = Agente.find(params[:agrente_id])
+        format.html { redirect_to agrente_familiars_path(@agente), notice: 'Familiar was successfully updated.' }
         format.json { render :show, status: :ok, location: @familiar }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class FamiliarsController < ApplicationController
   def destroy
     @familiar.destroy
     respond_to do |format|
-      format.html { redirect_to agrente_familiars_path(@familiar.agrente), notice: 'Familiar was successfully destroyed.' }
+      format.html { redirect_to agrente_familiars_path(@familiar.agente), notice: 'Familiar was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,6 +76,6 @@ class FamiliarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def familiar_params
-      params.require(:familiar).permit(:relacion, :cuil, :nombre, :apellido, :fecha_nac, :lugar_nac, :agrente_id)
+      params.require(:familiar).permit(:relacion, :cuil, :nombre, :apellido, :fecha_nac, :lugar_nac, :agente_id)
     end
 end

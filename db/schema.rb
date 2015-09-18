@@ -17,19 +17,13 @@ ActiveRecord::Schema.define(version: 20150204221530) do
   enable_extension "plpgsql"
 
   create_table "agentes", force: true do |t|
-    t.integer  "legajo"
-    t.string   "nombre"
-    t.string   "apellido"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "agrentes", force: true do |t|
     t.string   "cuil"
     t.string   "nombre"
     t.string   "apellido"
     t.integer  "num_legajo"
     t.integer  "tipo_documento_id"
+    t.integer  "localidad_id"
+    t.integer  "provincia_id"
     t.string   "numero_doc"
     t.datetime "fecha_nac"
     t.string   "lugar_nac"
@@ -39,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.string   "telefono_celu"
     t.string   "email"
     t.string   "direccion"
-    t.string   "ciudad"
     t.string   "cod_postal"
     t.string   "provincia"
     t.string   "otro"
@@ -49,7 +42,9 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.datetime "updated_at"
   end
 
-  add_index "agrentes", ["tipo_documento_id"], name: "index_agrentes_on_tipo_documento_id", using: :btree
+  add_index "agentes", ["localidad_id"], name: "index_agentes_on_localidad_id", using: :btree
+  add_index "agentes", ["provincia_id"], name: "index_agentes_on_provincia_id", using: :btree
+  add_index "agentes", ["tipo_documento_id"], name: "index_agentes_on_tipo_documento_id", using: :btree
 
   create_table "contactos", force: true do |t|
     t.string   "telefono"
@@ -70,18 +65,18 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.string   "cod_postal"
     t.string   "provincia"
     t.string   "otro"
-    t.integer  "agrente_id"
+    t.integer  "agente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "dato_contactos", ["agrente_id"], name: "index_dato_contactos_on_agrente_id", using: :btree
+  add_index "dato_contactos", ["agente_id"], name: "index_dato_contactos_on_agente_id", using: :btree
 
   create_table "dato_laborals", force: true do |t|
-    t.integer  "agrente_id"
-    t.integer  "sede"
+    t.integer  "agente_id"
+    t.integer  "sede_id"
     t.integer  "interno"
-    t.date     "fecha_ingreso"
+    t.datetime "fecha_ingreso"
     t.integer  "situ_revista"
     t.string   "agrupamiento"
     t.string   "nivel"
@@ -99,7 +94,8 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.datetime "updated_at"
   end
 
-  add_index "dato_laborals", ["agrente_id"], name: "index_dato_laborals_on_agrente_id", using: :btree
+  add_index "dato_laborals", ["agente_id"], name: "index_dato_laborals_on_agente_id", using: :btree
+  add_index "dato_laborals", ["sede_id"], name: "index_dato_laborals_on_sede_id", using: :btree
 
   create_table "familiars", force: true do |t|
     t.string   "relacion"
@@ -108,12 +104,29 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.string   "apellido"
     t.datetime "fecha_nac"
     t.string   "lugar_nac"
-    t.integer  "agrente_id"
+    t.integer  "agente_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "familiars", ["agrente_id"], name: "index_familiars_on_agrente_id", using: :btree
+  add_index "familiars", ["agente_id"], name: "index_familiars_on_agente_id", using: :btree
+
+  create_table "localidades", force: true do |t|
+    t.string   "codigo",       null: false
+    t.string   "detalle",      null: false
+    t.integer  "provincia_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "localidades", ["provincia_id"], name: "index_localidades_on_provincia_id", using: :btree
+
+  create_table "provincias", force: true do |t|
+    t.string   "codigo",     null: false
+    t.string   "detalle",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sedes", force: true do |t|
     t.string   "descripcion"
@@ -126,6 +139,8 @@ ActiveRecord::Schema.define(version: 20150204221530) do
 
   create_table "situacion_revista", force: true do |t|
     t.string   "descripcion"
+    t.datetime "fecha_alta"
+    t.integer  "dato_laboral_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
