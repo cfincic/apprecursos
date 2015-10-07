@@ -9,9 +9,7 @@
       <th>Agrupamiento</th>
       <th>Nivel</th>
       <th>Grado</th>
-      <th>Tramo</th>
-      <th>Cargo</th>
-      <th>Depende direccion</th>
+      <th>Tramo</th>            
       <th>Jefe directo</th>
       <th>Cant personas acargo</th>
       <th colspan="2"></th>
@@ -21,14 +19,13 @@
   <tbody>
     <% if !@dato_laboral.nil? %>
       <tr>
+        <td><%= @dato_laboral.id %></td>
         <td><%= @dato_laboral.fecha_ingreso %></td>
-        <td><%= @dato_laboral.situ_revista %></td>
-        <td><%= @dato_laboral.agrupamiento %></td>
+        <td><%= @dato_laboral.situacion_revistas.first().tipo_contratacion.descripcion %></td>
+        <td><%= @dato_laboral.agrupamiento.descripcion %></td>
         <td><%= @dato_laboral.nivel %></td>
         <td><%= @dato_laboral.grado %></td>
-        <td><%= @dato_laboral.tramo %></td>
-        <td><%= @dato_laboral.cargo %></td>
-        <td><%= @dato_laboral.depende_direccion %></td>
+        <td><%= @dato_laboral.tramo.descripcion %></td>                
         <td><%= @dato_laboral.jefe_directo %></td>
         <td><%= @dato_laboral.cant_personas_acargo %></td>
         <td><%= link_to 'Ver', agente_dato_laboral_path(@dato_laboral.agente, @dato_laboral) %></td>

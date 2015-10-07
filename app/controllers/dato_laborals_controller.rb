@@ -17,31 +17,32 @@ class DatoLaboralsController < ApplicationController
   # GET /dato_laborals/new
   def new    
     @dato_laboral = DatoLaboral.new
+    @dato_laboral.situacion_revistas.build
     @dato_laboral.agente_id = params[:agente_id]    
-
     @agente = Agente.find(params[:agente_id])
-    @sedes = Sede.all
+    asignar_datos_estaticos
   end
 
   # GET /dato_laborals/1/edit
-  def edit
+  def edit    
     @agente = Agente.find(params[:agente_id])
     @dato_laboral = DatoLaboral.find(params[:id])
-    @sedes = Sede.all
+    @dato_laboral.situacion_revistas.build
+    asignar_datos_estaticos    
   end
 
   # POST /dato_laborals
   # POST /dato_laborals.json
   def create
-    # @agrente = Agrente.find(params[:agente_id])
-    puts "********** #{dato_laboral_params}"
     @dato_laboral = DatoLaboral.new(dato_laboral_params)
+    @agente = Agente.find(params[:agente_id])      
 
     respond_to do |format|
       if @dato_laboral.save
-        format.html { redirect_to agente_dato_laborals_path, notice: 'Dato laboral was successfully created.' }
+        format.html { redirect_to agente_path(@agente), notice: 'Los datos laborales fueron creados exitosamente.' }
         format.json { render :show, status: :created, location: @dato_laboral }
-      else
+      else                        
+        @dato_laboral.agente_id = params[:agente_id]    
         format.html { render :new }
         format.json { render json: @dato_laboral.errors, status: :unprocessable_entity }
       end
@@ -51,11 +52,13 @@ class DatoLaboralsController < ApplicationController
   # PATCH/PUT /dato_laborals/1
   # PATCH/PUT /dato_laborals/1.json
   def update
+    @agente = Agente.find(params[:agente_id])
     respond_to do |format|
       if @dato_laboral.update(dato_laboral_params)
-        format.html { redirect_to agente_dato_laborals_path, notice: 'Dato laboral was successfully updated.' }
+        format.html { redirect_to agente_path(@agente), notice: 'Los datos laborales fueron actualizados exitosamente.' }
         format.json { render :show, status: :ok, location: @dato_laboral }
-      else
+      else        
+        asignar_datos_estaticos   
         format.html { render :edit }
         format.json { render json: @dato_laboral.errors, status: :unprocessable_entity }
       end
@@ -67,7 +70,7 @@ class DatoLaboralsController < ApplicationController
   def destroy
     @dato_laboral.destroy
     respond_to do |format|
-      format.html { redirect_to agente_dato_laborals_path, notice: 'Dato laboral was successfully destroyed.' }
+      format.html { redirect_to agente_dato_laborals_path, notice: 'Los datos laborales fueron eliminados exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -80,6 +83,17 @@ class DatoLaboralsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dato_laboral_params
-      params.require(:dato_laboral).permit(:agente_id, :num_legajo, :sede_id, :interno, :fecha_ingreso, :situ_revista, :agrupamiento, :nivel, :grado, :tramo, :cargo, :obj_cargo, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo)
+      params.require(:dato_laboral).permit(:agente_id, :acto_administrativo_id, :tramo_id, :agrupamiento_id, :num_legajo, :sede_id,
+       :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_apto_curriculum, 
+       :grado, :cargo, :obj_cargo, :telefono, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo, 
+        situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_alta ])    
+    end
+
+    def asignar_datos_estaticos
+      @sedes = Sede.all
+      @tipo_contrataciones = TipoContratacion.all
+      @acto_administrativos = ActoAdministrativo.all
+      @agrupamientos = Agrupamiento.all
+      @tramos = Tramo.all
     end
 end

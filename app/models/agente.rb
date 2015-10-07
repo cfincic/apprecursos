@@ -3,6 +3,8 @@ class Agente < ActiveRecord::Base
 	belongs_to :localidad
 	belongs_to :provincia
 	has_many :familiars
-	has_one :dato_laboral
+	has_one :dato_laboral	
+	
 	validates :nombre, presence: true
+	validates :tipo_documento, presence: true
 end

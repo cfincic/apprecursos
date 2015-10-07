@@ -1,10 +1,10 @@
-<%= form_for(@situacion_revistum) do |f| %>
-  <% if @situacion_revistum.errors.any? %>
+<%= form_for(@situacion_revista) do |f| %>
+  <% if @situacion_revista.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@situacion_revistum.errors.count, "error") %> prohibited this situacion_revistum from being saved:</h2>
+      <h2><%= pluralize(@situacion_revista.errors.count, "error") %> prohibited this situacion_revista from being saved:</h2>
 
       <ul>
-      <% @situacion_revistum.errors.full_messages.each do |message| %>
+      <% @situacion_revista.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

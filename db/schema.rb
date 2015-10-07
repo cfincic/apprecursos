@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204221530) do
+ActiveRecord::Schema.define(version: 20150924175744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acto_administrativos", force: true do |t|
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "agentes", force: true do |t|
     t.string   "cuil"
@@ -46,6 +52,12 @@ ActiveRecord::Schema.define(version: 20150204221530) do
   add_index "agentes", ["provincia_id"], name: "index_agentes_on_provincia_id", using: :btree
   add_index "agentes", ["tipo_documento_id"], name: "index_agentes_on_tipo_documento_id", using: :btree
 
+  create_table "agrupamientos", force: true do |t|
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contactos", force: true do |t|
     t.string   "telefono"
     t.string   "email"
@@ -75,18 +87,21 @@ ActiveRecord::Schema.define(version: 20150204221530) do
   create_table "dato_laborals", force: true do |t|
     t.integer  "agente_id"
     t.integer  "sede_id"
-    t.integer  "interno"
+    t.integer  "acto_administrativo_id"
+    t.integer  "agrupamiento_id"
+    t.integer  "tramo_id"
+    t.text     "interno"
     t.datetime "fecha_ingreso"
-    t.integer  "situ_revista"
-    t.string   "agrupamiento"
+    t.datetime "fecha_acto"
+    t.datetime "fecha_apto_fisico"
+    t.datetime "fecha_apto_curriculum"
     t.string   "nivel"
     t.string   "grado"
-    t.string   "tramo"
-    t.string   "cargo"
-    t.text     "obj_cargo"
-    t.text     "tareas_cargo"
+    t.string   "funcion"
+    t.string   "direccion_laboral"
+    t.text     "telefono"
     t.string   "depende_direccion"
-    t.integer  "jefe_directo"
+    t.text     "jefe_directo"
     t.decimal  "sueldo_bruto"
     t.decimal  "sueldo_neto"
     t.integer  "cant_personas_acargo"
@@ -94,8 +109,11 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.datetime "updated_at"
   end
 
+  add_index "dato_laborals", ["acto_administrativo_id"], name: "index_dato_laborals_on_acto_administrativo_id", using: :btree
   add_index "dato_laborals", ["agente_id"], name: "index_dato_laborals_on_agente_id", using: :btree
+  add_index "dato_laborals", ["agrupamiento_id"], name: "index_dato_laborals_on_agrupamiento_id", using: :btree
   add_index "dato_laborals", ["sede_id"], name: "index_dato_laborals_on_sede_id", using: :btree
+  add_index "dato_laborals", ["tramo_id"], name: "index_dato_laborals_on_tramo_id", using: :btree
 
   create_table "familiars", force: true do |t|
     t.string   "relacion"
@@ -137,16 +155,29 @@ ActiveRecord::Schema.define(version: 20150204221530) do
     t.datetime "updated_at"
   end
 
-  create_table "situacion_revista", force: true do |t|
+  create_table "situacion_revistas", force: true do |t|
     t.string   "descripcion"
     t.datetime "fecha_alta"
     t.integer  "dato_laboral_id"
+    t.integer  "tipo_contratacion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipo_contrataciones", force: true do |t|
+    t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tipo_documentos", force: true do |t|
     t.string   "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tramos", force: true do |t|
+    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

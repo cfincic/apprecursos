@@ -8,7 +8,7 @@
 
 <p>
   <strong>Sede:</strong>
-  <%= @dato_laboral.sede %>
+  <%= @dato_laboral.sede.descripcion %>
 </p>
 
 <p>
@@ -23,12 +23,12 @@
 
 <p>
   <strong>Situ revista:</strong>
-  <%= @dato_laboral.situ_revista %>
+  <%= @dato_laboral.situacion_revistas.first().tipo_contratacion.descripcion %>
 </p>
 
 <p>
   <strong>Agrupamiento:</strong>
-  <%= @dato_laboral.agrupamiento %>
+  <%= @dato_laboral.agrupamiento.descripcion %>
 </p>
 
 <p>
@@ -43,22 +43,7 @@
 
 <p>
   <strong>Tramo:</strong>
-  <%= @dato_laboral.tramo %>
-</p>
-
-<p>
-  <strong>Cargo:</strong>
-  <%= @dato_laboral.cargo %>
-</p>
-
-<p>
-  <strong>Obj cargo:</strong>
-  <%= @dato_laboral.obj_cargo %>
-</p>
-
-<p>
-  <strong>Tareas cargo:</strong>
-  <%= @dato_laboral.tareas_cargo %>
+  <%= @dato_laboral.tramo.descripcion %>
 </p>
 
 <p>

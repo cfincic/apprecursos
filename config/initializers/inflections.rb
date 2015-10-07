@@ -21,4 +21,6 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'tipo_documento', 'tipo_documentos'  
   	inflect.irregular 'provincia', 'provincias'	
  	inflect.irregular 'localidad', 'localidades'
+ 	inflect.irregular 'tipo_contratacion', 'tipo_contrataciones'  
+ 	inflect.irregular 'situacion_revista', 'situacion_revistas'  
 end

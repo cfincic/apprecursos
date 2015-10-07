@@ -4,9 +4,13 @@ Apprecursos::Application.routes.draw do
 
   resources :agentes
 
-  resources :situacion_revista
+  resources :situacion_revistas
 
-  resources :tipo_documentos
+  resources :tipo_documentos  
+
+  resources :agentes do
+    resources :dato_laborals
+  end
 
   resources :agentes do
     resources :contactos
@@ -19,11 +23,6 @@ Apprecursos::Application.routes.draw do
   resources :agentes do
     resources :dato_contactos
   end
-
-  resources :agentes do
-    resources :dato_laborals
-  end
-
 
   root  'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

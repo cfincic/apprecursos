@@ -5,7 +5,7 @@ class FamiliarsController < ApplicationController
   # GET /familiars.json
   def index
     
-    @agente = Agente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agente_id])
     @familiars = @agente.familiars
   end
 
@@ -17,12 +17,12 @@ class FamiliarsController < ApplicationController
   # GET /familiars/new
   def new
     @familiar = Familiar.new
-    @agente = Agente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agente_id])
   end
 
   # GET /familiars/1/edit
   def edit
-    @agente = Agente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agente_id])
     @familiar = Familiar.find(params[:id])
   end
 
@@ -30,7 +30,7 @@ class FamiliarsController < ApplicationController
   # POST /familiars.json
   def create
     #@familiar = Familiar.new(familiar_params)
-    @agente = Agente.find(params[:agrente_id])
+    @agente = Agente.find(params[:agente_id])
     @familiar = @agente.familiars.build(familiar_params)
     respond_to do |format|
       if @familiar.save
@@ -48,8 +48,8 @@ class FamiliarsController < ApplicationController
   def update
     respond_to do |format|
       if @familiar.update(familiar_params)
-        @agente = Agente.find(params[:agrente_id])
-        format.html { redirect_to agrente_familiars_path(@agente), notice: 'Familiar was successfully updated.' }
+        @agente = Agente.find(params[:agente_id])
+        format.html { redirect_to agente_familiars_path(@agente), notice: 'Familiar was successfully updated.' }
         format.json { render :show, status: :ok, location: @familiar }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class FamiliarsController < ApplicationController
   def destroy
     @familiar.destroy
     respond_to do |format|
-      format.html { redirect_to agrente_familiars_path(@familiar.agente), notice: 'Familiar was successfully destroyed.' }
+      format.html { redirect_to agente_familiars_path(@familiar.agente), notice: 'Familiar was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,4 @@
-<%= form_for([@agrente, @familiar]) do |f| %>
+<%= form_for([@agente, @familiar]) do |f| %>
   <% if @familiar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@familiar.errors.count, "error") %> prohibited this familiar from being saved:</h2>
@@ -36,8 +36,8 @@
     <%= f.text_field :lugar_nac %>
   </div>
   <div class="field">
-    <%= f.label :agrente_id %><br>
-    <%= f.text_field :agrente_id %>
+    <%= f.label :agente_id %><br>
+    <%= f.text_field :agente_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

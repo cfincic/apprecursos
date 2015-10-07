@@ -21,7 +21,7 @@ class AgentesController < ApplicationController
   end
 
   # GET /agentes/1/edit
-  def edit
+  def edit    
     @tipo_documentos = TipoDocumento.all
     @provincias = Provincia.order(:detalle)
     @localidades = Localidad.order(:detalle)
@@ -75,6 +75,6 @@ class AgentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agente_params
-      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :ciudad, :cod_postal, :provncia, :otro)
+      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :localidad_id, :cod_postal, :provincia_id, :otro)
     end
 end

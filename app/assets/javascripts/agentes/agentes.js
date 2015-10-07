@@ -1,6 +1,25 @@
 //USE ESTA
 var ready = function() {
 
+  var currentDate = new Date();
+    $('#agente_fecha_nac').datepicker
+    ({
+      showOn: 'both',  
+      autoclose: true,    
+      format: 'dd/mm/yyyy',
+      language: "es"
+    });
+
+
+    $('#agente_expira_certificado').datepicker
+    ({
+      showOn: 'both',  
+      autoclose: true,    
+      format: 'dd/mm/yyyy',
+      language: "es"
+    });
+
+
    // agente_provincia_id
    // agente_localidad_id
 

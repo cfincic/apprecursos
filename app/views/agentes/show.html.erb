@@ -78,23 +78,27 @@
   <%= @agente.direccion %>
 </p>
 <p>
-  <strong>Ciudad:</strong>
-  <%= @agente.ciudad %>
+<p>
+  <strong>Provincia:</strong>
+  <%= @agente.provincia.detalle %>
+</p>
+<strong>Ciudad:</strong>
+  <%= @agente.localidad.detalle %>
 </p>
 <p>
   <strong>Código Postal:</strong>
   <%= @agente.cod_postal %>
 </p>
 <p>
-  <strong>Provincia:</strong>
-  <%= @agente.provincia %>
-</p>
-<p>
   <strong>Otro:</strong>
   <%= @agente.otro %>
 </p>
 
-<%= link_to 'Datos Laborales', agente_dato_laborals_path(@agente) %></br>
+<% if @agente.dato_laboral.nil? %>
+  <%= link_to 'Editar datos Laborales', new_agente_dato_laboral_path(@agente) %></br>
+<% else %>
+  <%= link_to 'Editar datos Laborales', edit_agente_dato_laboral_path(@agente, @agente.dato_laboral) %></br>
+<% end %>
 <%= link_to 'Familiares a Cargo', agente_familiars_path(@agente) %></br>
 <%= link_to 'Editar', edit_agente_path(@agente) %> |
 <%= link_to 'Volver', agentes_path %>

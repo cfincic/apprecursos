@@ -35,10 +35,12 @@
     <%= f.label :numero_doc %><br>
     <%= f.text_field :numero_doc %>
   </div>
-  <div class="field">
-    <%= f.label :fecha_nac %><br>
-    <%= f.datetime_select :fecha_nac %>
-  </div>
+
+  <div class="field">    
+    <%= f.label :fecha_nac %><br />
+    <%= f.text_field :fecha_nac , { :value => DateTime.now.strftime("%d/%m/%Y")} %> 
+  </div> 
+
   <div class="field">
     <%= f.label :lugar_nac %><br>
     <%= f.text_field :lugar_nac %>
@@ -57,7 +59,7 @@
   </div>
   <div class="field">
     <%= f.label :expira_certificado %><br>
-    <%= f.datetime_select :expira_certificado %>
+    <%= f.text_field :expira_certificado %>
   </div>
   <h1>Datos de Contacto</h1>
 

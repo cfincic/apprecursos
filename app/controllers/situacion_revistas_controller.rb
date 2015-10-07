@@ -1,10 +1,10 @@
-class SituacionRevistaController < ApplicationController
-  before_action :set_situacion_revistum, only: [:show, :edit, :update, :destroy]
+class SituacionRevistasController < ApplicationController
+  before_action :set_situacion_revista, only: [:show, :edit, :update, :destroy]
 
   # GET /situacion_revista
   # GET /situacion_revista.json
   def index
-    @situacion_revista = SituacionRevistum.all
+    @situacion_revista = SituacionRevista.all
   end
 
   # GET /situacion_revista/1
@@ -14,7 +14,7 @@ class SituacionRevistaController < ApplicationController
 
   # GET /situacion_revista/new
   def new
-    @situacion_revistum = SituacionRevistum.new
+    @situacion_revista = SituacionRevista.new
   end
 
   # GET /situacion_revista/1/edit
@@ -24,15 +24,15 @@ class SituacionRevistaController < ApplicationController
   # POST /situacion_revista
   # POST /situacion_revista.json
   def create
-    @situacion_revistum = SituacionRevistum.new(situacion_revistum_params)
+    @situacion_revista = SituacionRevista.new(situacion_revista_params)
 
     respond_to do |format|
-      if @situacion_revistum.save
-        format.html { redirect_to @situacion_revistum, notice: 'Situacion revistum was successfully created.' }
-        format.json { render :show, status: :created, location: @situacion_revistum }
+      if @situacion_revista.save
+        format.html { redirect_to @situacion_revista, notice: 'Situacion revistum was successfully created.' }
+        format.json { render :show, status: :created, location: @situacion_revista }
       else
         format.html { render :new }
-        format.json { render json: @situacion_revistum.errors, status: :unprocessable_entity }
+        format.json { render json: @situacion_revista.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class SituacionRevistaController < ApplicationController
   # PATCH/PUT /situacion_revista/1.json
   def update
     respond_to do |format|
-      if @situacion_revistum.update(situacion_revistum_params)
-        format.html { redirect_to @situacion_revistum, notice: 'Situacion revistum was successfully updated.' }
-        format.json { render :show, status: :ok, location: @situacion_revistum }
+      if @situacion_revista.update(situacion_revista_params)
+        format.html { redirect_to @situacion_revista, notice: 'Situacion revistum was successfully updated.' }
+        format.json { render :show, status: :ok, location: @situacion_revista }
       else
         format.html { render :edit }
-        format.json { render json: @situacion_revistum.errors, status: :unprocessable_entity }
+        format.json { render json: @situacion_revista.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class SituacionRevistaController < ApplicationController
   # DELETE /situacion_revista/1
   # DELETE /situacion_revista/1.json
   def destroy
-    @situacion_revistum.destroy
+    @situacion_revista.destroy
     respond_to do |format|
       format.html { redirect_to situacion_revista_url, notice: 'Situacion revistum was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,11 +64,11 @@ class SituacionRevistaController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_situacion_revistum
-      @situacion_revistum = SituacionRevistum.find(params[:id])
+      @situacion_revista = SituacionRevista.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def situacion_revistum_params
-      params.require(:situacion_revistum).permit(:descripcion)
+      params.require(:situacion_revista).permit(:descripcion)
     end
 end
