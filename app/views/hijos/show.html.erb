@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agente:</strong>
+  <%= @hijo.agente %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @hijo.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @hijo.apellido %>
+</p>
+
+<p>
+  <strong>Fecha nac:</strong>
+  <%= @hijo.fecha_nac %>
+</p>
+
+<p>
+  <strong>Tipo doc1:</strong>
+  <%= @hijo.tipo_doc1 %>
+</p>
+
+<p>
+  <strong>Num doc1:</strong>
+  <%= @hijo.num_doc1 %>
+</p>
+
+<p>
+  <strong>Tipo doc2:</strong>
+  <%= @hijo.tipo_doc2 %>
+</p>
+
+<p>
+  <strong>Num doc2:</strong>
+  <%= @hijo.num_doc2 %>
+</p>
+
+<%= link_to 'Editar', edit_agente_hijo_path(@hijo.agente, @hijo) %> |
+<%= link_to 'Volver', agente_hijos_path(@hijo.agente) %>
