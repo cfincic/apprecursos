@@ -17,7 +17,7 @@
   </div> 
   <div class="field">
     <%= f.label :fecha_ingreso %><br>    
-    <%= f.text_field :fecha_ingreso  %>
+    <%= f.text_field :fecha_ingreso, value: f.object.fecha_ingreso.try(:strftime, "%d/%m/%Y")  %>
   </div>
   <div class="field">
   <%= f.label :acto_administrativo %><br>
@@ -25,13 +25,49 @@
   </div>    
   <div class="field">
     <%= f.label :fecha_acto %><br>
-    <%= f.text_field :fecha_acto  %> 
+    <%= f.text_field :fecha_acto, value: f.object.fecha_acto.try(:strftime, "%d/%m/%Y")  %> 
   </div>
 
   <div class="field">
-    <%= f.label :fecha_apto_fisico %><br>
-    <%= f.text_field :fecha_apto_fisico %>     
+    <%= f.label "Período de contratación" %><br>   
+    <div class="row">
+      <%= f.fields_for :periodo_de_contratacion do |periodo| %>
+          <div class="col-xs-4">
+            <%= periodo.label :fecha_desde, "desde" %><br>    
+            <%= periodo.text_field :fecha_desde , value: periodo.object.fecha_desde.try(:strftime, "%d/%m/%Y")  %>  
+          </div>      
+          <div class="col-xs-4">
+            <%= periodo.label :fecha_hasta , "hasta"  %><br>       
+            <%= periodo.text_field :fecha_hasta , value: periodo.object.fecha_hasta.try(:strftime, "%d/%m/%Y")  %> 
+          </div>
+      <% end %>
+    </div>
   </div>
+
+
+  <div class="field">
+    <%= f.label :fecha_apto_fisico %><br>
+  </div>
+   <div class="row">
+      <div class="col-md-1">
+        <%= f.label "Si/No" %>  
+        <%= check_box_tag 'sino_fecha_apto_fisico'%>
+      </div>
+      <div class="col-xs-8">
+        <%= f.text_field :fecha_apto_fisico, value: f.object.fecha_apto_fisico.try(:strftime, "%d/%m/%Y") %>    
+      </div>
+   </div>
+
+  <div class="field">
+    <%= f.label :presento_titulo %>
+    <%= f.check_box :presento_titulo %><br>
+  </div> 
+
+  <div class="field">
+    <%= f.label :ultimo_nivel_estudio %><br>
+    <%= f.text_field :ultimo_nivel_estudio %>
+  </div>
+
   <div class="field">
     <%= f.label :agrupamiento %><br>
     <%= f.collection_select("agrupamiento_id", Agrupamiento.all, "id", "descripcion", :include_blank => "Seleccione un agrupamiento...") %><br>
@@ -39,8 +75,6 @@
   <div class="field">
     <%= f.label :nivel %><br>
     <%= f.select :nivel, (("A".."D").map {|i| [i,i] }), { :include_blank => "Seleccione un nivel", :selected => f.object.nivel } %>
-
-
   </div>
   <div class="field">
     <%= f.label :grado %><br>
@@ -61,7 +95,7 @@
   </div>
   <div class="field">
       <%= f.label :sede%><br /> 
-      <%= f.collection_select :sede_id, Sede.all, :id, :descripcion %>
+      <%= f.collection_select :sede_id, Sede.all, :id, :descripcion, {:include_blank => "Seleccione un nivel"} %>
   </div>
   <div class="field">
     <%= f.label :telefono %><br>
@@ -87,21 +121,36 @@
     <%= f.label :sueldo_neto %><br>
     <%= f.text_field :sueldo_neto %>
   </div>
+
   <div class="field">
-    <%= f.label :fecha_apto_curriculum %><br>    
-    <%= f.text_field :fecha_apto_curriculum  %>
+    <%= f.label :fecha_curriculum %><br>
   </div>
+   <div class="row">
+      <div class="col-md-1">
+        <%= f.label "Si/No" %>  
+        <%= check_box_tag 'sino_fecha_curriculum'%>
+      </div>
+      <div class="col-xs-8">
+        <%= f.text_field :fecha_curriculum, value: f.object.fecha_curriculum.try(:strftime, "%d/%m/%Y")  %>    
+      </div>
+   </div>
+
+
   <h2>Situacion de revista</h2>
     <%= f.fields_for :situacion_revistas do |situacion| %>
-     <div class="situacion_revista_fields">
-       <div class="field">
-        <%= situacion.label :fecha_alta %><br>        
-        <%= situacion.text_field :fecha_alta , :value => obtener_fecha_de_situacion_de_revista(situacion.object).strftime("%d %m %Y")  %>    
-      </div>
-       <div class="field">
-        <%= situacion.label :tipo_contratacion %><br>
-        <%= situacion.collection_select("tipo_contratacion_id", TipoContratacion.all, "id", "descripcion", :include_blank => "Seleccione un tipo de contratación...") %><br>
-      </div>      
+    <div class="row">
+       <div class="situacion_revista_fields">
+        <div class="col-md-6">
+          <%= situacion.label :tipo_contratacion %><br>
+          <%= situacion.collection_select("tipo_contratacion_id", TipoContratacion.all, "id", "descripcion", :include_blank => "Seleccione un tipo de contratación...") %><br>
+        </div>      
+        <div class="col-lg-6">
+          <%= situacion.label :fecha_alta %><br>       
+          <%= situacion.text_field :fecha_alta , value: situacion.object.fecha_alta.try(:strftime, "%d/%m/%Y")  %>    
+          <%= situacion.check_box :_destroy %>        
+          <%= situacion.label :_destroy, 'eliminar' %>
+        </div>
+       </div>
      </div>
     <% end %>
 

@@ -18,6 +18,7 @@ class DatoLaboralsController < ApplicationController
   def new    
     @dato_laboral = DatoLaboral.new
     @dato_laboral.situacion_revistas.build
+    @dato_laboral.build_periodo_de_contratacion
     @dato_laboral.agente_id = params[:agente_id]    
     @agente = Agente.find(params[:agente_id])
     asignar_datos_estaticos
@@ -84,9 +85,10 @@ class DatoLaboralsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dato_laboral_params
       params.require(:dato_laboral).permit(:agente_id, :acto_administrativo_id, :tramo_id, :agrupamiento_id, :num_legajo, :sede_id,
-       :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_apto_curriculum, 
-       :grado, :cargo, :obj_cargo, :telefono, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo, 
-        situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_alta ])    
+       :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_curriculum, 
+       :grado, :cargo, :obj_cargo, :telefono, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo,
+       :presento_titulo, :ultimo_nivel_estudio,  situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_alta, :_destroy  ], 
+       periodo_de_contratacion_attributes: [ :id, :descripcion, :fecha_desde, :fecha_hasta ])    
     end
 
     def asignar_datos_estaticos

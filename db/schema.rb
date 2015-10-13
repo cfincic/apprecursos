@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924175744) do
+ActiveRecord::Schema.define(version: 20151008194534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20150924175744) do
     t.datetime "fecha_ingreso"
     t.datetime "fecha_acto"
     t.datetime "fecha_apto_fisico"
-    t.datetime "fecha_apto_curriculum"
+    t.datetime "fecha_curriculum"
     t.string   "nivel"
     t.string   "grado"
     t.string   "funcion"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 20150924175744) do
     t.decimal  "sueldo_bruto"
     t.decimal  "sueldo_neto"
     t.integer  "cant_personas_acargo"
+    t.boolean  "presento_titulo"
+    t.string   "ultimo_nivel_estudio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,6 +140,16 @@ ActiveRecord::Schema.define(version: 20150924175744) do
   end
 
   add_index "localidades", ["provincia_id"], name: "index_localidades_on_provincia_id", using: :btree
+
+  create_table "periodos_de_contratacion", force: true do |t|
+    t.datetime "fecha_desde"
+    t.datetime "fecha_hasta"
+    t.integer  "dato_laboral_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "periodos_de_contratacion", ["dato_laboral_id"], name: "index_periodos_de_contratacion_on_dato_laboral_id", using: :btree
 
   create_table "provincias", force: true do |t|
     t.string   "codigo",     null: false
