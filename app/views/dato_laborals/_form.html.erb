@@ -44,23 +44,21 @@
     </div>
   </div>
 
-
-  <div class="field">
-    <%= f.label :fecha_apto_fisico %><br>
-  </div>
+    <div class="field">
+      <%= f.label :fecha_apto_fisico %>
+    </div>
    <div class="row">
-      <div class="col-md-1">
-        <%= f.label "Si/No" %>  
+      <div class="col-xs-2">
         <%= check_box_tag 'sino_fecha_apto_fisico'%>
       </div>
-      <div class="col-xs-8">
+      <div class="col-xs-2">
         <%= f.text_field :fecha_apto_fisico, value: f.object.fecha_apto_fisico.try(:strftime, "%d/%m/%Y") %>    
       </div>
    </div>
 
   <div class="field">
-    <%= f.label :presento_titulo %>
-    <%= f.check_box :presento_titulo %><br>
+    <%= f.label :presento_titulo %><br>
+    <%= f.check_box :presento_titulo %>
   </div> 
 
   <div class="field">
@@ -123,18 +121,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :fecha_curriculum %><br>
+    <%= f.label :fecha_curriculum %>
   </div>
-   <div class="row">
-      <div class="col-md-1">
-        <%= f.label "Si/No" %>  
-        <%= check_box_tag 'sino_fecha_curriculum'%>
-      </div>
-      <div class="col-xs-8">
-        <%= f.text_field :fecha_curriculum, value: f.object.fecha_curriculum.try(:strftime, "%d/%m/%Y")  %>    
-      </div>
-   </div>
-
+ <div class="row">
+    <div class="col-xs-2">
+      <%= check_box_tag 'sino_fecha_curriculum'%>
+    </div>
+    <div class="col-xs-2">
+      <%= f.text_field :fecha_curriculum, value: f.object.fecha_curriculum.try(:strftime, "%d/%m/%Y") %>    
+    </div>
+ </div>
 
   <h2>Situacion de revista</h2>
     <%= f.fields_for :situacion_revistas do |situacion| %>
