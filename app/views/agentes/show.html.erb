@@ -97,6 +97,7 @@
 <% else %>
   <%= link_to 'Editar datos Laborales', edit_agente_dato_laboral_path(@agente, @agente.dato_laboral) %></br>
 <% end %>
-<%= link_to 'Familiares a Cargo', agente_familiars_path(@agente) %></br>
+<%= link_to 'Hijos', agente_hijos_path(@agente) %></br>
+<%= link_to 'Otros Familiares a Cargo', agente_familiars_path(@agente) %></br>
 <%= link_to 'Editar', edit_agente_path(@agente) %> |
 <%= link_to 'Volver', agentes_path %>

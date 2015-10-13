@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151008194534) do
+=======
+ActiveRecord::Schema.define(version: 20151009204239) do
+>>>>>>> 0daff54542edd99018635dfc3e705421cba6bbfd
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +134,21 @@ ActiveRecord::Schema.define(version: 20151008194534) do
   end
 
   add_index "familiars", ["agente_id"], name: "index_familiars_on_agente_id", using: :btree
+
+  create_table "hijos", force: true do |t|
+    t.integer  "agente_id"
+    t.string   "nombre"
+    t.string   "apellido"
+    t.date     "fecha_nac"
+    t.string   "tipo_doc1"
+    t.string   "num_doc1"
+    t.string   "tipo_doc2"
+    t.string   "num_doc2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hijos", ["agente_id"], name: "index_hijos_on_agente_id", using: :btree
 
   create_table "localidades", force: true do |t|
     t.string   "codigo",       null: false

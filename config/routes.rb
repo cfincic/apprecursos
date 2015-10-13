@@ -1,5 +1,7 @@
 Apprecursos::Application.routes.draw do
 
+  resources :hijos
+
   resources :sedes
 
   resources :agentes
@@ -18,6 +20,10 @@ Apprecursos::Application.routes.draw do
 
   resources :agentes do
     resources :familiars
+  end
+
+  resources :agentes do
+    resources :hijos
   end
 
   resources :agentes do

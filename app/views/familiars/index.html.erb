@@ -9,7 +9,6 @@
       <th>Apellido</th>
       <th>Fecha nac</th>
       <th>Lugar nac</th>
-      <th>Agente</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +22,6 @@
         <td><%= familiar.apellido %></td>
         <td><%= familiar.fecha_nac %></td>
         <td><%= familiar.lugar_nac %></td>
-        <td><%= familiar.agente %></td>
         <td><%= link_to 'Ver', agente_familiar_path(@agente, familiar) %></td>
         <td><%= link_to 'Editar', edit_agente_familiar_path(@agente, familiar) %></td>
         <td><%= link_to 'Eliminar', agente_familiar_path(@agente, familiar), method: :delete, data: { confirm: 'Está seguro?' } %></td>
