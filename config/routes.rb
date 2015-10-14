@@ -1,5 +1,7 @@
 Apprecursos::Application.routes.draw do
 
+  resources :areas
+
   resources :hijos
 
   resources :sedes
