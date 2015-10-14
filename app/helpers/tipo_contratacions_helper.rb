@@ -1,0 +1,2 @@
+module TipoContratacionsHelper
+end

@@ -23,4 +23,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
  	inflect.irregular 'localidad', 'localidades'
  	inflect.irregular 'tipo_contratacion', 'tipo_contrataciones'  
  	inflect.irregular 'situacion_revista', 'situacion_revistas'  
+ 	inflect.irregular 'periodo_de_contratacion', 'periodos_de_contratacion' 
 end

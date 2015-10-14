@@ -2,6 +2,8 @@ Apprecursos::Application.routes.draw do
 
   resources :areas
 
+  resources :tipo_contrataciones
+
   resources :hijos
 
   resources :sedes
