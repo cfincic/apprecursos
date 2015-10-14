@@ -15,17 +15,29 @@
     <%= f.label :agente_id %><br>
     <%= f.text_field :agente_id %>
   </div> 
-  <div class="field">
-    <%= f.label :fecha_ingreso %><br>    
-    <%= f.text_field :fecha_ingreso, value: f.object.fecha_ingreso.try(:strftime, "%d/%m/%Y")  %>
-  </div>
-  <div class="field">
-  <%= f.label :acto_administrativo %><br>
-  <%= f.collection_select("acto_administrativo_id", ActoAdministrativo.all, "id", "descripcion", :include_blank => "Seleccione un acto...") %><br>
-  </div>    
-  <div class="field">
-    <%= f.label :fecha_acto %><br>
-    <%= f.text_field :fecha_acto, value: f.object.fecha_acto.try(:strftime, "%d/%m/%Y")  %> 
+
+
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="field">
+        <%= f.label :fecha_ingreso %><br>    
+        <%= f.text_field :fecha_ingreso, value: f.object.fecha_ingreso.try(:strftime, "%d/%m/%Y")  %>
+      </div>
+    </div>
+
+    <div class="col-xs-4">
+      <div class="field">
+      <%= f.label :acto_administrativo %><br>
+      <%= f.collection_select("acto_administrativo_id", ActoAdministrativo.all, "id", "descripcion", :include_blank => "Seleccione un acto...") %><br>
+      </div>
+    </div>
+
+    <div class="col-xs-4"> 
+      <div class="field">
+        <%= f.label :fecha_acto %><br>
+        <%= f.text_field :fecha_acto, value: f.object.fecha_acto.try(:strftime, "%d/%m/%Y")  %> 
+      </div>
+    </div>
   </div>
 
   <div class="field">
