@@ -88,6 +88,7 @@ class DatoLaboralsController < ApplicationController
             @area_datos.madre = @area_seleccionada.area.descripcion
             break
           end
+          @area_seleccionada = @area_seleccionada.area
         end
       end
       respond_to do | format |                                  
@@ -106,7 +107,7 @@ class DatoLaboralsController < ApplicationController
       params.require(:dato_laboral).permit(:agente_id, :acto_administrativo_id, :tramo_id, :agrupamiento_id, :num_legajo, :sede_id,
        :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_curriculum, 
        :grado, :cargo, :obj_cargo, :telefono, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo,
-       :presento_titulo, :ultimo_nivel_estudio,  situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_alta, :_destroy  ], 
+       :presento_titulo, :ultimo_nivel_estudio, :area, :direccion_laboral, situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_alta, :_destroy  ], 
        periodo_de_contratacion_attributes: [ :id, :descripcion, :fecha_desde, :fecha_hasta ])    
     end
 

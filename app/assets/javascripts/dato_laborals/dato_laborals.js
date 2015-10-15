@@ -54,6 +54,9 @@ var ready = function() {
     language: "es"
   });
 
+  $('#dato_laboral_fecha_curriculum').prop('disabled', true);
+  $('#dato_laboral_fecha_apto_fisico').prop('disabled', true);
+
   $('#sino_fecha_apto_fisico').change(function() {
       //you have an error here in closing the bracket,  also the condition is not proper
       $('#dato_laboral_fecha_apto_fisico').val("");
