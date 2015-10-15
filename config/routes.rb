@@ -18,6 +18,9 @@ Apprecursos::Application.routes.draw do
     resources :dato_laborals
   end
 
+  get '/dato_laborals/obtener_direccion_madre'
+
+
   resources :agentes do
     resources :contactos
   end

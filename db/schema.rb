@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20151009221606) do
     t.string   "grado"
     t.string   "funcion"
     t.string   "direccion_laboral"
+    t.string   "area"
     t.text     "telefono"
     t.string   "depende_direccion"
     t.text     "jefe_directo"

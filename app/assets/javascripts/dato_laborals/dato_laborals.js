@@ -86,6 +86,24 @@ var ready = function() {
     }); 
   }
 
+  $('#area_area_id').change(function() {
+           
+    $.ajax({
+      type: "get",
+      dataType: "json",
+      url: "/dato_laborals/obtener_direccion_madre" ,      
+      data: { area_id: $("#area_area_id").val() },        
+      success: function(result){  
+                      $("#dato_laboral_depende_direccion").val(result.madre);
+                      $("#dato_laboral_jefe_directo").val(result.jefe);  
+                      $("#dato_laboral_area").val(result.descripcion);
+                  },
+      error: function (request, status, error) 
+          {             
+ 
+          }
+    });             
+  });   
 };
 
 $(document).ready(ready);

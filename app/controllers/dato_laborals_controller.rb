@@ -76,6 +76,25 @@ class DatoLaboralsController < ApplicationController
     end
   end
 
+  def obtener_direccion_madre
+      @area_datos = Area.new
+      if !params[:area_id].blank?
+        @area_seleccionada = Area.find(params[:area_id])
+        @area_datos.jefe = @area_seleccionada.jefe
+        @area_datos.descripcion = @area_seleccionada.descripcion
+
+        while 1 do        
+          if !@area_seleccionada.area.nil? && @area_seleccionada.area.esdire
+            @area_datos.madre = @area_seleccionada.area.descripcion
+            break
+          end
+        end
+      end
+      respond_to do | format |                                  
+          format.json { render :json => @area_datos }        
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dato_laboral
@@ -97,5 +116,6 @@ class DatoLaboralsController < ApplicationController
       @acto_administrativos = ActoAdministrativo.all
       @agrupamientos = Agrupamiento.all
       @tramos = Tramo.all
+      @areas = Area.all
     end
 end

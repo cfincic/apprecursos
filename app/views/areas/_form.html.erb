@@ -19,10 +19,12 @@
     <%= f.label :jefe %><br>
     <%= f.text_field :jefe %>
   </div>
+
   <div class="field">
-    <%= f.label :esdire %><br>
-    <%= f.text_field :esdire %>
-  </div>
+    <%= f.label :esdire, 'Es dirección' %><br>
+    <%= f.check_box :esdire %>
+  </div> 
+
   <div class="field">
     <%= f.label :madre %><br>
     <%= f.collection_select("area_id", @areas, "id", "descripcion", :include_blank => "Seleccione un area...") %><br>

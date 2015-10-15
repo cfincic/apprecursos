@@ -28,6 +28,13 @@ end
 @tipo_documento3 = TipoDocumento.create!(tipo: "PASAPORTE")
 @tipo_documento4 = TipoDocumento.create!(tipo: "CEDULA")
 
+
+@areaDirGral = Area.create!(descripcion: "DNI", jefe: "Rubens Correa", esdire: true)
+@areaDirAdmin = Area.create!(descripcion: "DNI", jefe: "Ana Belaustegui", esdire: true, area_id: @areaDirGral.id)
+@areaSistemas = Area.create!(descripcion: "DNI", jefe: "Christian Fincic", esdire: false, area_id: @areaDirAdmin.id)
+@areaTesoreria = Area.create!(descripcion: "DNI", jefe: "Ana Martin", esdire: false, area_id: @areaDirAdmin.id)
+
+
 @sede1 = Sede.create!(descripcion: "CORDOBA")
 @sede2 = Sede.create!(descripcion: "PARAGUAY")
 @sede3 = Sede.create!(descripcion: "HISTORICO")

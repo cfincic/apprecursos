@@ -15,6 +15,7 @@ class CreateDatoLaborals < ActiveRecord::Migration
       t.string :grado
       t.string :funcion
       t.string :direccion_laboral
+      t.string :area
       t.text :telefono
       t.text :interno      
       t.string :depende_direccion

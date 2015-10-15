@@ -96,10 +96,6 @@
       <%= f.collection_select :tramo_id, Tramo.all, :id, :descripcion, { :include_blank => "Seleccione el tramo" } %>
   </div>
   <div class="field">
-    <%= f.label :funcion %><br>
-    <%= f.text_field :funcion %>
-  </div> 
-  <div class="field">
     <%= f.label "Cantidad de personas a cargo" %><br>    
     <%= f.select :cant_personas_acargo, ((0..20).map {|i| [i,i] }), { :include_blank => "Seleccione una cantidad", :selected => f.object.cant_personas_acargo } %>
   </div>
@@ -115,14 +111,28 @@
     <%= f.label :interno %><br>
     <%= f.text_field :interno %>
   </div>   
+
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= collection_select(:area, :area_id, @areas, :id, :descripcion, :include_blank => "Seleccione un area...") %><br>
+  </div>
+
+  <div class="hide">
+    <%= f.text_field :area %>
+  </div>
+
   <div class="field">
     <%= f.label "Dirección de la que depende" %><br>
-    <%= f.text_field :depende_direccion %>
+    <%= f.text_field :depende_direccion, :readonly => true %>
   </div>
   <div class="field">
     <%= f.label :jefe_directo %><br>
-    <%= f.text_field :jefe_directo %>
+    <%= f.text_field :jefe_directo, :readonly => true %>
   </div>
+  <div class="field">
+    <%= f.label :funcion %><br>
+    <%= f.text_field :funcion %>
+  </div> 
   <div class="field">
     <%= f.label :sueldo_bruto %><br>
     <%= f.text_field :sueldo_bruto %>
