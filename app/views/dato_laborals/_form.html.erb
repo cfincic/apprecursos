@@ -30,6 +30,9 @@
       <%= f.collection_select("acto_administrativo_id", ActoAdministrativo.all, "id", "descripcion", :include_blank => "Seleccione un acto...") %><br>
       </div>
     </div>
+  </div>
+
+  <div class="row">
 
     <div class="col-xs-4"> 
       <div class="field">
@@ -37,9 +40,7 @@
         <%= f.text_field :fecha_acto, value: f.object.fecha_acto.try(:strftime, "%d/%m/%Y")  %> 
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <div class="col-xs-4"> 
       <div class="field">
         <%= f.label :fecha_apto_fisico %>
@@ -52,23 +53,10 @@
     </div>
   </div>
 
-    <%= f.label "Período de contratación" %><br>   
-    <div class="row">
-      <%= f.fields_for :periodo_de_contratacion do |periodo| %>
-          <div class="col-xs-4">
-            <%= periodo.label :fecha_desde, "desde" %><br>    
-            <%= periodo.text_field :fecha_desde , value: periodo.object.fecha_desde.try(:strftime, "%d/%m/%Y")  %>  
-          </div>      
-          <div class="col-xs-4">
-            <%= periodo.label :fecha_hasta , "hasta"  %><br>       
-            <%= periodo.text_field :fecha_hasta , value: periodo.object.fecha_hasta.try(:strftime, "%d/%m/%Y")  %> 
-          </div>
-      <% end %>
-    </div>
-
 <div class="row">
     <div class="col-xs-4">
       <%= f.label :presento_titulo %><br>
+      <%= label_tag 'Si/No' %>
       <%= f.check_box :presento_titulo %>
     </div> 
     <div class="col-xs-4">
@@ -79,6 +67,10 @@
 
 <div class="row">
    <div class="col-xs-4">
+      <div class="field">
+        <%= f.label :antecedentes_penales %><br>
+        <%= f.text_field :antecedentes_penales %>
+      </div> 
       <div class="field">
         <%= f.label :agrupamiento %><br>
         <%= f.collection_select("agrupamiento_id", Agrupamiento.all, "id", "descripcion", :include_blank => "Seleccione un agrupamiento...") %><br>

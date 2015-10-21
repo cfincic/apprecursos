@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-xs-4">
+    <div class="field">
+       <%= image_tag("perfil.jpeg") %>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h1> <%= @agente.nombre + " " + @agente.apellido + " - " + @agente.cuil%> </h1>
+    <h2> <%= "Número de legajo:  " + @agente.num_legajo.to_s%> </h2>
+  </div>
+</div>
+<div class="row">
+   <div class="col-xs-4">
+    <p>
+      <strong>D.N.I:</strong>
+      <%= @agente.numero_doc %>
+    </p>
+
+    <p>
+      <strong>Fecha de nacimiento:</strong>
+      <%= @agente.fecha_nac.strftime("%d/%m/%Y") %>
+    </p>
+
+    <p>
+      <strong>Dirección:</strong>
+      <%= @agente.direccion %>
+    </p>
+
+    <p>
+      <strong>Tel:</strong>
+      <%= @agente.telefono_casa %>
+    </p>
+
+    <p>
+      <strong>Celular:</strong>
+      <%= @agente.telefono_celu %>
+    </p>
+
+    <p>
+      <strong>Ulitmo nivel de estudio:</strong>
+      <%= @agente.dato_laboral.ultimo_nivel_estudio unless @agente.dato_laboral.nil? %>
+    </p>
+
+    <p>
+      <strong>Mail:</strong>
+      <%= @agente.email %>
+    </p>
+  </div>
+  <div class="col-xs-4">
+    <p>
+      <strong>Fecha de ingreso al TNC:</strong>
+      <%= @agente.dato_laboral.situacion_revistas.first.fecha_alta.strftime("%d/%m/%Y")  unless @agente.dato_laboral.nil? %>
+    </p>
+    <p>
+      <strong>Apto Físico:</strong>
+      <%= @agente.dato_laboral.fecha_apto_fisico.strftime("%d/%m/%Y") unless @agente.dato_laboral.nil? %>
+    </p>
+
+    <p>
+      <strong>Antecedentes penales:</strong>
+      <%= @agente.dato_laboral.antecedentes_penales unless @agente.dato_laboral.nil? %>
+    </p>
+
+    <p>
+      <strong>Situación de revista actual:</strong>
+      <%= @agente.dato_laboral.situacion_revistas.first.tipo_contratacion.descripcion unless @agente.dato_laboral.nil?%>
+    </p>
+
+    <p>
+      <strong>Dirección:</strong>
+      <%= @agente.direccion %>
+    </p>
+    <p>
+      <strong>Función:</strong>
+      <%= @agente.dato_laboral.funcion unless @agente.dato_laboral.nil?%>
+    </p>
+    <p>
+      <strong>Nivel y grado:</strong>
+      <%= @agente.dato_laboral.nivel + "-" + @agente.dato_laboral.grado  unless @agente.dato_laboral.nil?%>
+    </p>
+  </div>
+</div>

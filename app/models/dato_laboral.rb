@@ -7,10 +7,8 @@ class DatoLaboral < ActiveRecord::Base
 	belongs_to :tramo
 
 	has_many :situacion_revistas
-	has_one :periodo_de_contratacion
 
 	accepts_nested_attributes_for :situacion_revistas, :reject_if => :all_blank, allow_destroy: true
-	accepts_nested_attributes_for :periodo_de_contratacion
 
 	validate :tiene_situacion_revistas
 

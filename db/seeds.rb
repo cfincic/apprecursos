@@ -29,16 +29,19 @@ end
 @tipo_documento4 = TipoDocumento.create!(tipo: "CEDULA")
 
 
-@areaDirGral = Area.create!(descripcion: "DNI", jefe: "Rubens Correa", esdire: true)
-@areaDirAdmin = Area.create!(descripcion: "DNI", jefe: "Ana Belaustegui", esdire: true, area_id: @areaDirGral.id)
-@areaSistemas = Area.create!(descripcion: "DNI", jefe: "Christian Fincic", esdire: false, area_id: @areaDirAdmin.id)
-@areaTesoreria = Area.create!(descripcion: "DNI", jefe: "Ana Martin", esdire: false, area_id: @areaDirAdmin.id)
+@areaDirGral = Area.create!(descripcion: "Direccion general", jefe: "Rubens Correa", esdire: true)
+@areaDirAdmin = Area.create!(descripcion: "Direccion de administracion", jefe: "Ana Belaustegui", esdire: true, area_id: @areaDirGral.id)
+@areaSistemas = Area.create!(descripcion: "Sistemas", jefe: "Christian Fincic", esdire: false, area_id: @areaDirAdmin.id)
+@areaTesoreria = Area.create!(descripcion: "Tesoreria", jefe: "Ana Martin", esdire: false, area_id: @areaDirAdmin.id)
 
 
 @sede1 = Sede.create!(descripcion: "CORDOBA")
 @sede2 = Sede.create!(descripcion: "PARAGUAY")
 @sede3 = Sede.create!(descripcion: "HISTORICO")
 @sede4 = Sede.create!(descripcion: "ANEXO")
+
+@EstadoAgente1 = EstadoAgente.create!(descripcion: "Activo")
+@EstadoAgente2 = EstadoAgente.create!(descripcion: "Inactivo")
 
 @tipo_contratacion1 = TipoContratacion.create!(descripcion: "ARTICULO 9")
 @tipo_contratacion2 = TipoContratacion.create!(descripcion: "PLANTA PERMANENTE 9")
@@ -57,7 +60,7 @@ end
 @tramo2 = Tramo.create!(descripcion: "intermedio")
 @tramo3 = Tramo.create!(descripcion: "avanzado")
 
-Agente.create!(cuil: "20285524236", nombre: "Juan", apellido: "acosta", 
+Agente.create!(estado_agente: @EstadoAgente1, cuil: "20285524236", nombre: "Juan", apellido: "acosta", 
 			   num_legajo: "25545255", tipo_documento: @tipo_documento, numero_doc: "2154556989",
 			   fecha_nac: DateTime.now, lugar_nac: "caba", nacionalidad: "argentino", estado_civil: "soltero", 
 			   telefono_casa: "45522125", telefono_celu: "1544142525", email: "juan@temira.com", 

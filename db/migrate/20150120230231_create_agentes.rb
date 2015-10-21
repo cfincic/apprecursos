@@ -8,6 +8,7 @@ class CreateAgentes < ActiveRecord::Migration
       t.references :tipo_documento, index: true
       t.references :localidad, index: true
       t.references :provincia, index: true
+      t.references :estado_agente, index: true
       t.string :numero_doc
       t.datetime :fecha_nac
       t.string :lugar_nac

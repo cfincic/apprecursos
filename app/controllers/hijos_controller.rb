@@ -12,10 +12,12 @@ class HijosController < ApplicationController
   # GET /hijos/1
   # GET /hijos/1.json
   def show
+
   end
 
   # GET /hijos/new
   def new
+    @tipo_documentos =  TipoDocumento.all
     @hijo = Hijo.new
     @agente = Agente.find(params[:agente_id])
   end
@@ -24,6 +26,7 @@ class HijosController < ApplicationController
   def edit
     @agente = Agente.find(params[:agente_id])
     @hijo = Hijo.find(params[:id])
+    @tipo_documentos =  TipoDocumento.all
   end
 
   # POST /hijos
@@ -75,6 +78,6 @@ class HijosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hijo_params
-      params.require(:hijo).permit(:agente_id, :nombre, :apellido, :fecha_nac, :tipo_doc1, :num_doc1, :tipo_doc2, :num_doc2)
+      params.require(:hijo).permit(:agente_id, :nombre, :apellido, :fecha_nac, :tipo_doc1_id, :num_doc1, :tipo_doc2_id, :num_doc2)
     end
 end

@@ -5,9 +5,9 @@ class CreateHijos < ActiveRecord::Migration
       t.string :nombre
       t.string :apellido
       t.date :fecha_nac
-      t.string :tipo_doc1
+      t.references :tipo_doc1
+      t.references :tipo_doc2
       t.string :num_doc1
-      t.string :tipo_doc2
       t.string :num_doc2
 
       t.timestamps

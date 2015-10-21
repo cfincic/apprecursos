@@ -31,6 +31,7 @@ class AgentesController < ApplicationController
   # POST /agentes.json
   def create
     @agente = Agente.new(agente_params)
+    @agente.estado_agente_id = 1
 
     respond_to do |format|
       if@agente.save
@@ -65,6 +66,10 @@ class AgentesController < ApplicationController
       format.html { redirect_to agentes_url, notice: 'Agente was successfully estroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def ver_preview_agente
+    @agente = Agente.find(params[:agente_id])
   end
 
   private

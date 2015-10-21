@@ -27,17 +27,19 @@
     <%= f.label :fecha_nac %><br>
     <%= f.date_select :fecha_nac %>
   </div>
+
   <div class="field">
     <%= f.label :tipo_doc1 %><br>
-    <%= f.text_field :tipo_doc1 %>
+    <%= f.collection_select("tipo_doc1_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
   </div>
+
   <div class="field">
     <%= f.label :num_doc1 %><br>
     <%= f.text_field :num_doc1 %>
   </div>
   <div class="field">
     <%= f.label :tipo_doc2 %><br>
-    <%= f.text_field :tipo_doc2 %>
+    <%= f.collection_select("tipo_doc2_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
   </div>
   <div class="field">
     <%= f.label :num_doc2 %><br>

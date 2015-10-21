@@ -15,6 +15,7 @@ Apprecursos::Application.routes.draw do
   resources :tipo_documentos  
 
   resources :agentes do
+    get 'ver_preview_agente'
     resources :dato_laborals
   end
 

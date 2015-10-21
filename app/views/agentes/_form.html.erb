@@ -54,9 +54,9 @@
     <%= f.text_field :estado_civil %>
   </div>
   <div class="field">
-    <%= f.label :es_discapacitado %><br>
-    <%= f.text_field :es_discapacitado %>
-  </div>
+    <%= f.label :es_discapacitado, 'Es discapacitado' %><br>
+    <%= f.check_box :es_discapacitado %>
+  </div> 
   <div class="field">
     <%= f.label :expira_certificado %><br>
     <%= f.text_field :expira_certificado %>

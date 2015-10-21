@@ -19,6 +19,7 @@ class CreateDatoLaborals < ActiveRecord::Migration
       t.text :telefono
       t.text :interno      
       t.string :depende_direccion
+      t.string :antecedentes_penales
       t.text :jefe_directo
       t.decimal :sueldo_bruto
       t.decimal :sueldo_neto

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009221606) do
+ActiveRecord::Schema.define(version: 20151016163208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151009221606) do
     t.integer  "tipo_documento_id"
     t.integer  "localidad_id"
     t.integer  "provincia_id"
+    t.integer  "estado_agente_id"
     t.string   "numero_doc"
     t.datetime "fecha_nac"
     t.string   "lugar_nac"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20151009221606) do
     t.datetime "updated_at"
   end
 
+  add_index "agentes", ["estado_agente_id"], name: "index_agentes_on_estado_agente_id", using: :btree
   add_index "agentes", ["localidad_id"], name: "index_agentes_on_localidad_id", using: :btree
   add_index "agentes", ["provincia_id"], name: "index_agentes_on_provincia_id", using: :btree
   add_index "agentes", ["tipo_documento_id"], name: "index_agentes_on_tipo_documento_id", using: :btree
@@ -112,6 +114,7 @@ ActiveRecord::Schema.define(version: 20151009221606) do
     t.string   "area"
     t.text     "telefono"
     t.string   "depende_direccion"
+    t.string   "antecedentes_penales"
     t.text     "jefe_directo"
     t.decimal  "sueldo_bruto"
     t.decimal  "sueldo_neto"
@@ -127,6 +130,12 @@ ActiveRecord::Schema.define(version: 20151009221606) do
   add_index "dato_laborals", ["agrupamiento_id"], name: "index_dato_laborals_on_agrupamiento_id", using: :btree
   add_index "dato_laborals", ["sede_id"], name: "index_dato_laborals_on_sede_id", using: :btree
   add_index "dato_laborals", ["tramo_id"], name: "index_dato_laborals_on_tramo_id", using: :btree
+
+  create_table "estado_agentes", force: true do |t|
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "familiars", force: true do |t|
     t.string   "relacion"
@@ -147,9 +156,9 @@ ActiveRecord::Schema.define(version: 20151009221606) do
     t.string   "nombre"
     t.string   "apellido"
     t.date     "fecha_nac"
-    t.string   "tipo_doc1"
+    t.integer  "tipo_doc1_id"
+    t.integer  "tipo_doc2_id"
     t.string   "num_doc1"
-    t.string   "tipo_doc2"
     t.string   "num_doc2"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -166,16 +175,6 @@ ActiveRecord::Schema.define(version: 20151009221606) do
   end
 
   add_index "localidades", ["provincia_id"], name: "index_localidades_on_provincia_id", using: :btree
-
-  create_table "periodos_de_contratacion", force: true do |t|
-    t.datetime "fecha_desde"
-    t.datetime "fecha_hasta"
-    t.integer  "dato_laboral_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "periodos_de_contratacion", ["dato_laboral_id"], name: "index_periodos_de_contratacion_on_dato_laboral_id", using: :btree
 
   create_table "provincias", force: true do |t|
     t.string   "codigo",     null: false
@@ -196,6 +195,7 @@ ActiveRecord::Schema.define(version: 20151009221606) do
   create_table "situacion_revistas", force: true do |t|
     t.string   "descripcion"
     t.datetime "fecha_alta"
+    t.datetime "fecha_baja"
     t.integer  "dato_laboral_id"
     t.integer  "tipo_contratacion_id"
     t.datetime "created_at"
