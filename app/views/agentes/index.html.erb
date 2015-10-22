@@ -22,7 +22,7 @@
         <td><%= agente.num_legajo %></td>
         
         <td><%= link_to 'Ver', agente %></td>
-        <td><span class="glyphicon glyphicon-eye-open"> <%= link_to 'preview', agente_ver_preview_agente_path(agente) %> </span></td>
+        <td><span class="glyphicon glyphicon-eye-open"></span> <%= link_to 'Preview', agente_ver_preview_agente_path(agente) %>  </td>
         <td><%= link_to 'Editar', edit_agente_path(agente) %></td>
         <td><%= link_to 'Eliminar', agente, method: :delete, data: { confirm: 'Estás segura nena?' } %></td>
       </tr>

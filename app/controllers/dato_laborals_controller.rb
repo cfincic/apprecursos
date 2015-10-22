@@ -30,6 +30,7 @@ class DatoLaboralsController < ApplicationController
     @dato_laboral = DatoLaboral.find(params[:id])
     @dato_laboral.situacion_revistas.build
     asignar_datos_estaticos    
+    setear_checkbox_sino(@dato_laboral)
   end
 
   # POST /dato_laborals
@@ -107,7 +108,7 @@ class DatoLaboralsController < ApplicationController
       params.require(:dato_laboral).permit(:agente_id, :acto_administrativo_id, :tramo_id, :agrupamiento_id, :num_legajo, :sede_id,
        :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_curriculum, :antecedentes_penales,
        :grado, :cargo, :obj_cargo, :telefono, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo,
-       :presento_titulo, :ultimo_nivel_estudio, :area, :direccion_laboral, situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_alta, :_destroy  ])    
+       :presento_titulo, :ultimo_nivel_estudio, :area, :direccion_laboral, situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_baja, :fecha_alta, :_destroy  ])    
     end
 
     def asignar_datos_estaticos
@@ -117,5 +118,16 @@ class DatoLaboralsController < ApplicationController
       @agrupamientos = Agrupamiento.all
       @tramos = Tramo.all
       @areas = Area.all
+    end
+
+    
+    def setear_checkbox_sino(dato_laboral)
+      unless dato_laboral.fecha_curriculum.nil?
+        dato_laboral.sino_fecha_curriculum = true
+      end
+
+      unless dato_laboral.fecha_apto_fisico.nil?
+        dato_laboral.sino_fecha_apto_fisico = true
+      end
     end
 end

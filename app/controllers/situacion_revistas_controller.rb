@@ -28,7 +28,7 @@ class SituacionRevistasController < ApplicationController
 
     respond_to do |format|
       if @situacion_revista.save
-        format.html { redirect_to @situacion_revista, notice: 'Situacion revistum was successfully created.' }
+        format.html { redirect_to @situacion_revista, notice: 'La situacion de revista fué creada exitosamente.' }
         format.json { render :show, status: :created, location: @situacion_revista }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SituacionRevistasController < ApplicationController
   def update
     respond_to do |format|
       if @situacion_revista.update(situacion_revista_params)
-        format.html { redirect_to @situacion_revista, notice: 'Situacion revistum was successfully updated.' }
+        format.html { redirect_to @situacion_revista, notice: 'La situacion de revista fué actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @situacion_revista }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SituacionRevistasController < ApplicationController
   def destroy
     @situacion_revista.destroy
     respond_to do |format|
-      format.html { redirect_to situacion_revista_url, notice: 'Situacion revistum was successfully destroyed.' }
+      format.html { redirect_to situacion_revista_url, notice: 'La situacion de revista fué eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

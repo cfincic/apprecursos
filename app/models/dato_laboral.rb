@@ -18,9 +18,12 @@ class DatoLaboral < ActiveRecord::Base
 	validates :nivel, presence: true
 	validates :grado, presence: true
 
+	attr_accessor :sino_fecha_apto_fisico
+	attr_accessor :sino_fecha_curriculum
+
 
 	def tiene_situacion_revistas
-	  errors.add(:base, 'Debe tener como minimo una distuacion de revista') if self. situacion_revistas.blank?
+	  errors.add(:base, 'Debe tener como minimo una situacion de revista') if self. situacion_revistas.blank?
 	end
 
 end

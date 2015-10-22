@@ -36,7 +36,7 @@ class DatoContactosController < ApplicationController
     respond_to do |format|
       if @dato_contacto.save
         @agente = Agente.find(params[:agrente_id])
-        format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully created.' }
+        format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'El dato de contacto fué creado exitosamente.' }
         format.json { render :show, status: :created, location: @dato_contacto }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class DatoContactosController < ApplicationController
     respond_to do |format|
       if @dato_contacto.update(dato_contacto_params)
         @agente = Agente.find(params[:agrente_id])
-        format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully updated.' }
+        format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'El dato de contacto fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @dato_contacto }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class DatoContactosController < ApplicationController
     @agente = Agente.find(params[:agrente_id])
     @dato_contacto.destroy
     respond_to do |format|
-      format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'Dato contacto was successfully destroyed.' }
+      format.html { redirect_to agrente_dato_contactos_path(@agente), notice: 'El dato de contacto fué eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

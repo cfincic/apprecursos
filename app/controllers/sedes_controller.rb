@@ -28,7 +28,7 @@ class SedesController < ApplicationController
 
     respond_to do |format|
       if @sede.save
-        format.html { redirect_to @sede, notice: 'Sede was successfully created.' }
+        format.html { redirect_to @sede, notice: 'La sede fué creada exitosamente.' }
         format.json { render :show, status: :created, location: @sede }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SedesController < ApplicationController
   def update
     respond_to do |format|
       if @sede.update(sede_params)
-        format.html { redirect_to @sede, notice: 'Sede was successfully updated.' }
+        format.html { redirect_to @sede, notice: 'La sede fué actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @sede }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SedesController < ApplicationController
   def destroy
     @sede.destroy
     respond_to do |format|
-      format.html { redirect_to sedes_url, notice: 'Sede was successfully destroyed.' }
+      format.html { redirect_to sedes_url, notice: 'La sede fué eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

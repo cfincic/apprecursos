@@ -28,7 +28,7 @@ class TipoDocumentosController < ApplicationController
 
     respond_to do |format|
       if @tipo_documento.save
-        format.html { redirect_to @tipo_documento, notice: 'Tipo documento was successfully created.' }
+        format.html { redirect_to @tipo_documento, notice: 'El tipo de documento fué creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_documento }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TipoDocumentosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_documento.update(tipo_documento_params)
-        format.html { redirect_to @tipo_documento, notice: 'Tipo documento was successfully updated.' }
+        format.html { redirect_to @tipo_documento, notice: 'El tipo de documento fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_documento }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TipoDocumentosController < ApplicationController
   def destroy
     @tipo_documento.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_documentos_url, notice: 'Tipo documento was successfully destroyed.' }
+      format.html { redirect_to tipo_documentos_url, notice: 'El tipo de documento fué eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

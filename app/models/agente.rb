@@ -10,3 +10,15 @@ class Agente < ActiveRecord::Base
 	validates :nombre, presence: true
 	validates :tipo_documento, presence: true
 end
+
+class TrueClass
+  def sino
+    "Si"
+  end
+end
+
+class FalseClass
+  def sino
+    "No"
+  end
+end

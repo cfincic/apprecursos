@@ -34,7 +34,7 @@ class FamiliarsController < ApplicationController
     @familiar = @agente.familiars.build(familiar_params)
     respond_to do |format|
       if @familiar.save
-        format.html { redirect_to agente_familiars_path(@agente), notice: 'Familiar was successfully created.' }
+        format.html { redirect_to agente_familiars_path(@agente), notice: 'El familiar fué creado exitosamente.' }
         format.json { render :show, status: :created, location: @familiar }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class FamiliarsController < ApplicationController
     respond_to do |format|
       if @familiar.update(familiar_params)
         @agente = Agente.find(params[:agente_id])
-        format.html { redirect_to agente_familiars_path(@agente), notice: 'Familiar was successfully updated.' }
+        format.html { redirect_to agente_familiars_path(@agente), notice: 'El familiar fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @familiar }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class FamiliarsController < ApplicationController
   def destroy
     @familiar.destroy
     respond_to do |format|
-      format.html { redirect_to agente_familiars_path(@familiar.agente), notice: 'Familiar was successfully destroyed.' }
+      format.html { redirect_to agente_familiars_path(@familiar.agente), notice: 'El familiar fué eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -35,7 +35,7 @@ class AgentesController < ApplicationController
 
     respond_to do |format|
       if@agente.save
-        format.html { redirect_to @agente, notice: 'Bien ahi! Creaste n Agente.' }
+        format.html { redirect_to @agente, notice: 'El agente fué creado exitosamente.' }
         format.json { render :show, status: :created, locatin: @agente }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class AgentesController < ApplicationController
   def update
     respond_to do |format|
       if @agente.update(agente_params)
-        format.html { redirect_to @agente, notice: 'Agente was successfull updated.' }
+        format.html { redirect_to @agente, notice: 'El agente fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, locatin: @agente }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class AgentesController < ApplicationController
   def destroy
     @agente.destroy
     respond_to do |format|
-      format.html { redirect_to agentes_url, notice: 'Agente was successfully estroyed.' }
+      format.html { redirect_to agentes_url, notice: 'El agente fué eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

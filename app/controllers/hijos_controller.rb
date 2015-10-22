@@ -37,7 +37,7 @@ class HijosController < ApplicationController
 
     respond_to do |format|
       if @hijo.save
-        format.html { redirect_to agente_hijos_path(@agente), notice: 'Hijo was successfully created.' }
+        format.html { redirect_to agente_hijos_path(@agente), notice: 'El hijo fué creado exitosamente.' }
         format.json { render :show, status: :created, location: @hijo }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class HijosController < ApplicationController
   def update
     respond_to do |format|
       if @hijo.update(hijo_params)
-        format.html { redirect_to @hijo, notice: 'Hijo was successfully updated.' }
+        format.html { redirect_to @hijo, notice: 'El hijo fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @hijo }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class HijosController < ApplicationController
   def destroy
     @hijo.destroy
     respond_to do |format|
-      format.html { redirect_to hijos_url, notice: 'Hijo was successfully destroyed.' }
+      format.html { redirect_to hijos_url, notice: 'El hijo fué eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
