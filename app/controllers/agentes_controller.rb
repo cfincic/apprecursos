@@ -6,7 +6,7 @@ class AgentesController < ApplicationController
   # GET /agentes
   # GET /agentes.json
   def index
-    @agentes = Agente.all
+    @agentes = Agente.where("estado_agente_id = ?", 1)
   end
 
   # GET /agentes/1
@@ -62,10 +62,19 @@ class AgentesController < ApplicationController
 
   # DELETE /agentes/1
   # DELETE /agentes/1.json
-  def destroy
-    @agente.destroy
+  # def destroy
+  #   @agente.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to agentes_url, notice: 'El agente fué eliminado exitosamente.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+  def dar_de_baja
+    @agente = Agente.find(params[:agente_id])
+    @agente.update(estado_agente_id: 2)
     respond_to do |format|
-      format.html { redirect_to agentes_url, notice: 'El agente fué eliminado exitosamente.' }
+      format.html { redirect_to agentes_url, notice: 'El agente fué dado de baja exitosamente.' }
       format.json { head :no_content }
     end
   end

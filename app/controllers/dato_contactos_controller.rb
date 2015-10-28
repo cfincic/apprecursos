@@ -1,3 +1,4 @@
+#encoding: utf-8
 class DatoContactosController < ApplicationController
   before_action :set_dato_contacto, only: [:show, :edit, :update, :destroy]
 

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class FamiliarsController < ApplicationController
   before_action :set_familiar, only: [:show, :edit, :update, :destroy]
 

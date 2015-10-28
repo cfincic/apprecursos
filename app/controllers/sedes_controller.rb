@@ -1,3 +1,4 @@
+#encoding: utf-8
 class SedesController < ApplicationController
   before_action :set_sede, only: [:show, :edit, :update, :destroy]
 

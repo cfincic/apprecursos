@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
 

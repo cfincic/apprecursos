@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ContactosController < ApplicationController
 	def create
     @agente = Agente.find(params[:agente_id])

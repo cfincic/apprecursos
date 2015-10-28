@@ -16,6 +16,7 @@ Apprecursos::Application.routes.draw do
 
   resources :agentes do
     get 'ver_preview_agente'
+    get 'dar_de_baja'
     resources :dato_laborals
   end
 

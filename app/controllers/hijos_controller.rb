@@ -1,3 +1,4 @@
+#encoding: utf-8
 class HijosController < ApplicationController
   before_action :set_hijo, only: [:show, :edit, :update, :destroy]
 

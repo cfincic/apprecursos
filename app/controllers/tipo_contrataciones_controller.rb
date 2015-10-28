@@ -1,3 +1,4 @@
+#encoding: utf-8
 class TipoContratacionesController < ApplicationController
   before_action :set_tipo_contratacion, only: [:show, :edit, :update, :destroy]
 

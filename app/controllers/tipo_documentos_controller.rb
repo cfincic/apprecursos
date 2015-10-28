@@ -1,3 +1,4 @@
+#encoding: utf-8
 class TipoDocumentosController < ApplicationController
   before_action :set_tipo_documento, only: [:show, :edit, :update, :destroy]
 

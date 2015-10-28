@@ -1,3 +1,4 @@
+#encoding: utf-8
 class SituacionRevistasController < ApplicationController
   before_action :set_situacion_revista, only: [:show, :edit, :update, :destroy]
 

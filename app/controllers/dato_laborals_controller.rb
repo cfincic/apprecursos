@@ -1,3 +1,4 @@
+#encoding: utf-8
 class DatoLaboralsController < ApplicationController
   before_action :set_dato_laboral, only: [:show, :edit, :update, :destroy]
 
@@ -36,7 +37,13 @@ class DatoLaboralsController < ApplicationController
   # POST /dato_laborals.json
   def create
     @dato_laboral = DatoLaboral.new(dato_laboral_params)
-    @agente = Agente.find(params[:agente_id])      
+    @agente = Agente.find(params[:agente_id]) 
+
+    @dato_laboral.situacion_revistas.each do |situacion_rev|
+      if situacion_rev != @dato_laboral.situacion_revistas.first
+
+      end
+    end     
 
     respond_to do |format|
       if @dato_laboral.save
