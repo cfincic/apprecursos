@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class AgentesController < ApplicationController
   before_action :set_agente, only: [:show, :edit, :update, :destroy]
 
