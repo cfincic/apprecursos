@@ -18,7 +18,6 @@ class DatoLaboralsController < ApplicationController
   def new    
     @dato_laboral = DatoLaboral.new
     @dato_laboral.situacion_revistas.build
-    @dato_laboral.build_periodo_de_contratacion
     @dato_laboral.agente_id = params[:agente_id]    
     @agente = Agente.find(params[:agente_id])
     asignar_datos_estaticos
