@@ -52,6 +52,7 @@ class DatoLaboralsController < ApplicationController
       else             
         asignar_datos_estaticos           
         @dato_laboral.agente_id = params[:agente_id]    
+        @dato_laboral.situacion_revistas.build
         format.html { render :new }
         format.json { render json: @dato_laboral.errors, status: :unprocessable_entity }
       end

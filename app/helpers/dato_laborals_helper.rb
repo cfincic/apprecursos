@@ -9,8 +9,10 @@ module DatoLaboralsHelper
 		end
 	end	
 
-	def traer_area_id_por_nombre(area)
-		@area_array = Area.where("descripcion = ?",area)
-		@area_array[0] unless @area_array.nil?		
+	def traer_area_id_por_nombre(dato_laboral)
+		if !dato_laboral.nil? && !dato_laboral.area.blank?
+			@area_array = Area.where("descripcion = ?",dato_laboral.area)
+			return @area_array[0].id
+		end
 	end
 end

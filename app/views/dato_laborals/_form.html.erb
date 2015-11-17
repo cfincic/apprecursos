@@ -91,7 +91,7 @@
 
       <div class="field">
         <%= f.label :area %><br>
-        <%= collection_select(:area, :area_id, @areas, :id, :descripcion, :include_blank => "Seleccione un area...", :selected => traer_area_id_por_nombre(f.object.area).id ) %><br>
+        <%= collection_select(:area, :area_id, @areas, :id, :descripcion, :include_blank => "Seleccione un area...", :selected => traer_area_id_por_nombre(f.object)) %><br>
       </div>
 
       <div class="hide">
