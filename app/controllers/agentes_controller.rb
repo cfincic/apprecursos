@@ -17,9 +17,7 @@ class AgentesController < ApplicationController
   # GET /agentes/new
   def new
     @agente= Agente.new
-    @tipo_documentos = TipoDocumento.all
-    @provincias = Provincia.order(:detalle)
-    @localidades = Localidad.order(:detalle)
+    cargar_datos_estaticos
   end
 
   # GET /agentes/1/edit
@@ -40,6 +38,7 @@ class AgentesController < ApplicationController
         format.html { redirect_to @agente, notice: 'El agente fué creado exitosamente.' }
         format.json { render :show, status: :created, locatin: @agente }
       else
+        cargar_datos_estaticos
         format.html { render :new }
         format.json { render json: @agente.errors, status: :unprocessble_entity }
       end
@@ -54,6 +53,7 @@ class AgentesController < ApplicationController
         format.html { redirect_to @agente, notice: 'El agente fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, locatin: @agente }
       else
+        cargar_datos_estaticos
         format.html { render :edit }
         format.json { render json: @agente.errors, status: :unprocessble_entity }
       end
@@ -92,5 +92,11 @@ class AgentesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def agente_params
       params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :localidad_id, :cod_postal, :provincia_id, :otro)
+    end
+
+    def cargar_datos_estaticos
+      @tipo_documentos = TipoDocumento.all
+      @provincias = Provincia.order(:detalle)
+      @localidades = Localidad.order(:detalle)
     end
 end

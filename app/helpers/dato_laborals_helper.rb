@@ -8,4 +8,9 @@ module DatoLaboralsHelper
 			return situacion.fecha_alta
 		end
 	end	
+
+	def traer_area_id_por_nombre(area)
+		@area_array = Area.where("descripcion = ?",area)
+		@area_array[0] unless @area_array.nil?		
+	end
 end

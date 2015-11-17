@@ -49,7 +49,8 @@ class DatoLaboralsController < ApplicationController
       if @dato_laboral.save
         format.html { redirect_to agente_path(@agente), notice: 'Los datos laborales fueron creados exitosamente.' }
         format.json { render :show, status: :created, location: @dato_laboral }
-      else                        
+      else             
+        asignar_datos_estaticos           
         @dato_laboral.agente_id = params[:agente_id]    
         format.html { render :new }
         format.json { render json: @dato_laboral.errors, status: :unprocessable_entity }

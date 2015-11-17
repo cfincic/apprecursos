@@ -52,6 +52,10 @@
       <%= @agente.dato_laboral.situacion_revistas.first.fecha_alta.strftime("%d/%m/%Y")  unless @agente.dato_laboral.nil? %>
     </p>
     <p>
+      <strong>Interno:</strong>
+      <%= @agente.dato_laboral.interno unless @agente.dato_laboral.nil? %>
+    </p>
+    <p>
       <strong>Apto Físico:</strong>
       <%= @agente.dato_laboral.fecha_apto_fisico.strftime("%d/%m/%Y") unless @agente.dato_laboral.nil? %>
     </p>
@@ -68,7 +72,7 @@
 
     <p>
       <strong>Dirección:</strong>
-      <%= @agente.direccion %>
+      <%= @agente.dato_laboral.depende_direccion  unless @agente.dato_laboral.nil?%>
     </p>
     <p>
       <strong>Función:</strong>
@@ -80,3 +84,4 @@
     </p>
   </div>
 </div>
+<%= link_to 'Volver', agentes_path %>
