@@ -30,7 +30,7 @@
 
 <p>
   <strong>Fecha nac:</strong>
-  <%= @agente.fecha_nac %>
+   <%= @agente.fecha_nac.try(:strftime, "%d/%m/%Y") %>
 </p>
 
 <p>
@@ -55,7 +55,7 @@
 
 <p>
   <strong>Expira certificado:</strong>
-  <%= @agente.expira_certificado %>
+    <%= @agente.expira_certificado.try(:strftime, "%d/%m/%Y at %I:%M%p") %>
 </p>
 
 <h1>Datos de Contacto</h1>
@@ -72,6 +72,10 @@
   <%= @agente.email %>
 </p>
 <p>
+  <strong>Email 2:</strong>
+  <%= @agente.email2 %>
+</p>
+<p>
   <strong>Dirección:</strong>
   <%= @agente.direccion %>
 </p>
@@ -86,10 +90,6 @@
 <p>
   <strong>Código Postal:</strong>
   <%= @agente.cod_postal %>
-</p>
-<p>
-  <strong>Otro:</strong>
-  <%= @agente.otro %>
 </p>
 
 <% if @agente.dato_laboral.nil? %>

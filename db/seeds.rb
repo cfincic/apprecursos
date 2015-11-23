@@ -35,10 +35,10 @@ end
 @areaTesoreria = Area.create!(descripcion: "Tesoreria", jefe: "Ana Martin", esdire: false, area_id: @areaDirAdmin.id)
 
 
-@sede1 = Sede.create!(descripcion: "CORDOBA")
-@sede2 = Sede.create!(descripcion: "PARAGUAY")
-@sede3 = Sede.create!(descripcion: "HISTORICO")
-@sede4 = Sede.create!(descripcion: "ANEXO")
+@sede1 = Sede.create!(descripcion: "CORDOBA", direccion: "cordoba 1155", telefono1: "46553424")
+@sede2 = Sede.create!(descripcion: "PARAGUAY", direccion: "cordoba 333", telefono1: "46554578")
+@sede3 = Sede.create!(descripcion: "HISTORICO", direccion: "cordoba 453", telefono1: "46551234")
+@sede4 = Sede.create!(descripcion: "ANEXO", direccion: "cordoba 223", telefono1: "44645567")
 
 @EstadoAgente1 = EstadoAgente.create!(descripcion: "Activo")
 @EstadoAgente2 = EstadoAgente.create!(descripcion: "Inactivo")
@@ -65,7 +65,7 @@ Agente.create!(estado_agente: @EstadoAgente1, cuil: "20285524236", nombre: "Juan
 			   fecha_nac: DateTime.now, lugar_nac: "caba", nacionalidad: "argentino", estado_civil: "soltero", 
 			   telefono_casa: "45522125", telefono_celu: "1544142525", email: "juan@temira.com", 
          direccion: "av rivadavia 5666", localidad_id: 1, cod_postal: "1200", provincia_id: 1, 
-			   otro: "nada", es_discapacitado: false)
+			   email2: "sdas@dasda.com", es_discapacitado: false)
 
 
 

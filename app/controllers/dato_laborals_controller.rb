@@ -105,6 +105,18 @@ class DatoLaboralsController < ApplicationController
       end
   end
 
+  
+  def obtener_datos_de_sede
+      @sede = Sede.new
+      if !params[:sede_id].blank?
+          @sede = Sede.find(params[:sede_id])
+      end
+
+      respond_to do | format |                                  
+          format.json { render :json => @sede }   
+      end     
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dato_laboral
@@ -114,7 +126,7 @@ class DatoLaboralsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dato_laboral_params
       params.require(:dato_laboral).permit(:agente_id, :acto_administrativo_id, :tramo_id, :agrupamiento_id, :num_legajo, :sede_id,
-       :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_curriculum, :antecedentes_penales,
+       :interno, :fecha_ingreso, :fecha_acto,  :funcion,:situ_revista, :nivel, :fecha_acto, :fecha_apto_fisico, :fecha_curriculum, :antecedentes_penales, :fecha_antecedentes_penales,
        :grado, :cargo, :obj_cargo, :telefono, :tareas_cargo, :depende_direccion, :jefe_directo, :sueldo_bruto, :sueldo_neto, :cant_personas_acargo,
        :presento_titulo, :ultimo_nivel_estudio, :area, :direccion_laboral, situacion_revistas_attributes: [ :id, :tipo_contratacion_id, :descripcion, :fecha_baja, :fecha_alta, :_destroy  ])    
     end

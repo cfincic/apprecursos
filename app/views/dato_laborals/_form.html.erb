@@ -16,6 +16,11 @@
     <%= f.text_field :agente_id %>
   </div> 
 
+    <div class="hide">
+    <%= f.label :id %><br>
+    <%= f.text_field :id %>
+  </div> 
+
   <div class="row">
     <div class="col-xs-4">
       <div class="field">
@@ -67,6 +72,15 @@
 
 <div class="row">
    <div class="col-xs-4">
+
+      <div class="field">
+        <%= f.label :fecha_antecedentes_penales %>
+      </div>
+      <div class="field">
+          <%= label_tag 'Si/No' %>
+          <%= check_box_tag 'sino_fecha_antecedentes_penales'%>
+          <%= f.text_field :fecha_antecedentes_penales, value: f.object.fecha_antecedentes_penales.try(:strftime, "%d/%m/%Y") %>    
+      </div>
       <div class="field">
         <%= f.label :antecedentes_penales %><br>
         <%= f.text_field :antecedentes_penales %>
@@ -126,16 +140,16 @@
 
       <div class="field">
         <%= f.label :direccion_laboral %><br>
-        <%= f.text_field :direccion_laboral %>
+        <%= f.text_field :direccion_laboral, :readonly => true  %>
       </div>
 
       <div class="field">
         <%= f.label :telefono %><br>
-        <%= f.text_field :telefono %>
+        <%= f.text_field :telefono , :readonly => true %>
       </div>
       <div class="field">
         <%= f.label :interno %><br>
-        <%= f.text_field :interno %>
+        <%= f.text_field :interno , :readonly => true %>
       </div>   
 
       <div class="field">

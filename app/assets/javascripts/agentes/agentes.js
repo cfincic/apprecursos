@@ -1,8 +1,17 @@
 //USE ESTA
 var ready = function() {
 
-  var currentDate = new Date();
-    $('#agente_fecha_nac').datepicker
+
+
+setear_control_fecha("agente_fecha_nac");
+setear_control_fecha("agente_expira_certificado");
+
+
+  function setear_control_fecha(nombre_control) 
+  {
+    var currentDate = new Date();
+
+    $('#'+nombre_control).datepicker
     ({
       showOn: 'both',  
       autoclose: true,    
@@ -10,19 +19,10 @@ var ready = function() {
       language: "es"
     });
 
-
-    $('#agente_expira_certificado').datepicker
-    ({
-      showOn: 'both',  
-      autoclose: true,    
-      format: 'dd/mm/yyyy',
-      language: "es"
-    });
-
-
+    //$('#'+nombre_control).datepicker("setDate", currentDate);
+  }
    // agente_provincia_id
    // agente_localidad_id
-
       (function() {
         jQuery(function() {
           var localidades, llenarLocalidades; 

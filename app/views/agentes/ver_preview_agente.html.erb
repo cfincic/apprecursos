@@ -71,7 +71,12 @@
     </p>
 
     <p>
-      <strong>Dirección:</strong>
+      <strong>Area:</strong>
+      <%= @agente.dato_laboral.area  unless @agente.dato_laboral.nil?%>
+    </p>
+
+    <p>
+      <strong>Depende de:</strong>
       <%= @agente.dato_laboral.depende_direccion  unless @agente.dato_laboral.nil?%>
     </p>
     <p>

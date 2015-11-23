@@ -17,10 +17,13 @@ Apprecursos::Application.routes.draw do
   resources :agentes do
     get 'ver_preview_agente'
     get 'dar_de_baja'
-    resources :dato_laborals
+    resources :dato_laborals do
+
+    end
   end
 
   get '/dato_laborals/obtener_direccion_madre'
+  get '/dato_laborals/obtener_datos_de_sede'
 
 
   resources :agentes do
