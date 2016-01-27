@@ -1,4 +1,4 @@
-<%= form_for(@agente) do |f| %>
+<%= form_for(@agente, html: { multipart: true } ) do |f| %>
   <% if @agente.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@agente.errors.count, "error") %> prohibited this agente from being saved:</h2>
@@ -62,6 +62,12 @@
     <%= f.label :expira_certificado %><br>
     <%= f.text_field :expira_certificado%>
   </div>
+
+  <div class="field">
+    <%= f.label :foto %><br>
+    <%= f.file_field :foto %>
+  </div>
+
   <h1>Datos de Contacto</h1>
 
   <div class="field">

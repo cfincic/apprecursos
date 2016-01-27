@@ -1,23 +1,26 @@
-<p>
-  <strong>Cuil:</strong>
-  <%= @agente.cuil %>
-</p>
+    <p>
+      <%= image_tag @agente.foto.url(:medium) %>
+  </p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @agente.nombre %>
-</p>
+  <p>
+    <strong>Cuil:</strong>
+    <%= @agente.cuil %>
+  </p>
 
-<p>
-  <strong>Apellido:</strong>
-  <%= @agente.apellido %>
-</p>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @agente.nombre %>
+  </p>
 
-<p>
-  <strong>Tipodocumento:</strong>
-  <%= @agente.tipo_documento.tipo %>
-</p>
+  <p>
+    <strong>Apellido:</strong>
+    <%= @agente.apellido %>
+  </p>
 
+  <p>
+    <strong>Tipodocumento:</strong>
+    <%= @agente.tipo_documento.tipo %>
+  </p>
 <p>
   <strong>Numero doc:</strong>
   <%= @agente.numero_doc %>

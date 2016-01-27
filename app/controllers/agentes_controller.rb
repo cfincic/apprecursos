@@ -49,7 +49,7 @@ class AgentesController < ApplicationController
   # PATCH/PUT /agentes/1.json
   def update
     respond_to do |format|
-      if @agente.updat(agente_params)
+      if @agente.update(agente_params)
         format.html { redirect_to @agente, notice: 'El agente fué actualizado exitosamente.' }
         format.json { render :show, status: :ok, locatin: @agente }
       else
@@ -91,7 +91,7 @@ class AgentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agente_params
-      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :fecha_antecedentes_penales, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :localidad_id, :cod_postal, :provincia_id, :email2)
+      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :fecha_antecedentes_penales, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :localidad_id, :cod_postal, :provincia_id, :email2, :foto)
     end
 
     def cargar_datos_estaticos
