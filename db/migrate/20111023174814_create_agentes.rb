@@ -11,6 +11,7 @@ class CreateAgentes < ActiveRecord::Migration
       t.references :estado_agente, index: true
       t.string :numero_doc
       t.datetime :fecha_nac
+      t.datetime :fecha_antecedentes_penales
       t.string :lugar_nac
       t.string :nacionalidad
       t.string :estado_civil
@@ -20,7 +21,7 @@ class CreateAgentes < ActiveRecord::Migration
       t.string :direccion      
       t.string :cod_postal
       t.string :provincia
-      t.string :otro
+      t.string :email2
       t.boolean :es_discapacitado
       t.datetime :expira_certificado
 

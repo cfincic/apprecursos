@@ -28,10 +28,5 @@
   <%= @familiar.lugar_nac %>
 </p>
 
-<p>
-  <strong>Agrente:</strong>
-  <%= @familiar.agrente %>
-</p>
-
-<%= link_to 'Edit', edit_agente_familiar_path(@familiar.agente, @familiar) %> |
-<%= link_to 'Back', agente_familiars_path(@familiar.agente) %>
+<%= link_to 'Modificar', edit_agente_familiar_path(@familiar.agente, @familiar) %> |
+<%= link_to 'Volver', agente_familiars_path(@familiar.agente) %>

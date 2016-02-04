@@ -6,9 +6,14 @@ class Agente < ActiveRecord::Base
 	has_many :familiars
 	has_many :hijos
 	has_one :dato_laboral	
+
+	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
 	
 	validates :nombre, presence: true
 	validates :tipo_documento, presence: true
+
+	validates_attachment :foto, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", 'application/pdf'] },
+    :size => { :less_than => 1.megabyte }
 end
 
 class TrueClass

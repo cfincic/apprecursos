@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-4">
     <div class="field">
-       <%= image_tag("perfil.jpeg") %>
+      <%= image_tag @agente.foto.url(:medium) %>
     </div>
   </div>
   <div class="col-xs-6">
@@ -71,7 +71,12 @@
     </p>
 
     <p>
-      <strong>Dirección:</strong>
+      <strong>Area:</strong>
+      <%= @agente.dato_laboral.area  unless @agente.dato_laboral.nil?%>
+    </p>
+
+    <p>
+      <strong>Depende de:</strong>
       <%= @agente.dato_laboral.depende_direccion  unless @agente.dato_laboral.nil?%>
     </p>
     <p>

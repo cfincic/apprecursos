@@ -91,7 +91,7 @@ class AgentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agente_params
-      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :localidad_id, :cod_postal, :provincia_id, :otro)
+      params.require(:agente).permit(:cuil, :nombre, :apellido, :num_legajo, :tipo_documento_id, :numero_doc, :fecha_nac, :fecha_antecedentes_penales, :lugar_nac, :nacionalidad, :estado_civil, :es_discapacitado, :expira_certificado, :telefono_casa, :telefono_celu, :email, :direccion, :localidad_id, :cod_postal, :provincia_id, :email2, :foto)
     end
 
     def cargar_datos_estaticos

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016163208) do
+ActiveRecord::Schema.define(version: 20160125163710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151016163208) do
     t.integer  "estado_agente_id"
     t.string   "numero_doc"
     t.datetime "fecha_nac"
+    t.datetime "fecha_antecedentes_penales"
     t.string   "lugar_nac"
     t.string   "nacionalidad"
     t.string   "estado_civil"
@@ -42,11 +43,15 @@ ActiveRecord::Schema.define(version: 20151016163208) do
     t.string   "direccion"
     t.string   "cod_postal"
     t.string   "provincia"
-    t.string   "otro"
+    t.string   "email2"
     t.boolean  "es_discapacitado"
     t.datetime "expira_certificado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
   end
 
   add_index "agentes", ["estado_agente_id"], name: "index_agentes_on_estado_agente_id", using: :btree
@@ -107,6 +112,7 @@ ActiveRecord::Schema.define(version: 20151016163208) do
     t.datetime "fecha_acto"
     t.datetime "fecha_apto_fisico"
     t.datetime "fecha_curriculum"
+    t.datetime "fecha_antecedentes_penales"
     t.string   "nivel"
     t.string   "grado"
     t.string   "funcion"

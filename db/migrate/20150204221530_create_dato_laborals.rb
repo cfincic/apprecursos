@@ -11,6 +11,7 @@ class CreateDatoLaborals < ActiveRecord::Migration
       t.datetime :fecha_acto      
       t.datetime :fecha_apto_fisico           
       t.datetime :fecha_curriculum  
+      t.datetime :fecha_antecedentes_penales
       t.string :nivel
       t.string :grado
       t.string :funcion
