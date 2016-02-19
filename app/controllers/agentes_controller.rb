@@ -6,7 +6,7 @@ class AgentesController < ApplicationController
   # GET /agentes
   # GET /agentes.json
   def index
-    @agentes = Agente.where("estado_agente_id = ?", 1)
+    @agentes = Agente.where("estado_agente_id = ?", 1).order(:apellido)
   end
 
   # GET /agentes/1

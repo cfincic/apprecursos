@@ -8,7 +8,8 @@ class Agente < ActiveRecord::Base
 	has_one :dato_laboral	
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
-	
+	validates :provincia, presence: true
+	validates :localidad, presence: true
 	validates :nombre, presence: true
 	validates :tipo_documento, presence: true
 

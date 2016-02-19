@@ -66,7 +66,7 @@ class HijosController < ApplicationController
   def destroy
     @hijo.destroy
     respond_to do |format|
-      format.html { redirect_to hijos_url, notice: 'El hijo fué eliminado exitosamente.' }
+      format.html { redirect_to agente_hijos_url, notice: 'El hijo fué eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -79,6 +79,6 @@ class HijosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hijo_params
-      params.require(:hijo).permit(:agente_id, :nombre, :apellido, :fecha_nac, :tipo_doc1_id, :num_doc1, :tipo_doc2_id, :num_doc2)
+      params.require(:hijo).permit(:agente_id, :nombre, :apellido, :fecha_nac, :tipo_doc1_id, :num_doc1)
     end
 end

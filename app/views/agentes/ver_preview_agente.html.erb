@@ -45,12 +45,13 @@
       <strong>Mail:</strong>
       <%= @agente.email %>
     </p>
-  </div>
-  <div class="col-xs-4">
-    <p>
+       <p>
       <strong>Fecha de ingreso al TNC:</strong>
       <%= @agente.dato_laboral.situacion_revistas.first.fecha_alta.strftime("%d/%m/%Y")  unless @agente.dato_laboral.nil? %>
     </p>
+  </div>
+  <div class="col-xs-4">
+ 
     <p>
       <strong>Interno:</strong>
       <%= @agente.dato_laboral.interno unless @agente.dato_laboral.nil? %>
@@ -75,6 +76,11 @@
       <%= @agente.dato_laboral.area  unless @agente.dato_laboral.nil?%>
     </p>
 
+        <p>
+      <strong>Reporta a:</strong>
+      <%= @agente.dato_laboral.jefe_directo  unless @agente.dato_laboral.nil?%>
+    </p>
+
     <p>
       <strong>Depende de:</strong>
       <%= @agente.dato_laboral.depende_direccion  unless @agente.dato_laboral.nil?%>
@@ -89,4 +95,5 @@
     </p>
   </div>
 </div>
-<%= link_to 'Volver', agentes_path %>
+<a href="/agentes" role="button" class="btn btn-info">Volver</a>
+<a href="/" role="button" class="btn btn-success">Inicio</a>

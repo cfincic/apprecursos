@@ -1,4 +1,8 @@
-<h1>Editar Datos Laborales</h1>
+<h1>
+  <strong>Editar Datos Laborales de:</strong>
+  <%= @dato_laboral.agente.nombre %> &nbsp
+  <%= @dato_laboral.agente.apellido %>
+</h1>
 
 <%= render 'form' %>
 

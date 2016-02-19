@@ -33,14 +33,6 @@
     <%= f.label :num_doc1 %><br>
     <%= f.text_field :num_doc1 %>
   </div>
-  <div class="field">
-    <%= f.label :tipo_doc2 %><br>
-    <%= f.collection_select("tipo_doc2_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
-  </div>
-  <div class="field">
-    <%= f.label :num_doc2 %><br>
-    <%= f.text_field :num_doc2 %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
