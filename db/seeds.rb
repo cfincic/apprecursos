@@ -29,8 +29,8 @@ end
 @tipo_documento4 = TipoDocumento.create!(tipo: "CEDULA")
 
 
-@areaDirGral = Area.create!(descripcion: "Direccion general", jefe: "Rubens Correa", esdire: true)
-@areaDirAdmin = Area.create!(descripcion: "Direccion de administracion", jefe: "Ana Belaustegui", esdire: true, area_id: @areaDirGral.id)
+@areaDirGral = Area.create!(descripcion: "Direccion General", jefe: "Rubens Correa", esdire: true)
+@areaDirAdmin = Area.create!(descripcion: "Direccion de Administracion", jefe: "Ana Belaustegui", esdire: true, area_id: @areaDirGral.id)
 @areaSistemas = Area.create!(descripcion: "Sistemas", jefe: "Christian Fincic", esdire: false, area_id: @areaDirAdmin.id)
 @areaTesoreria = Area.create!(descripcion: "Tesoreria", jefe: "Ana Martin", esdire: false, area_id: @areaDirAdmin.id)
 
@@ -44,7 +44,7 @@ end
 @EstadoAgente2 = EstadoAgente.create!(descripcion: "Inactivo")
 
 @tipo_contratacion1 = TipoContratacion.create!(descripcion: "ARTICULO 9")
-@tipo_contratacion2 = TipoContratacion.create!(descripcion: "PLANTA PERMANENTE 9")
+@tipo_contratacion2 = TipoContratacion.create!(descripcion: "PLANTA PERMANENTE")
 @tipo_contratacion3 = TipoContratacion.create!(descripcion: "LOCACION DE OBRA")
 @tipo_contratacion4 = TipoContratacion.create!(descripcion: "LOCACION DE SERVICIO")
 

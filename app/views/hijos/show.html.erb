@@ -22,7 +22,7 @@
 
 <p>
   <strong>Tipo doc1:</strong>
-  <%= @hijo.tipo_doc1 %>
+  <%= @hijo.tipo_doc1.tipo %>
 </p>
 
 <p>
@@ -30,15 +30,6 @@
   <%= @hijo.num_doc1 %>
 </p>
 
-<p>
-  <strong>Tipo doc2:</strong>
-  <%= @hijo.tipo_doc2 %>
-</p>
-
-<p>
-  <strong>Num doc2:</strong>
-  <%= @hijo.num_doc2 %>
-</p>
 
 <%= link_to 'Editar', edit_agente_hijo_path(@hijo.agente, @hijo) %> |
 <%= link_to 'Volver', agente_hijos_path(@hijo.agente) %>
