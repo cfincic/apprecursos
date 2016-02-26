@@ -15,10 +15,12 @@ Apprecursos::Application.routes.draw do
   resources :tipo_documentos  
 
   resources :agentes do
+    collection do
+      get 'autocomplete_agente_nombre'  
+    end
     get 'ver_preview_agente'
     get 'dar_de_baja'
     resources :dato_laborals do
-
     end
   end
 

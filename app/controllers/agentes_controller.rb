@@ -1,7 +1,17 @@
 #encoding: utf-8
 
 class AgentesController < ApplicationController
-  before_action :set_agente, only: [:show, :edit, :update, :destroy]
+  before_action :set_agente, only: [:edit, :update, :destroy]
+
+  #SSautocomplete :agente, :nombre , :full => true, :extra_data => [:apellido]
+
+  def autocomplete_agente_nombre 
+    respond_to do |format|
+      @agentes = Agente.where("nombre ILIKE ? AND estado_agente_id = ?", "%{params[:term]}%", 1)       
+      render :json => @agentes.map { |agente| {:id => agente.id, :value => agente.nombre} }  
+      format.js { }     
+    end        
+  end
 
   # GET /agentes
   # GET /agentes.json
@@ -81,6 +91,16 @@ class AgentesController < ApplicationController
 
   def ver_preview_agente
     @agente = Agente.find(params[:agente_id])
+  end
+
+  def traer_lista_de_agentes
+    agente_id = params[:agente_id]
+
+    @agentes = Aente.find(agente_id)   
+
+    respond_to do |format|   
+      format.js {}
+    end 
   end
 
   private
