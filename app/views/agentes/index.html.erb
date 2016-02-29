@@ -1,34 +1,22 @@
 <h1>Listado de Agentes</h1>
 
-<table class='table'>
-  <thead>
-    <tr>
-      
-      <th>Apellido</th>
-      <th>Nombre</th>
-      <th>Cuit/Cuil</th>      
-      <th>Legajo</th>
-      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-3">      
+      <h3> Buscar por nombre </h3>   
+      <div class="field">
+           <%= label_tag :nombre%><br>  
+        </div>   
 
-  <tbody>
-    <% @agentes.each do |agente| %>
-      <tr>
-        <td><%= agente.apellido %></td>
-        <td><%= agente.nombre %></td>
-        <td><%= agente.cuil %></td>
-        <td><%= agente.num_legajo %></td>
-        
-        <td><%= link_to 'Ver', agente %></td>
-        <td><span class="glyphicon glyphicon-eye-open"></span> <%= link_to 'Preview', agente_ver_preview_agente_path(agente) %>  </td>
-        <td><%= link_to 'Editar', edit_agente_path(agente) %></td>
-        <td><%= link_to 'Dar de baja', agente_dar_de_baja_path(agente), data: { confirm: 'Estás seguro?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="field">
+          <%= autocomplete_field_tag 'agente_nombre', '', autocomplete_agente_nombre_agentes_path , :size => 75 %>
+          <%= link_to 'Quitar filtro', agentes_path, class: 'btn btn-default' %>
+      </div>    
+    </div>  
+ </div>
+ <br>
+  <div id="tabla_agentes">   
+    <%= render 'form_table_agentes' %>
+  </div>
 
 <br>
 <a href="/" role="button" class="btn btn-lg btn-default">Inicio</a>

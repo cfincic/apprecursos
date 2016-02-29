@@ -164,7 +164,9 @@ ActiveRecord::Schema.define(version: 20160125163710) do
     t.string   "apellido"
     t.date     "fecha_nac"
     t.integer  "tipo_doc1_id"
+    t.integer  "tipo_doc2_id"
     t.string   "num_doc1"
+    t.string   "num_doc2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

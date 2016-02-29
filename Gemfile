@@ -14,6 +14,16 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+group :development do
+  gem 'capistrano-rails'
+  gem 'capistrano-ssh-doctor'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'capistrano-passenger'
+  gem 'capistrano-postgresql'
+  gem 'capistrano-rails-console'
+end
+
 group :development, :test do  
   gem 'minitest'
   gem 'shoulda-matchers'
@@ -33,7 +43,7 @@ gem 'sprockets', '2.11.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 5.0' 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -63,6 +73,8 @@ gem "paperclip", "~> 4.3"
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'thin'
+
+gem 'rails4-autocomplete'
 
 # Use unicorn as the app server
 # gem 'unicorn'
