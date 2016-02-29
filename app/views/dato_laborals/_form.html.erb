@@ -56,6 +56,18 @@
           <%= f.text_field :fecha_apto_fisico, value: f.object.fecha_apto_fisico.try(:strftime, "%d/%m/%Y") %>    
       </div>
     </div>
+
+    <div class="col-xs-4"> 
+      <div class="field">
+        <%= f.label :fecha_examen_periodico %>
+      </div>
+      <div class="field">
+          <%= label_tag 'Si/No' %>
+          <%= check_box_tag 'sino_fecha_examen_periodico'%>
+          <%= f.text_field :fecha_examen_periodico, value: f.object.fecha_examen_periodico.try(:strftime, "%d/%m/%Y") %>    
+      </div>
+    </div>
+
   </div>
 
 <div class="row">

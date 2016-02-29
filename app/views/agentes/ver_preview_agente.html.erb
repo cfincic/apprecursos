@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-xs-4">
-    <div class="field">
+    <div class="col-md-8 col-md-8">
+    <div class="thumbnail">
       <%= image_tag @agente.foto.url(:medium) %>
+    </div>
     </div>
   </div>
   <div class="col-xs-6">
@@ -49,21 +51,25 @@
       <strong>Fecha de ingreso al TNC:</strong>
       <%= @agente.dato_laboral.situacion_revistas.first.fecha_alta.strftime("%d/%m/%Y")  unless @agente.dato_laboral.nil? %>
     </p>
-  </div>
-  <div class="col-xs-4">
- 
-    <p>
+        <p>
       <strong>Interno:</strong>
       <%= @agente.dato_laboral.interno unless @agente.dato_laboral.nil? %>
     </p>
+  </div>
+  <div class="col-xs-4">
     <p>
       <strong>Apto Físico:</strong>
       <%= @agente.dato_laboral.fecha_apto_fisico.strftime("%d/%m/%Y") unless @agente.dato_laboral.nil? %>
     </p>
 
     <p>
-      <strong>Antecedentes penales:</strong>
-      <%= @agente.dato_laboral.antecedentes_penales unless @agente.dato_laboral.nil? %>
+      <strong>Fecha antecedentes penales:</strong>
+      <%= @agente.dato_laboral.fecha_antecedentes_penales.strftime("%d/%m/%Y") unless @agente.dato_laboral.nil? %>
+    </p>
+
+   <p>
+      <strong>Fecha Exámen Periódico:</strong>
+      <%= @agente.dato_laboral.fecha_examen_periodico.strftime("%d/%m/%Y") unless @agente.dato_laboral.nil? %>
     </p>
 
     <p>

@@ -20,6 +20,7 @@ class DatoLaboral < ActiveRecord::Base
 
 	attr_accessor :sino_fecha_apto_fisico
 	attr_accessor :sino_fecha_curriculum
+	attr_accessor :sino_fecha_examen_periodico
 
 
 	def tiene_situacion_revistas

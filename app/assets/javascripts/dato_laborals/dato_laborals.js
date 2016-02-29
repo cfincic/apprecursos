@@ -3,6 +3,7 @@ var ready = function() {
 setear_control_fecha("dato_laboral_fecha_acto");
 setear_control_fecha("dato_laboral_fecha_ingreso");
 setear_control_fecha("dato_laboral_fecha_apto_fisico");
+setear_control_fecha("dato_laboral_fecha_examen_periodico");
 setear_control_fecha("dato_laboral_fecha_curriculum");
 setear_control_fecha("dato_laboral_fecha_antecedentes_penales");
 setear_control_fecha("dato_laboral_periodo_de_contratacion_attributes_fecha_desde");
