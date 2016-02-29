@@ -3,7 +3,6 @@ var ready = function() {
 
 
 $("#agente_nombre").on('railsAutocomplete.select', function(event, data){ 
-  alert(data.item.id);
   if(data.item.id != "")
    {traer_agente_buscado(data.item.id);}
   else
