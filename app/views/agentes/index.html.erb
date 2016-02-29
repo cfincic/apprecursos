@@ -9,11 +9,14 @@
 
         <div class="field">
           <%= autocomplete_field_tag 'agente_nombre', '', autocomplete_agente_nombre_agentes_path , :size => 75 %>
+          <%= link_to 'Quitar filtro', agentes_path, class: 'btn btn-default' %>
       </div>    
     </div>  
  </div>
-
- <%= render 'form_table_agentes' %>
+ <br>
+  <div id="tabla_agentes">   
+    <%= render 'form_table_agentes' %>
+  </div>
 
 <br>
 <a href="/" role="button" class="btn btn-lg btn-default">Inicio</a>

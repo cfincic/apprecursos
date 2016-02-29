@@ -15,6 +15,10 @@ class Agente < ActiveRecord::Base
 
 	validates_attachment :foto, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", 'application/pdf'] },
     :size => { :less_than => 1.megabyte }
+
+	def traer_nombre_apellido
+		"#{self.nombre} #{self.apellido}"
+	end
 end
 
 class TrueClass

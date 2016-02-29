@@ -1,16 +1,14 @@
-<table class='table'>
+<% if !@agentes.nil? && @agentes.length > 0 %>
+<table class="table">
   <thead>
     <tr>
-      
       <th>Apellido</th>
       <th>Nombre</th>
       <th>Cuit/Cuil</th>      
       <th>Legajo</th>
-      
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @agentes.each do |agente| %>
       <tr>
@@ -27,3 +25,4 @@
     <% end %>
   </tbody>
 </table>
+<% end %>

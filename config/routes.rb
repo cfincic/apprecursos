@@ -8,8 +8,6 @@ Apprecursos::Application.routes.draw do
 
   resources :sedes
 
-  resources :agentes
-
   resources :situacion_revistas
 
   resources :tipo_documentos  
@@ -17,12 +15,16 @@ Apprecursos::Application.routes.draw do
   resources :agentes do
     collection do
       get 'autocomplete_agente_nombre'  
+      get 'traer_lista_de_agentes'
     end
     get 'ver_preview_agente'
     get 'dar_de_baja'
     resources :dato_laborals do
     end
   end
+
+
+  #resources :agentes
 
   get '/dato_laborals/obtener_direccion_madre'
   get '/dato_laborals/obtener_datos_de_sede'
