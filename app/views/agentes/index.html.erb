@@ -2,13 +2,10 @@
 
 <div class="row">
   <div class="col-md-3">      
-      <h3> Buscar por nombre </h3>   
-      <div class="field">
-           <%= label_tag :nombre%><br>  
-        </div>   
+      <h3> Buscar por Apellido </h3>     
 
         <div class="field">
-          <%= autocomplete_field_tag 'agente_nombre', '', autocomplete_agente_nombre_agentes_path , :size => 75 %>
+          <%= autocomplete_field_tag 'agente_apellido', '', autocomplete_agente_apellido_agentes_path , :size => 75 %>
           <%= link_to 'Quitar filtro', agentes_path, class: 'btn btn-default' %>
       </div>    
     </div>  

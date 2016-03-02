@@ -2,7 +2,7 @@
 var ready = function() {
 
 
-$("#agente_nombre").on('railsAutocomplete.select', function(event, data){ 
+$("#agente_apellido").on('railsAutocomplete.select', function(event, data){ 
   if(data.item.id != "")
    {traer_agente_buscado(data.item.id);}
   else
@@ -22,7 +22,7 @@ $("#agente_nombre").on('railsAutocomplete.select', function(event, data){
             else
             { 
               $('#tabla_agentes').html(data); 
-              $("#agente_nombre").val("");
+              $("#agente_apellido").val("");
             }   
       },
       error: function (request, status, error) 

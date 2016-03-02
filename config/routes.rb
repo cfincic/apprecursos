@@ -14,7 +14,7 @@ Apprecursos::Application.routes.draw do
 
   resources :agentes do
     collection do
-      get 'autocomplete_agente_nombre'  
+      get 'autocomplete_agente_apellido'  
       get 'traer_lista_de_agentes'
     end
     get 'ver_preview_agente'

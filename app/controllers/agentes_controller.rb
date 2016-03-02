@@ -3,11 +3,11 @@ class AgentesController < ApplicationController
   before_action :set_agente, only: [:show, :edit, :update, :destroy]
 
  #autocomplete :agente, :nombre , :full => true, :extra_data => [:apellido], :display_value => :traer_nombre_apellido
-  def autocomplete_agente_nombre
+  def autocomplete_agente_apellido
       agente_activo = 1
     respond_to do |format|
-      @agentes = Agente.where("agentes.estado_agente_id = ? AND agentes.nombre ILIKE ?", agente_activo, "%#{params[:term]}%")
-      render :json => @agentes.map { |agente| {:id => agente.id, :value => agente.nombre + " "+ agente.apellido } }  
+      @agentes = Agente.where("agentes.estado_agente_id = ? AND agentes.apellido ILIKE ?", agente_activo, "%#{params[:term]}%")
+      render :json => @agentes.map { |agente| {:id => agente.id, :value => agente.apellido + " "+ agente.nombre } }  
       format.js { } 
     end
   end    
