@@ -75,6 +75,7 @@ gem "paperclip", "~> 4.3"
 gem 'thin'
 
 gem 'rails4-autocomplete'
+gem 'exception_notification'
 
 # Use unicorn as the app server
 # gem 'unicorn'
