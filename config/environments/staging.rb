@@ -92,7 +92,7 @@ Apprecursos::Application.configure do
   :email => {
     :email_prefix => "[TNC Suministro Excepciones] ",
     :sender_address => %{"TNC Suministro" <suministro_excepcion@teatrocervantes.gob.ar>},
-    :exception_recipients => %w{dtanel@gmail.com dtanel@teatrocervantes.gob.ar gsantacruz@teatrocervantes.gob.ar gonzalo.invernizzi@gmail.com},
+    :exception_recipients => %w{cfincic@gmail.com cfincic@teatrocervantes.gob.ar gsantacruz@teatrocervantes.gob.ar gonzalo.invernizzi@gmail.com},
     :smtp_settings => {
       address:              'mail.teatrocervantes.gob.ar',
       port:                  587,
