@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160125163710) do
     t.text     "interno"
     t.datetime "fecha_ingreso"
     t.datetime "fecha_acto"
+    t.string   "nro_acto"
     t.datetime "fecha_apto_fisico"
     t.datetime "fecha_examen_periodico"
     t.datetime "fecha_curriculum"
@@ -164,9 +165,7 @@ ActiveRecord::Schema.define(version: 20160125163710) do
     t.string   "apellido"
     t.date     "fecha_nac"
     t.integer  "tipo_doc1_id"
-    t.integer  "tipo_doc2_id"
     t.string   "num_doc1"
-    t.string   "num_doc2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
