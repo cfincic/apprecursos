@@ -138,6 +138,7 @@ class DatoLaboralsController < ApplicationController
       @agrupamientos = Agrupamiento.all
       @tramos = Tramo.all
       @areas = Area.all
+      @niveles_estudio = DatoLaboral::NIVELES.first(5)
     end
 
     

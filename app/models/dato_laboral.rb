@@ -18,6 +18,8 @@ class DatoLaboral < ActiveRecord::Base
 	validates :nivel, presence: true
 	validates :grado, presence: true
 
+	NIVELES = { :Primario => 1, :Secundario => 2 , :Terciario => 3, :Universitario => 4, :Posgrado => 5 }
+
 	attr_accessor :sino_fecha_apto_fisico
 	attr_accessor :sino_fecha_curriculum
 	attr_accessor :sino_fecha_examen_periodico

@@ -35,9 +35,6 @@
       <%= f.collection_select("acto_administrativo_id", ActoAdministrativo.all, "id", "descripcion", :include_blank => "Seleccione un acto...") %><br>
       </div>
     </div>
-  </div>
-
-  <div class="row">
 
     <div class="col-xs-4"> 
       <div class="field">
@@ -45,6 +42,11 @@
         <%= f.text_field :fecha_acto, value: f.object.fecha_acto.try(:strftime, "%d/%m/%Y")  %> 
       </div>
     </div>
+  </div>
+
+  <div class="row">
+
+
 
     <div class="col-xs-4"> 
       <div class="field">
@@ -71,15 +73,27 @@
   </div>
 
 <div class="row">
+<!--     <div class="col-xs-4">
+      <%= f.label :ultimo_nivel_estudio %><br>
+      <%= f.text_field :ultimo_nivel_estudio %>
+    </div> -->
+    
+    <div class="field">
+       <%= f.label :ultimo_nivel_estudio %><br> 
+       <%= collection_select(:dato_laboral, "ultimo_nivel_estudio", @niveles_estudio.first(5), :last, :first, :include_blank => "Seleccione nivel...") %>       
+    </div>
+
     <div class="col-xs-4">
       <%= f.label :presento_titulo %><br>
       <%= label_tag 'Si/No' %>
       <%= f.check_box :presento_titulo %>
     </div> 
+
     <div class="col-xs-4">
-      <%= f.label :ultimo_nivel_estudio %><br>
-      <%= f.text_field :ultimo_nivel_estudio %>
+        <%= f.label :titulo_obtenido %><br>
+        <%= f.text_field :antecedentes_penales %>
     </div>
+
 </div>
 
 <div class="row">
@@ -93,10 +107,7 @@
           <%= check_box_tag 'sino_fecha_antecedentes_penales'%>
           <%= f.text_field :fecha_antecedentes_penales, value: f.object.fecha_antecedentes_penales.try(:strftime, "%d/%m/%Y") %>    
       </div>
-      <div class="field">
-        <%= f.label :antecedentes_penales %><br>
-        <%= f.text_field :antecedentes_penales %>
-      </div> 
+ 
       <div class="field">
         <%= f.label :agrupamiento %><br>
         <%= f.collection_select("agrupamiento_id", Agrupamiento.all, "id", "descripcion", :include_blank => "Seleccione un agrupamiento...") %><br>
