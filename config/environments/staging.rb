@@ -90,8 +90,8 @@ Apprecursos::Application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
   :email => {
-    :email_prefix => "[TNC Suministro Excepciones] ",
-    :sender_address => %{"TNC Suministro" <recursos_excepcion@teatrocervantes.gob.ar>},
+    :email_prefix => "[TNC Recursos Excepciones] ",
+    :sender_address => %{"TNC Recursos" <recursos_excepcion@teatrocervantes.gob.ar>},
     :exception_recipients => %w{cfincic@teatrocervantes.gob.ar gsantacruz@teatrocervantes.gob.ar gonzalo.invernizzi@gmail.com},
     :smtp_settings => {
       address:              'mail.teatrocervantes.gob.ar',
