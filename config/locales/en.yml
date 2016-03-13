@@ -21,3 +21,21 @@
 
 en:
   hello: "Hello world"
+  scaffoldi18n:
+    edit: Editar
+    show: Mostrar
+    destroy: Eliminar
+    new: Alta
+    back: Atras
+    update: Actualizar
+    are_you_sure?: "¿Esta seguro?"
+  time:
+    formats:
+      default: ! '%d/%m/%Y %H:%M'
+      short: ! '%d/%m/%Y'
+      myformat: '%d/%m/%Y'
+  activerecord:
+    attributes:
+        user: Usuario
+        created_at: Fecha de creación
+        deleted_at: Fecha de baja

@@ -1,4 +1,5 @@
-<%= form_for([@agente, @dato_laboral]) do |f| %>
+<%= form_for([@agente, @dato_laboral], :html => {class: "form-inline", role: "form"}) do |f| %>
+  
   <% if @dato_laboral.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@dato_laboral.errors.count, "error") %> prohibited this dato_laboral from being saved:</h2>
@@ -19,185 +20,229 @@
     <div class="hide">
     <%= f.label :id %><br>
     <%= f.text_field :id %>
-  </div> 
+  </div>
 
-  <div class="row">
-    <div class="col-xs-4">
-      <div class="field">
-        <%= f.label :fecha_ingreso %><br>    
-        <%= f.text_field :fecha_ingreso, value: f.object.fecha_ingreso.try(:strftime, "%d/%m/%Y")  %>
-      </div>
-    </div>
+  <div class="container-fluid">
 
-    <div class="col-xs-4">
-      <div class="field">
-      <%= f.label :acto_administrativo %><br>
-      <%= f.collection_select("acto_administrativo_id", ActoAdministrativo.all, "id", "descripcion", :include_blank => "Seleccione un acto...") %><br>
-      </div>
-    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-xs-3">
+          <div class="field">
+            <%= f.label :fecha_ingreso %><br>    
+            <%= f.text_field :fecha_ingreso, value: I18n.l(f.object.fecha_ingreso, :format => :myformat)  %>
+          </div>
+        </div>
 
-    <div class="col-xs-4"> 
-      <div class="field">
-        <%= f.label :fecha_acto %><br>
-        <%= f.text_field :fecha_acto, value: f.object.fecha_acto.try(:strftime, "%d/%m/%Y")  %> 
-      </div>
+        <div class="col-xs-3">
+          <div class="field">
+          <%= f.label :acto_administrativo %><br>
+          <%= f.collection_select("acto_administrativo_id", ActoAdministrativo.all, "id", "descripcion", :include_blank => "Seleccione un acto...") %><br>
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div class="field">
+            <%= f.label 'Número de Acto' %><br>
+            <%= f.text_field :nro_acto %>
+          </div>
+        </div>
+
+        <div class="col-xs-3"> 
+          <div class="field">
+            <%= f.label :fecha_acto %><br>
+            <%= f.text_field :fecha_acto, value: I18n.l(f.object.fecha_acto, :format => :myformat)  %> 
+          </div>
+        </div>
     </div>
   </div>
 
   <div class="row">
+    <div class="panel panel-default">
+      <div class="form-group">
+        
+        <div class="col-xs-4"> 
+          <div class="field">
+            <%= f.label :fecha_apto_fisico %>
+          </div>
+          <div class="field">
+              <%= label_tag 'Si/No' %>
+              <%= check_box_tag 'sino_fecha_apto_fisico'%>
+              <%= f.text_field :fecha_apto_fisico, value: I18n.l(f.object.fecha_apto_fisico, :format => :myformat) %>    
+          </div>
+        </div>
 
+        <div class="col-xs-4"> 
+          <div class="field">
+            <%= f.label :fecha_examen_periodico %>
+          </div>
+          <div class="field">
+              <%= label_tag 'Si/No' %>
+              <%= check_box_tag 'sino_fecha_examen_periodico'%>
+              <%= f.text_field :fecha_examen_periodico, value: I18n.l(f.object.fecha_examen_periodico, :format => :myformat) %>    
+          </div>
+        </div>
 
+        <div class="col-xs-4">
+          <div class="field">
+          <%= f.label :fecha_antecedentes_penales %>
+          </div>
+          <div class="field">
+            <%= label_tag 'Si/No' %>
+            <%= check_box_tag 'sino_fecha_antecedentes_penales'%>
+            <%= f.text_field :fecha_antecedentes_penales, value: I18n.l(f.object.fecha_antecedentes_penales, :format => :myformat) %>    
+          </div>
+        </div>
 
-    <div class="col-xs-4"> 
-      <div class="field">
-        <%= f.label :fecha_apto_fisico %>
-      </div>
-      <div class="field">
-          <%= label_tag 'Si/No' %>
-          <%= check_box_tag 'sino_fecha_apto_fisico'%>
-          <%= f.text_field :fecha_apto_fisico, value: f.object.fecha_apto_fisico.try(:strftime, "%d/%m/%Y") %>    
       </div>
     </div>
-
-    <div class="col-xs-4"> 
-      <div class="field">
-        <%= f.label :fecha_examen_periodico %>
-      </div>
-      <div class="field">
-          <%= label_tag 'Si/No' %>
-          <%= check_box_tag 'sino_fecha_examen_periodico'%>
-          <%= f.text_field :fecha_examen_periodico, value: f.object.fecha_examen_periodico.try(:strftime, "%d/%m/%Y") %>    
-      </div>
-    </div>
-
   </div>
 
 <div class="row">
-<!--     <div class="col-xs-4">
-      <%= f.label :ultimo_nivel_estudio %><br>
-      <%= f.text_field :ultimo_nivel_estudio %>
-    </div> -->
-    
-    <div class="field">
-       <%= f.label :ultimo_nivel_estudio %><br> 
-       <%= collection_select(:dato_laboral, "ultimo_nivel_estudio", @niveles_estudio.first(5), :last, :first, :include_blank => "Seleccione nivel...") %>       
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-xs-3">
+         <%= f.label :ultimo_nivel_estudio %><br> 
+         <%= collection_select(:dato_laboral, "ultimo_nivel_estudio", @niveles_estudio.first(5), :last, :first, :include_blank => "Seleccione nivel...") %>       
+      </div>
+
+      <div class="col-xs-3">
+        <%= f.label :presento_titulo %><br>
+        <%= label_tag 'Si/No' %>
+        <%= f.check_box :presento_titulo %>
+      </div> 
+
+      <div class="col-xs-3">
+          <%= f.label 'Fecha de entrega' %><br>
+          <%= f.text_field :antecedentes_penales %>
+      </div>
+
+      <div class="col-xs-3">
+          <%= f.label :titulo_obtenido %><br>
+          <%= f.text_field :antecedentes_penales %>
+      </div>
     </div>
-
-    <div class="col-xs-4">
-      <%= f.label :presento_titulo %><br>
-      <%= label_tag 'Si/No' %>
-      <%= f.check_box :presento_titulo %>
-    </div> 
-
-    <div class="col-xs-4">
-        <%= f.label :titulo_obtenido %><br>
-        <%= f.text_field :antecedentes_penales %>
-    </div>
-
+  </div>
 </div>
 
 <div class="row">
-   <div class="col-xs-4">
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-xs-3">
+         <%= f.label :sede%><br /> 
+          <%= f.collection_select :sede_id, Sede.all, :id, :descripcion, {:include_blank => "Seleccione un nivel"} %>       
+      </div>
 
-      <div class="field">
-        <%= f.label :fecha_antecedentes_penales %>
+      <div class="col-xs-3">
+        <%= f.label :direccion_laboral %><br>
+        <%= f.text_field :direccion_laboral, :readonly => true  %>
+      </div> 
+
+      <div class="col-xs-3">
+        <%= f.label :telefono %><br>
+        <%= f.text_field :telefono , :readonly => true %>
       </div>
-      <div class="field">
-          <%= label_tag 'Si/No' %>
-          <%= check_box_tag 'sino_fecha_antecedentes_penales'%>
-          <%= f.text_field :fecha_antecedentes_penales, value: f.object.fecha_antecedentes_penales.try(:strftime, "%d/%m/%Y") %>    
+
+      <div class="col-xs-3">
+        <%= f.label :interno %><br>
+        <%= f.text_field :interno %>
       </div>
- 
-      <div class="field">
-        <%= f.label :agrupamiento %><br>
-        <%= f.collection_select("agrupamiento_id", Agrupamiento.all, "id", "descripcion", :include_blank => "Seleccione un agrupamiento...") %><br>
-      </div>  
-      <div class="field">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-xs-3">
+         <%= f.label :agrupamiento %><br>
+        <%= f.collection_select("agrupamiento_id", Agrupamiento.all, "id", "descripcion", :include_blank => "Seleccione un agrupamiento...") %><br>       
+      </div>
+
+      <div class="col-xs-3">
         <%= f.label :nivel %><br>
         <%= f.select :nivel, (("A".."D").map {|i| [i,i] }), { :include_blank => "Seleccione un nivel", :selected => f.object.nivel } %>
-      </div>
-      <div class="field">
+      </div> 
+
+      <div class="col-xs-3">
         <%= f.label :grado %><br>
         <%= f.select :grado, (("0".."10").map {|i| [i,i] }), { :include_blank => "Seleccione un grado", :selected => f.object.grado }  %>
       </div>
 
-      <div class="field">
-          <%= f.label :tramo%><br /> 
+      <div class="col-xs-3">
+        <%= f.label :tramo%><br /> 
           <%= f.collection_select :tramo_id, Tramo.all, :id, :descripcion, { :include_blank => "Seleccione el tramo" } %>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="field">
-        <%= f.label :area %><br>
-        <%= collection_select(:area, :area_id, @areas, :id, :descripcion, :include_blank => "Seleccione un area...", :selected => traer_area_id_por_nombre(f.object)) %><br>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-xs-3">
+         <%= f.label :area %><br>
+        <%= collection_select(:area, :area_id, @areas, :id, :descripcion, :include_blank => "Seleccione un area...", :selected => traer_area_id_por_nombre(f.object)) %><br>       
       </div>
 
       <div class="hide">
         <%= f.text_field :area %>
       </div>
 
-      <div class="field">
+      <div class="col-xs-3">
         <%= f.label "Dirección de la que depende" %><br>
         <%= f.text_field :depende_direccion, :readonly => true %>
-      </div>
-      <div class="field">
+      </div> 
+
+      <div class="col-xs-3">
         <%= f.label :jefe_directo %><br>
         <%= f.text_field :jefe_directo, :readonly => true %>
       </div>
 
-      <div class="field">
+      <div class="col-xs-3">
         <%= f.label :funcion %><br>
         <%= f.text_field :funcion %>
-      </div> 
+      </div>
+    </div>
+  </div>
+</div>
 
-      <div class="field">
+<div class="row">
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-xs-3">
         <%= f.label "Cantidad de personas a cargo" %><br>    
-        <%= f.select :cant_personas_acargo, ((0..20).map {|i| [i,i] }), { :include_blank => "Seleccione una cantidad", :selected => f.object.cant_personas_acargo } %>
-      </div>
-   </div>
-
-    <div class="col-xs-4">
-      <div class="field">
-          <%= f.label :sede%><br /> 
-          <%= f.collection_select :sede_id, Sede.all, :id, :descripcion, {:include_blank => "Seleccione un nivel"} %>
+        <%= f.select :cant_personas_acargo, ((0..20).map {|i| [i,i] }), { :include_blank => "Seleccione una cantidad", :selected => f.object.cant_personas_acargo } %>      
       </div>
 
-      <div class="field">
-        <%= f.label :direccion_laboral %><br>
-        <%= f.text_field :direccion_laboral, :readonly => true  %>
-      </div>
-
-      <div class="field">
-        <%= f.label :telefono %><br>
-        <%= f.text_field :telefono , :readonly => true %>
-      </div>
-      <div class="field">
-        <%= f.label :interno %><br>
-        <%= f.text_field :interno %>
-      </div>   
-
-      <div class="field">
+      <div class="col-xs-3">
         <%= f.label :sueldo_bruto %><br>
         <%= f.text_field :sueldo_bruto %>
-      </div>
-      <div class="field">
+      </div> 
+
+      <div class="col-xs-3">
         <%= f.label :sueldo_neto %><br>
         <%= f.text_field :sueldo_neto %>
       </div>
 
-      <div class="field">
+      <div class="col-xs-3">
+        <div class="field">
         <%= f.label :fecha_curriculum %>
-      </div>
-       <div class="field">
-          <%= label_tag 'Si/No' %>
-          <%= check_box_tag 'sino_fecha_curriculum'%>
-          <%= f.text_field :fecha_curriculum, value: f.object.fecha_curriculum.try(:strftime, "%d/%m/%Y") %>    
         </div>
-     </div>
+        <%= label_tag 'Si/No' %>
+          <%= check_box_tag 'sino_fecha_curriculum'%>
+          <%= f.text_field :fecha_curriculum, value: I18n.l(f.object.fecha_curriculum, :format => :myformat) %>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>       
 
   <h2>Situacion de revista</h2>
     <%= f.fields_for :situacion_revistas do |situacion| %>
     <div class="row">
+      <div class="panel panel-default">
+        <div class="form-group">
         <div class="col-md-4">
           <%= situacion.label :tipo_contratacion %><br>
           <%= situacion.collection_select("tipo_contratacion_id", TipoContratacion.all, "id", "descripcion", :include_blank => "Seleccione un tipo de contratación...") %><br>
@@ -211,9 +256,12 @@
           <%= situacion.label :_destroy, 'eliminar' %>
         </div>
      </div>
+    </div>
+  </div>
     <% end %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div> <!-- fin container -->
