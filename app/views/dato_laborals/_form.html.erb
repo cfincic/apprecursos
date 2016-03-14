@@ -29,7 +29,7 @@
         <div class="col-xs-3">
           <div class="field">
             <%= f.label :fecha_ingreso %><br>    
-            <%= f.date_field :fecha_ingreso, value: I18n.l(f.object.fecha_ingreso, :format => :myformat)  %>
+            <%= f.date_field :fecha_ingreso, value: I18n.l(f.object.fecha_ingreso, :format => :myformat)  unless f.object.fecha_ingreso.nil? %>
           </div>
         </div>
 
