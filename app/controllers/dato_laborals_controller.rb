@@ -152,8 +152,6 @@ class DatoLaboralsController < ApplicationController
         dato_laboral.sino_fecha_apto_fisico = true
       end
 
-      unless dato_laboral.fecha_examen_periodico.nil?
-        dato_laboral.sino_fecha_examen_periodico = true
-      end
+
     end
 end
