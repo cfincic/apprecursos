@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125163710) do
+ActiveRecord::Schema.define(version: 20160314214929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,9 +110,7 @@ ActiveRecord::Schema.define(version: 20160125163710) do
     t.text     "interno"
     t.datetime "fecha_ingreso"
     t.datetime "fecha_acto"
-    t.string   "nro_acto"
     t.datetime "fecha_apto_fisico"
-    t.datetime "fecha_examen_periodico"
     t.datetime "fecha_curriculum"
     t.datetime "fecha_antecedentes_penales"
     t.string   "nivel"
@@ -131,6 +129,11 @@ ActiveRecord::Schema.define(version: 20160125163710) do
     t.string   "ultimo_nivel_estudio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nro_acto"
+    t.datetime "fecha_examen_periodico"
+    t.datetime "fecha_entrega"
+    t.string   "hora_desde"
+    t.string   "hora_hasta"
   end
 
   add_index "dato_laborals", ["acto_administrativo_id"], name: "index_dato_laborals_on_acto_administrativo_id", using: :btree

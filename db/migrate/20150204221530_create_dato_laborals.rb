@@ -8,10 +8,8 @@ class CreateDatoLaborals < ActiveRecord::Migration
       t.references :tramo, index: true  
       t.integer :interno
       t.datetime :fecha_ingreso
-      t.datetime :fecha_acto
-      t.string :nro_acto      
-      t.datetime :fecha_apto_fisico
-      t.datetime :fecha_examen_periodico           
+      t.datetime :fecha_acto     
+      t.datetime :fecha_apto_fisico           
       t.datetime :fecha_curriculum  
       t.datetime :fecha_antecedentes_penales
       t.string :nivel

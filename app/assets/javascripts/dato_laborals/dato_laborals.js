@@ -25,6 +25,7 @@ setear_control_fecha("dato_laboral_periodo_de_contratacion_attributes_fecha_hast
 
   $('#dato_laboral_fecha_curriculum').prop('disabled', true);
   $('#dato_laboral_fecha_apto_fisico').prop('disabled', true);
+  $('#dato_laboral_fecha_examen_periodico').prop('disabled', true);
   $('#dato_laboral_fecha_antecedentes_penales').prop('disabled', true);
 
       
