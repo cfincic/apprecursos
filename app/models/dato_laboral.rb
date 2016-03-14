@@ -29,4 +29,5 @@ class DatoLaboral < ActiveRecord::Base
 	  errors.add(:base, 'Debe tener como minimo una situacion de revista') if self. situacion_revistas.blank?
 	end
 
+
 end

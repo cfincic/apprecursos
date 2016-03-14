@@ -1,6 +1,7 @@
 var ready = function() {
 
 setear_control_fecha("dato_laboral_fecha_acto");
+setear_control_fecha("dato_laboral_fecha_entrega");
 setear_control_fecha("dato_laboral_fecha_ingreso");
 setear_control_fecha("dato_laboral_fecha_apto_fisico");
 setear_control_fecha("dato_laboral_fecha_examen_periodico");

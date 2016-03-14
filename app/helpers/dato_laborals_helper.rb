@@ -15,4 +15,10 @@ module DatoLaboralsHelper
 			return @area_array[0].id
 		end
 	end
+
+	def obtener_fecha(fecha)
+		unless fecha.nil?	
+			I18n.l(fecha, :format => :myformat)
+		end
+	end
 end
