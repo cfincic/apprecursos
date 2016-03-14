@@ -29,7 +29,7 @@
         <div class="col-xs-3">
           <div class="field">
             <%= f.label :fecha_ingreso %><br>    
-            <%= f.text_field :fecha_ingreso, value: I18n.l(f.object.fecha_ingreso, :format => :myformat)  %>
+            <%= f.date_field :fecha_ingreso, value: I18n.l(f.object.fecha_ingreso, :format => :myformat)  %>
           </div>
         </div>
 
@@ -50,7 +50,7 @@
         <div class="col-xs-3"> 
           <div class="field">
             <%= f.label :fecha_acto %><br>
-            <%= f.text_field :fecha_acto, value: I18n.l(f.object.fecha_acto, :format => :myformat)  %> 
+            <%= f.date_field :fecha_acto, value: I18n.l(f.object.fecha_acto, :format => :myformat)  %> 
           </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
           <div class="field">
               <%= label_tag 'Si/No' %>
               <%= check_box_tag 'sino_fecha_apto_fisico'%>
-              <%= f.text_field :fecha_apto_fisico, value: I18n.l(f.object.fecha_apto_fisico, :format => :myformat) %>    
+              <%= f.date_field :fecha_apto_fisico, value: I18n.l(f.object.fecha_apto_fisico, :format => :myformat) %>    
           </div>
         </div>
 
@@ -78,7 +78,7 @@
           <div class="field">
               <%= label_tag 'Si/No' %>
               <%= check_box_tag 'sino_fecha_examen_periodico'%>
-              <%= f.text_field :fecha_examen_periodico, value: I18n.l(f.object.fecha_examen_periodico, :format => :myformat) %>    
+              <%= f.date_field :fecha_examen_periodico, value: I18n.l(f.object.fecha_examen_periodico, :format => :myformat) %>    
           </div>
         </div>
 
@@ -89,7 +89,7 @@
           <div class="field">
             <%= label_tag 'Si/No' %>
             <%= check_box_tag 'sino_fecha_antecedentes_penales'%>
-            <%= f.text_field :fecha_antecedentes_penales, value: I18n.l(f.object.fecha_antecedentes_penales, :format => :myformat) %>    
+            <%= f.date_field :fecha_antecedentes_penales, value: I18n.l(f.object.fecha_antecedentes_penales, :format => :myformat) %>    
           </div>
         </div>
 
@@ -230,7 +230,7 @@
         </div>
         <%= label_tag 'Si/No' %>
           <%= check_box_tag 'sino_fecha_curriculum'%>
-          <%= f.text_field :fecha_curriculum, value: I18n.l(f.object.fecha_curriculum, :format => :myformat) %>
+          <%= f.date_field :fecha_curriculum, value: I18n.l(f.object.fecha_curriculum, :format => :myformat) %>
       </div>
     </div>
   </div>
@@ -249,7 +249,7 @@
         </div>      
         <div class="col-md-4">
           <%= situacion.label :fecha_alta %><br>       
-          <%= situacion.text_field :fecha_alta , value: situacion.object.fecha_alta.try(:strftime, "%d/%m/%Y")  %>    
+          <%= situacion.date_field :fecha_alta , value: situacion.object.fecha_alta.try(:strftime, "%d/%m/%Y")  %>    
         </div>
         <div class="col-md-4">
           <%= situacion.check_box :_destroy %>        
