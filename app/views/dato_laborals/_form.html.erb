@@ -240,12 +240,12 @@
     <div class="form-group">
       <div class="col-xs-6">
         <%= f.label :hora_desde %><br>
-        <%= f.text_field :hora_desde %>      
+        <%= f.select :hora_desde, (0..23).map {|n| "%02d:00" % n}, { :include_blank => "seleccione hora", :selected => f.object.hora_desde } %>      
       </div>
 
       <div class="col-xs-6">
         <%= f.label :hora_hasta %><br>
-        <%= f.text_field :hora_hasta %>
+        <%= f.select :hora_hasta, (0..23).map {|n| "%02d:00" % n}, { :include_blank => "seleccione hora", :selected => f.object.hora_hasta } %>
       </div> 
     </div>
   </div>

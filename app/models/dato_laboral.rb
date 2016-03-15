@@ -16,7 +16,6 @@ class DatoLaboral < ActiveRecord::Base
 	validates :fecha_ingreso, presence: true
 	validates :acto_administrativo, presence: true
   	validates :fecha_acto, presence: true
-  	validates :fecha_apto_fisico, presence: true
 	validates :nivel, presence: true
 	validates :grado, presence: true
 	validates :ultimo_nivel_estudio, presence: true

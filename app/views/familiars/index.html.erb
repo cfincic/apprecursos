@@ -20,7 +20,7 @@
         <td><%= familiar.cuil %></td>
         <td><%= familiar.nombre %></td>
         <td><%= familiar.apellido %></td>
-        <td><%= familiar.fecha_nac %></td>
+        <td><%= obtener_fecha(familiar.fecha_nac) %></td>
         <td><%= familiar.lugar_nac %></td>
         <td><%= link_to 'Ver', agente_familiar_path(@agente, familiar) %></td>
         <td><%= link_to 'Editar', edit_agente_familiar_path(@agente, familiar) %></td>
