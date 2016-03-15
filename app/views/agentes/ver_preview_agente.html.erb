@@ -74,7 +74,7 @@
 
     <p>
       <strong>Situación de revista actual:</strong>
-      <%= @agente.dato_laboral.situacion_revistas.last.tipo_contratacion.descripcion unless @agente.dato_laboral.nil?%>
+      <%= @agente.dato_laboral.situacion_revistas.last.tipo_contratacion.descripcion unless @agente.dato_laboral.situacion_revistas.last.tipo_contratacion.descripcion.nil?%>
     </p>
 
     <p>
