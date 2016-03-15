@@ -20,7 +20,7 @@
 
     <p>
       <strong>Fecha de nacimiento:</strong>
-      <%= I18n.l(@agente.fecha_nac, :format => :myformat) %>
+      <%= obtener_fecha(@agente.fecha_nac) %>
     </p>
 
     <p>
@@ -40,7 +40,7 @@
 
     <p>
       <strong>Ulitmo nivel de estudio:</strong>
-      <%= @agente.dato_laboral.ultimo_nivel_estudio unless @agente.dato_laboral.nil? %>
+      <%= DatoLaboral::NIVELES.key(@agente.dato_laboral.ultimo_nivel_estudio.to_i) unless @agente.dato_laboral.nil? %>
     </p>
 
     <p>
@@ -49,7 +49,7 @@
     </p>
        <p>
       <strong>Fecha de ingreso al TNC:</strong>
-      <%= I18n.l(@agente.dato_laboral.situacion_revistas.first.fecha_alta, :format => :myformat)  unless @agente.dato_laboral.nil? %>
+      <%= obtener_fecha(@agente.dato_laboral.situacion_revistas.first.fecha_alta) %>
     </p>
         <p>
       <strong>Interno:</strong>
@@ -59,17 +59,17 @@
   <div class="col-xs-4">
     <p>
       <strong>Apto Físico:</strong>
-      <%= I18n.l(@agente.dato_laboral.fecha_apto_fisico, :format => :myformat) unless @agente.dato_laboral.nil? %>
+      <%= obtener_fecha(@agente.dato_laboral.fecha_apto_fisico) %>
     </p>
 
     <p>
       <strong>Fecha antecedentes penales:</strong>
-      <%= I18n.l(@agente.dato_laboral.fecha_antecedentes_penales, :format => :myformat) unless @agente.dato_laboral.nil? %>
+      <%= obtener_fecha(@agente.dato_laboral.fecha_antecedentes_penales) %>
     </p>
 
    <p>
       <strong>Fecha Exámen Periódico:</strong>
-      <%= I18n.l(@agente.dato_laboral.fecha_examen_periodico, :format => :myformat) unless @agente.dato_laboral.nil? %>
+      <%= obtener_fecha(@agente.dato_laboral.fecha_examen_periodico) %>
     </p>
 
     <p>
