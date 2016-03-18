@@ -44,7 +44,7 @@ class AgentesController < ApplicationController
 
     respond_to do |format|
       if@agente.save
-        format.html { redirect_to @agente, notice: 'El agente fué creado exitosamente.' }
+        format.html { redirect_to new_agente_dato_laboral_path(@agente), notice: 'El agente fué creado exitosamente.' }
         format.json { render :show, status: :created, locatin: @agente }
       else
         cargar_datos_estaticos
