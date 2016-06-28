@@ -1,6 +1,9 @@
 //USE ESTA
 var ready = function() {
 
+$('#agente_cuil').inputmask('99-99999999-9', { clearMaskOnLostFocus: true, placeholder: ' ' });
+$('#agente_num_legajo').inputmask('9999', { clearMaskOnLostFocus: true, placeholder: ' ' });
+$('#agente_numero_doc').inputmask('99.999.999', { clearMaskOnLostFocus: true, placeholder: ' ' });
 
 $("#agente_apellido").on('railsAutocomplete.select', function(event, data){ 
   if(data.item.id != "")

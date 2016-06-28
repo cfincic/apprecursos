@@ -11,13 +11,20 @@
 // about supported directives.
 //
 
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions
 //= require autocomplete-rails
 //= require bootstrap
 //= require bootstrap.js
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree 
+
+
 

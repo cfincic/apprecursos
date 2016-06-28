@@ -11,48 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cuil %><br>
-    <%= f.text_field :cuil %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido %><br>
-    <%= f.text_field :apellido %>
-  </div>
-    <div class="field">
-    <%= f.label :num_legajo %><br>
-    <%= f.text_field :num_legajo %>
-  </div>
-  <div class="field">
-    <%= f.label :TipoDocumento %><br>
-    <%= f.collection_select("tipo_documento_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
-  </div>
-  <div class="field">
-    <%= f.label :numero_doc %><br>
-    <%= f.text_field :numero_doc %>
+<div class="container">
+
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="form-group">
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.label "CUIL" %><br>
+            <%= f.text_field :cuil %>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.label :nombre %><br>
+            <%= f.text_field :nombre %>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.label :apellido %><br>
+            <%= f.text_field :apellido %>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.label "Número de Legajo" %><br>
+            <%= f.text_field :num_legajo %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">    
-    <%= f.label :fecha_nac %><br />
-    <%= f.text_field :fecha_nac , { :value => DateTime.now.strftime("%d/%m/%Y")} %> 
-  </div> 
+<div class="row">
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-md-3">
+        <div class="field">
+          <%= f.label "Tipo de Documento" %><br>
+          <%= f.collection_select("tipo_documento_id", @tipo_documentos, "id", "tipo", :include_blank => "Seleccione un documento...") %><br>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field">
+          <%= f.label "Número de Documento" %><br>
+          <%= f.text_field :numero_doc %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field">    
+          <%= f.label "Fecha de Nacimiento" %><br />
+          <%= f.text_field :fecha_nac , { :value => DateTime.now.strftime("%d/%m/%Y")} %> 
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :lugar_nac %><br>
-    <%= f.text_field :lugar_nac %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nacionalidad %><br>
-    <%= f.text_field :nacionalidad %>
+</div>    
+
+<div class="row">
+  <div class="panel panel-default">
+    <div class="form-group">
+      <div class="col-md-3">
+        <div class="field">
+          <%= f.label "Lugar de Nacimiento" %><br>
+          <%= f.text_field :lugar_nac %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field">
+          <%= f.label :nacionalidad %><br>
+          <%= f.text_field :nacionalidad %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="field">
+          <%= f.label :estado_civil %><br>
+          <%= f.text_field :estado_civil %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :estado_civil %><br>
-    <%= f.text_field :estado_civil %>
-  </div>
+</div>
+
+
+
   <div class="field">
     <%= f.label :es_discapacitado, 'Es discapacitado' %><br>
     <%= label_tag 'Si/No' %>
@@ -107,8 +151,12 @@
     <%= f.text_field :cod_postal %>
   </div>
 
+</div><!-- container-->
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
