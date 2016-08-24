@@ -1,0 +1,22 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+alfonso:
+  cuil: 20285524236
+  nombre: Alfonso
+  apellido: Prat Gay
+  num_legajo: 25545255
+  tipo_documento: dni
+  localidad: moron
+  provincia: chaco
+  estado_agente: activo
+  numero_doc: 2154556989
+  #fecha_nac: 2016-08-17
+  direccion: av rivadavia 5666
+  cod_postal: 1432
+  es_discapacitado: false
+  # expira_certificado: no

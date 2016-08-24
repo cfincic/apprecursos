@@ -12,6 +12,7 @@ class Agente < ActiveRecord::Base
 	validates :localidad, presence: true
 	validates :nombre, presence: true
 	validates :tipo_documento, presence: true
+  validates :estado_agente, presence: true
 
 	validates_attachment :foto, :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", 'application/pdf'] },
     :size => { :less_than => 1.megabyte }
