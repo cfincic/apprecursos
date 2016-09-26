@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
+gem 'browser_details'
 
 group :development do
   gem 'capistrano-rails'
@@ -26,8 +27,6 @@ end
 
 group :development, :test do  
   gem 'minitest'
-  gem 'shoulda-matchers'
-  gem 'rspec-rails', '2.13.1'
 end
 
 group :test do
@@ -35,6 +34,7 @@ group :test do
   gem 'capybara', '2.1.0'
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
+  gem 'minitest-line'
 end
 
 gem 'bootstrap-sass', '3.2.0.0'

@@ -1,2 +1,5 @@
 activo:
   descripcion: Activo
+
+inactivo:
+  descripcion: Inactivo

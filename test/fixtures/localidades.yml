@@ -1,4 +1,9 @@
-moron:
+CABA:
   codigo: 60004
-  detalle: Moron
+  detalle: CABA
   provincia: chaco
+
+Tigre:
+  codigo: 60005
+  detalle: TIGRE
+  provincia: buenos aires

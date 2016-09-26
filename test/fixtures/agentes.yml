@@ -6,12 +6,12 @@
 # below each fixture, per the syntax in the comments below
 #
 alfonso:
-  cuil: 20285524236
+  cuil: 20284635486
   nombre: Alfonso
   apellido: Prat Gay
   num_legajo: 25545255
   tipo_documento: dni
-  localidad: moron
+  localidad: CABA
   provincia: chaco
   estado_agente: activo
   numero_doc: 2154556989

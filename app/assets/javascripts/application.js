@@ -24,6 +24,7 @@
 //= require bootstrap.js
 //= require bootstrap-datepicker
 //= require turbolinks
+//= require browser_details
 //= require_tree 
 
 

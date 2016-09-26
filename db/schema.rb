@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314214929) do
+ActiveRecord::Schema.define(version: 20160908171851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160314214929) do
     t.integer  "provincia_id"
     t.integer  "estado_agente_id"
     t.string   "numero_doc"
-    t.datetime "fecha_nac"
+    t.date     "fecha_nac"
     t.datetime "fecha_antecedentes_penales"
     t.string   "lugar_nac"
     t.string   "nacionalidad"
@@ -42,10 +42,9 @@ ActiveRecord::Schema.define(version: 20160314214929) do
     t.string   "email"
     t.string   "direccion"
     t.string   "cod_postal"
-    t.string   "provincia"
     t.string   "email2"
     t.boolean  "es_discapacitado"
-    t.datetime "expira_certificado"
+    t.date     "expira_certificado"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "foto_file_name"
