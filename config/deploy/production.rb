@@ -7,7 +7,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
+set :stage, :production
+server '192.168.2.25', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 # role-based syntax
 # ==================
@@ -21,7 +22,9 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
+role :app, %w{deploy@192.168.2.25}
+role :web, %w{deploy@192.168.2.25}
+role :db,  %w{deploy@192.168.2.25}
 
 # Configuration
 # =============
@@ -31,7 +34,7 @@
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-
+set :deploy_to, '/home/deploy/apprecursos'
 
 # Custom SSH Options
 # ==================

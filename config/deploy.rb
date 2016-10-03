@@ -1,3 +1,5 @@
+require 'capistrano-db-tasks'
+
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -6,6 +8,7 @@ set :repo_url, 'git@github.com:cfincic/apprecursos.git'
 set :user, 'deploy'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.2'
+
 
 set :whenever_roles, ->{ [:web, :app]}
 set :whenever_environment, fetch(:stage) # This fetches the appropriate environment
