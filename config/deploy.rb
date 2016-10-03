@@ -7,6 +7,11 @@ set :user, 'deploy'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.2'
 
+set :whenever_roles, ->{ [:web, :app]}
+set :whenever_environment, fetch(:stage) # This fetches the appropriate environment
+set :whenever_identifier, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
+
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -49,3 +54,9 @@ namespace :deploy do
   end
 
 end
+
+# if you want to remove the local dump file after loading
+set :db_local_clean, true
+
+# if you want to remove the dump file from the server after downloading
+set :db_remote_clean, true

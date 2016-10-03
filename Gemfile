@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'browser_details'
 
+gem "capistrano-db-tasks", require: false
+
 group :development do
   gem 'capistrano-rails'
   gem 'capistrano-ssh-doctor'
