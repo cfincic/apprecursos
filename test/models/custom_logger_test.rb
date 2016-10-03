@@ -3,7 +3,7 @@ require "test_helper"
 class CustomLoggerTest < ActiveSupport::TestCase
 
   def setup
-    @ruta_log = Rails.root.join("log/importacion.log")
+    @ruta_log = Rails.root.join("log/importacion_prueba.log")
     File.delete(@ruta_log) if File.exist?(@ruta_log)
     @custom_logger = CustomLogger.new(@ruta_log)
   end

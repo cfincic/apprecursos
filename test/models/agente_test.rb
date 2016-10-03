@@ -22,7 +22,7 @@ describe Agente do
 
     test 'debe ser único' do
       agente2 = agente.dup
-      agente2.cuil = '20284635486'
+      agente2.cuil = '20141662148'
       agente2.save
       agente2.wont_be :valid?
       agente2.errors.full_messages.first.must_equal('Num legajo ya ha sido tomado')

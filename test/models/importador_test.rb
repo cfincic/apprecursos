@@ -5,7 +5,7 @@ class ImportadorTest < ActiveSupport::TestCase
   def setup
     @registros ||= ['gonza', 'chama']
     @proc ||= lambda { |c, r| "#{r}!" }
-    @ruta_log = Rails.root.join("log/importacion.log")
+    @ruta_log = Rails.root.join("log/importacion_prueba.log")
     @importador ||= Importador.new(@ruta_log)
     @clase ||= Object.new
   end

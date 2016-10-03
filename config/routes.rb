@@ -28,7 +28,9 @@ Apprecursos::Application.routes.draw do
 
   get '/dato_laborals/obtener_direccion_madre'
   get '/dato_laborals/obtener_datos_de_sede'
-
+  get '/agentes_csv' => 'agentes_csv#index'
+  post '/agentes_csv' => 'agentes_csv#create', as: :agentes_csv_create
+  get '/agentes_csv/show' => 'agentes_csv#show', as: :agentes_csv_show
 
   resources :agentes do
     resources :contactos
