@@ -17,7 +17,8 @@ class ImportadorAgenteCsvTest < ActiveSupport::TestCase
   end
 
   test 'debe importar un agente' do
-    @importador_agente = ImportadorAgenteCsv.new(@file_csv, @ruta_log)
+    file_csv = Rails.root.join("config/agente_prueba_punto_y_coma.csv")
+    @importador_agente = ImportadorAgenteCsv.new(file_csv, @ruta_log)
     Agente.where(apellido: 'ALAMO').first.must_be_nil
     @importador_agente.importar
     Agente.where(apellido: 'ALAMO').first.wont_be_nil

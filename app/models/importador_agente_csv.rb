@@ -9,7 +9,7 @@ class ImportadorAgenteCsv
 
   def importar
     proc = lambda { |c, r| AgenteMapper.new.mappear(c, r) }
-    csv = ParserCsv.new.parsear(@file_csv)
+    csv = ParserCsv.new.parsear(@file_csv, ';')
     importador = Importador.new(@ruta_log)
     importador.importar(Agente.new, csv, proc)
   end

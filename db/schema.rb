@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908171851) do
+ActiveRecord::Schema.define(version: 20161004193106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "acto_administrativos", force: true do |t|
     t.text     "descripcion"

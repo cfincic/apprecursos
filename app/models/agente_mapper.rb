@@ -8,7 +8,7 @@ class AgenteMapper < AbstractMapper
     agente.apellido = reg[:apellido]
     agente.tipo_documento = obtener_tipo_de_documento(reg[:tipo_documento])
     agente.provincia = obtener_provincia(reg[:provincia])
-    agente.localidad = obtener_localidad(reg[:localidad])
+    agente.localidad = obtener_localidad(reg[:localidad], agente.provincia)
     agente.estado_agente = obtener_estado_agente(reg[:estado_agente])
     agente.numero_doc = reg[:numero_doc]
     agente.fecha_nac = obtener_fecha_nac(reg[:fecha_nac])
@@ -41,12 +41,10 @@ class AgenteMapper < AbstractMapper
     obtener_datos_precargados(etiqueta, klass, field, msg_err_nulo, msg_error_inexistente)
   end
 
-  def obtener_localidad(etiqueta)
+  def obtener_localidad(etiqueta, provincia)
     msg_err_nulo = 'La localidad no puede ser nula'
     msg_error_inexistente = 'La localidad no existe'
-    klass = Localidad
-    field = 'detalle'
-    obtener_datos_precargados(etiqueta, klass, field, msg_err_nulo, msg_error_inexistente)
+    obtener_datos_precargados_de_localidad(etiqueta, provincia, msg_err_nulo, msg_error_inexistente)
   end
 
   def obtener_provincia(etiqueta)
@@ -74,9 +72,31 @@ class AgenteMapper < AbstractMapper
     Date.strptime(fecha, '%d/%m/%y') unless fecha.blank?
   end
 
-  def obtener_datos_precargados(etiqueta, klass, field, msg_err_nulo, msg_error_inexistente)
-    raise ActiveRecord::RecordNotFound, msg_error_inexistente if etiqueta.blank?
-    r = klass.where("lower(#{field}) = ?", etiqueta.downcase).first
-    r ? r : raise(ActiveRecord::RecordNotFound, msg_error_inexistente)
+  def obtener_datos_precargados_de_localidad(etiqueta, provincia, msg_err_nulo, msg_error_inexistente)
+    raise ActiveRecord::RecordNotFound, msg_err_nulo if etiqueta.blank?
+    resultado = provincia.localidades.where("unaccent(detalle) ILIKE ?", "%#{etiqueta}%")
+    raise(ActiveRecord::RecordNotFound, msg_error_inexistente) if resultado.blank?
+    evaluar_cantidad_de_resultados(resultado, 'Localidad', 'detalle')
+    resultado.first
   end
+
+  def obtener_datos_precargados(etiqueta, klass, field, msg_err_nulo, msg_error_inexistente)
+    raise ActiveRecord::RecordNotFound, msg_err_nulo if etiqueta.blank?
+    resultado = klass.where("unaccent(#{field}) ILIKE ?", "%#{etiqueta}%")
+    raise(ActiveRecord::RecordNotFound, msg_error_inexistente) if resultado.blank?
+    evaluar_cantidad_de_resultados(resultado, klass, field)
+    resultado.first
+  end
+
+  def evaluar_cantidad_de_resultados(resultado, klass, field)
+    if resultado.count > 1
+      msg = "Existen más de dos resultados coincidentes para la entidad #{klass} con los resultados: "
+      resultado.each { |e|
+        msg << e.send(field)
+        msg << ', ' unless e == resultado.last
+      }
+      raise ActiveRecord::RecordNotFound, msg
+    end
+  end
+
 end

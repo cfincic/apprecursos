@@ -9,9 +9,7 @@ class AgentesCsvController < ApplicationController
   end
 
   def create
-    @importador = Importador.new(obtener_config_agente_csv)
-    puts '###################'
-    puts @importador.inspect
+	ImportadorAgenteCsv.new(obtener_config_agente_csv, ruta_log).importar
     redirect_to agentes_csv_show_path
   end
 

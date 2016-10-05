@@ -94,6 +94,27 @@ class AgenteMapperTest < ActiveSupport::TestCase
     agente.localidad.detalle.must_equal('CABA')
   end
 
+  test 'asignacion de localidad con acento' do
+    @registro[:localidad] = 'moron'
+    agente = @agente_mapper.mappear(@agente_vacio, @registro)
+    agente.localidad.detalle.must_equal('Morón')
+  end
+
+  test 'asignacion de una localidad en distintas provincias' do
+    @registro[:provincia] = 'Salta'
+    @registro[:localidad] = 'conesa'
+    agente = @agente_mapper.mappear(@agente_vacio, @registro)
+    agente.localidad.detalle.must_equal('Conesa')
+    agente.localidad.provincia.detalle.must_equal('Salta')
+  end
+
+  test 'asignacion de localidad con mas de un nombre similares' do
+    @registro[:provincia] = 'BUENOS AIRES'
+    @registro[:localidad] = 'laferrere'
+    e = proc { @agente_mapper.mappear(@agente_vacio, @registro) }.must_raise ActiveRecord::RecordNotFound
+    e.message.must_equal('Existen más de dos resultados coincidentes para la entidad Localidad con los resultados: Gregorio de Laferrere, Jose Laferrere')
+  end
+
   test 'asignacion de localidad no existente' do
     @registro[:localidad] = 'fruta'
     e = proc { @agente_mapper.mappear(@agente_vacio, @registro) }.must_raise ActiveRecord::RecordNotFound
@@ -121,6 +142,13 @@ class AgenteMapperTest < ActiveSupport::TestCase
     @registro[:provincia] = 'CHACO'
     agente = @agente_mapper.mappear(@agente_vacio, @registro)
     agente.provincia.detalle.must_equal('Chaco')
+  end
+
+  test 'asignacion de provincia con acento' do
+    @registro[:provincia] = 'Tucuman'
+    @registro[:localidad] = 'algo de tucuman'
+    agente = @agente_mapper.mappear(@agente_vacio, @registro)
+    agente.provincia.detalle.must_equal('Tucumán')
   end
 
   test 'asignacion de provincia no existente' do

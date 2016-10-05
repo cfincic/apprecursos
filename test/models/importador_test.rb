@@ -66,7 +66,7 @@ class ImportadorTest < ActiveSupport::TestCase
 
   test 'Se loguea la excepcion cuando se mapea' do
     travel_to Time.new(2004, 11, 24, 01, 04, 44) do
-      msg_ex = 'Excepción con un registro'
+      msg_ex = 'Excepción con un registro erroneo'
       @proc = lambda { |c, r| raise ArgumentError, msg_ex }
       msg = mensaje_logueado_con_errores(msg_ex,0,2)
       importar

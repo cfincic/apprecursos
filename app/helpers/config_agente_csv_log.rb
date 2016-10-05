@@ -14,7 +14,7 @@ module ConfigAgenteCsvLog
   end
 
   def log_html(log)
-    log.to_s.gsub(/\n/, '<br/>').html_safe
+    log.to_s.gsub(/\n/, '<br/>')
   end
 
 end

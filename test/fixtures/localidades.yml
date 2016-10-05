@@ -6,4 +6,35 @@ CABA:
 Tigre:
   codigo: 60005
   detalle: TIGRE
-  provincia: buenos aires
+  provincia: buenosaires
+
+Laferrere:
+  codigo: 60006
+  detalle: Gregorio de Laferrere
+  provincia: buenosaires
+
+JoseLaferrere:
+  codigo: 60006
+  detalle: Jose Laferrere
+  provincia: buenosaires
+
+Moron:
+  codigo: 60007
+  detalle: Morón
+  provincia: chaco
+
+Conesa1:
+  codigo: 60008
+  detalle: Conesa
+  provincia: buenosaires
+
+Conesa2:
+  codigo: 60009
+  detalle: Conesa
+  provincia: salta
+
+Tucuman:
+  codigo: 60010
+  detalle: algo de tucuman
+  provincia: tucuman
+
