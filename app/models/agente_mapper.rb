@@ -74,28 +74,31 @@ class AgenteMapper < AbstractMapper
 
   def obtener_datos_precargados_de_localidad(etiqueta, provincia, msg_err_nulo, msg_error_inexistente)
     raise ActiveRecord::RecordNotFound, msg_err_nulo if etiqueta.blank?
-    resultado = provincia.localidades.where("unaccent(detalle) ILIKE ?", "%#{etiqueta}%")
+    resultado = provincia.localidades.where("unaccent(detalle) ILIKE ?", ActiveSupport::Inflector.transliterate("%#{etiqueta}%"))
     raise(ActiveRecord::RecordNotFound, msg_error_inexistente) if resultado.blank?
-    evaluar_cantidad_de_resultados(resultado, 'Localidad', 'detalle')
+    evaluar_cantidad_de_resultados(etiqueta, resultado, 'Localidad', 'detalle')
     resultado.first
   end
 
   def obtener_datos_precargados(etiqueta, klass, field, msg_err_nulo, msg_error_inexistente)
     raise ActiveRecord::RecordNotFound, msg_err_nulo if etiqueta.blank?
-    resultado = klass.where("unaccent(#{field}) ILIKE ?", "%#{etiqueta}%")
+    resultado = klass.where("unaccent(#{field}) ILIKE ?", ActiveSupport::Inflector.transliterate("%#{etiqueta}%"))
     raise(ActiveRecord::RecordNotFound, msg_error_inexistente) if resultado.blank?
-    evaluar_cantidad_de_resultados(resultado, klass, field)
+    evaluar_cantidad_de_resultados(etiqueta, resultado, klass, field)
     resultado.first
   end
 
-  def evaluar_cantidad_de_resultados(resultado, klass, field)
+  def evaluar_cantidad_de_resultados(etiqueta, resultado, klass, field)
     if resultado.count > 1
-      msg = "Existen más de dos resultados coincidentes para la entidad #{klass} con los resultados: "
-      resultado.each { |e|
-        msg << e.send(field)
-        msg << ', ' unless e == resultado.last
-      }
-      raise ActiveRecord::RecordNotFound, msg
+      segunda_busqueda = resultado.where("unaccent(#{field}) ILIKE ?", ActiveSupport::Inflector.transliterate("#{etiqueta}"))
+      if segunda_busqueda.blank?
+        msg = "Existen más de dos resultados coincidentes para la entidad #{klass} con los resultados: "
+        resultado.each { |e|
+          msg << e.send(field)
+          msg << ', ' unless e == resultado.last
+        }
+        raise ActiveRecord::RecordNotFound, msg
+      end
     end
   end
 

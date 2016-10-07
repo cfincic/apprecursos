@@ -38,3 +38,12 @@ Tucuman:
   detalle: algo de tucuman
   provincia: tucuman
 
+laplata1:
+  codigo: 60011
+  detalle: La plata
+  provincia: buenosaires
+
+laplata2:
+  codigo: 60012
+  detalle: Coronel La plata
+  provincia: buenosaires
