@@ -74,12 +74,12 @@ class ImportadorTest < ActiveSupport::TestCase
     end
   end
 
-  test 'Verificar que la clase llame al save!' do
-    @registros = ['gonza']
-    @clase = MiniTest::Mock.new.expect(:save!, true)
-    importar
-    @clase.verify
-  end
+  # test 'Verificar que la clase llame al save!' do
+  #   @registros = ['gonza']
+  #   @clase = MiniTest::Mock.new.expect(:save!, true)
+  #   importar
+  #   @clase.verify
+  # end
 
   test 'Verificar que el proc llame al call' do
     @registros = ['gonza']

@@ -12,17 +12,21 @@ class Importador
     reg = nil
     registros_exitosos = 0
     registros_erroneos = 0
-    registros.map { |r|
-      begin
-        reg = r
-        proc.call(clase, r)
-        clase.save!
-        registros_exitosos += 1
-      rescue => e
-        log_registros(e, reg)
-        registros_erroneos += 1
-      end
-    }
+    ActiveRecord::Base.transaction do
+      registros.map { |r|
+        begin
+          reg = r
+          c = clase.clone
+          proc.call(c, r)
+          c.save!
+          registros_exitosos += 1
+        rescue => e
+          log_registros(e, reg)
+          registros_erroneos += 1
+          #raise ActiveRecord::Rollback
+        end
+      }
+    end
     @custom_logger.loggear(@format_logger.formatear_resumen(clase.class.to_s, registros.count, registros_exitosos, registros_erroneos))
   rescue => e
     log_registros(e, reg)

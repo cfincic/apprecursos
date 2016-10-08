@@ -3,7 +3,7 @@ require "test_helper"
 class ImportadorAgenteCsvTest < ActiveSupport::TestCase
 
   def setup
-    @file_csv = Rails.root.join("config/agente_prueba.csv")
+    @file_csv = Rails.root.join("config/agente_prueba_punto_y_coma.csv")
     @ruta_log = Rails.root.join("log/importacion_prueba.log")
   end
 
@@ -17,11 +17,18 @@ class ImportadorAgenteCsvTest < ActiveSupport::TestCase
   end
 
   test 'debe importar un agente' do
-    file_csv = Rails.root.join("config/agente_prueba_punto_y_coma.csv")
-    @importador_agente = ImportadorAgenteCsv.new(file_csv, @ruta_log)
+    Agente.all.map { |a| a.destroy! }
+    Agente.all.count.must_equal(0)
     Agente.where(apellido: 'ALAMO').first.must_be_nil
-    @importador_agente.importar
+    ImportadorAgenteCsv.new(@file_csv, @ruta_log).importar
     Agente.where(apellido: 'ALAMO').first.wont_be_nil
+  end
+
+  test 'debe importar tres agentes' do
+    Agente.all.map { |a| a.destroy! }
+    Agente.all.count.must_equal(0)
+    ImportadorAgenteCsv.new(@file_csv, @ruta_log).importar
+    Agente.all.count.must_equal(3)
   end
 
   test 'debe asignar el archivo csv a importar por parametro' do
