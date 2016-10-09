@@ -16,18 +16,21 @@ class Importador
       registros.map { |r|
         begin
           reg = r
-          c = clase.clone
+          c = clase.new
           proc.call(c, r)
           c.save!
           registros_exitosos += 1
         rescue => e
           log_registros(e, reg)
           registros_erroneos += 1
-          #raise ActiveRecord::Rollback
         end
       }
+      @custom_logger.loggear(@format_logger.formatear_resumen(clase.class.to_s, registros.count, registros_exitosos, registros_erroneos))
+      if registros_erroneos > 0
+        @custom_logger.loggear("No se ha importado ningún registro")
+        raise ActiveRecord::Rollback
+      end
     end
-    @custom_logger.loggear(@format_logger.formatear_resumen(clase.class.to_s, registros.count, registros_exitosos, registros_erroneos))
   rescue => e
     log_registros(e, reg)
   end

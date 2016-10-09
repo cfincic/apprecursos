@@ -19,9 +19,9 @@ class ImportadorAgenteCsvTest < ActiveSupport::TestCase
   test 'debe importar un agente' do
     Agente.all.map { |a| a.destroy! }
     Agente.all.count.must_equal(0)
-    Agente.where(apellido: 'ALAMO').first.must_be_nil
+    Agente.find_by(apellido: 'ALAMO').must_be_nil
     ImportadorAgenteCsv.new(@file_csv, @ruta_log).importar
-    Agente.where(apellido: 'ALAMO').first.wont_be_nil
+    Agente.find_by(apellido: 'ALAMO').wont_be_nil
   end
 
   test 'debe importar tres agentes' do
@@ -29,6 +29,27 @@ class ImportadorAgenteCsvTest < ActiveSupport::TestCase
     Agente.all.count.must_equal(0)
     ImportadorAgenteCsv.new(@file_csv, @ruta_log).importar
     Agente.all.count.must_equal(3)
+    ['ALAMO', 'ARCAS', 'AURIO'].each { |a|
+      Agente.find_by(apellido: a).wont_be_nil
+    }
+  end
+
+  test 'debe importar tres agentes y sus datos relacionados' do
+    Agente.all.map { |a| a.destroy! }
+    Agente.all.count.must_equal(0)
+    ImportadorAgenteCsv.new(@file_csv, @ruta_log).importar
+    Agente.all.count.must_equal(3)
+    ['ALAMO', 'ARCAS', 'AURIO'].each { |a|
+      Agente.find_by(apellido: a).provincia.wont_be_nil
+    }
+  end
+
+  test 'debe dejar los agentes sin importar' do
+    file_csv = Rails.root.join("config/agente_prueba_punto_y_coma_con_errores.csv")
+    Agente.all.map { |a| a.destroy! }
+    Agente.all.count.must_equal(0)
+    ImportadorAgenteCsv.new(file_csv, @ruta_log).importar
+    Agente.all.count.must_equal(0)
   end
 
   test 'debe asignar el archivo csv a importar por parametro' do

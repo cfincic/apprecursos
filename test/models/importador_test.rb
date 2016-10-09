@@ -7,7 +7,11 @@ class ImportadorTest < ActiveSupport::TestCase
     @proc ||= lambda { |c, r| "#{r}!" }
     @ruta_log = Rails.root.join("log/importacion_prueba.log")
     @importador ||= Importador.new(@ruta_log)
-    @clase ||= Object.new
+    @clase ||= Class.new do
+      define_method :save! do
+        'fruta'
+      end
+    end
   end
 
   def teardown
@@ -90,7 +94,12 @@ class ImportadorTest < ActiveSupport::TestCase
   end
 
   test 'Loguear datos de la importacion con casos exitosos' do
-    def @clase.save!; true end
+    # def @clase.save!; false end
+    @clase = Class.new do
+      define_method :save! do
+        true
+      end
+    end
     travel_to Time.new(2004, 11, 24, 01, 04, 44) do
       msg = "Fecha de importacion: 24-11-2004 01:04:44\nEntidad a importar: #{@clase.class.to_s}\nTotal de registros: #{@registros.count}\nRegistros exitosos: #{@registros.count}\nRegistros erroneos: 0\n"
       importar
@@ -99,7 +108,12 @@ class ImportadorTest < ActiveSupport::TestCase
   end
 
   test 'Loguear datos de la importacion con un caso erroneo' do
-    def @clase.save!; raise ArgumentError, 'Excepción con un registro' end
+    # def @clase.save!; raise ArgumentError, 'Excepción con un registro' end
+    @clase = Class.new do
+      define_method :save! do
+        raise ArgumentError, 'Excepción con un registro'
+      end
+    end
     msg_ex = 'Excepción con un registro'
     travel_to Time.new(2004, 11, 24, 01, 04, 44) do
       msg = mensaje_logueado_con_errores(msg_ex,0,2)
@@ -115,6 +129,7 @@ class ImportadorTest < ActiveSupport::TestCase
     travel_to Time.new(2004, 11, 24, 01, 04, 44) do
       msg = "[24-11-2004 01:04:44] Error con el registro {} NoMethodError: undefined method `downcase!' for {}:Hash\n"
       msg << "Fecha de importacion: 24-11-2004 01:04:44\nEntidad a importar: #{@clase.class.to_s}\nTotal de registros: #{@registros.count}\nRegistros exitosos: 3\nRegistros erroneos: 1\n"
+      msg << "No se ha importado ningún registro"
       importar
       File.read(@ruta_log).must_equal(msg)
     end
@@ -133,6 +148,7 @@ class ImportadorTest < ActiveSupport::TestCase
     travel_to Time.new(2004, 11, 24, 01, 04, 44) do
       msg = "[24-11-2004 01:04:44] Error con el registro \"chama\" ArgumentError: #{msg_ex}\n"
       msg << "Fecha de importacion: 24-11-2004 01:04:44\nEntidad a importar: #{@clase.class.to_s}\nTotal de registros: #{@registros.count}\nRegistros exitosos: 3\nRegistros erroneos: 1\n"
+      msg << "No se ha importado ningún registro"
       importar
       File.read(@ruta_log).must_equal(msg)
     end
@@ -148,6 +164,7 @@ class ImportadorTest < ActiveSupport::TestCase
     msg = "[24-11-2004 01:04:44] Error con el registro \"gonza\" ArgumentError: #{msg_ex}\n"
     msg << "[24-11-2004 01:04:44] Error con el registro \"chama\" ArgumentError: #{msg_ex}\n"
     msg << "Fecha de importacion: 24-11-2004 01:04:44\nEntidad a importar: #{@clase.class.to_s}\nTotal de registros: #{@registros.count}\nRegistros exitosos: #{reg_exitosos}\nRegistros erroneos: #{reg_erroneos}\n"
+    msg << "No se ha importado ningún registro"
   end
 
 end
