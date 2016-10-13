@@ -89,7 +89,7 @@ class AgenteMapper < AbstractMapper
   end
 
   def evaluar_cantidad_de_resultados(etiqueta, resultado, klass, field)
-    if resultado.count > 1
+    if resultado.count != 1
       segunda_busqueda = resultado.where("unaccent(#{field}) ILIKE ?", ActiveSupport::Inflector.transliterate("#{etiqueta}"))
       if segunda_busqueda.blank?
         msg = "Existen más de dos resultados coincidentes para la entidad #{klass} con los resultados: "
