@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011223955) do
+ActiveRecord::Schema.define(version: 20161027175806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,11 +108,11 @@ ActiveRecord::Schema.define(version: 20161011223955) do
     t.integer  "agrupamiento_id"
     t.integer  "tramo_id"
     t.text     "interno"
-    t.datetime "fecha_ingreso"
-    t.datetime "fecha_acto"
-    t.datetime "fecha_apto_fisico"
-    t.datetime "fecha_curriculum"
-    t.datetime "fecha_antecedentes_penales"
+    t.date     "fecha_ingreso"
+    t.date     "fecha_acto"
+    t.date     "fecha_apto_fisico"
+    t.date     "fecha_curriculum"
+    t.date     "fecha_antecedentes_penales"
     t.string   "nivel"
     t.string   "grado"
     t.string   "funcion"
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 20161011223955) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nro_acto"
-    t.datetime "fecha_examen_periodico"
-    t.datetime "fecha_entrega"
+    t.date     "fecha_examen_periodico"
+    t.date     "fecha_entrega"
     t.string   "hora_desde"
     t.string   "hora_hasta"
   end
@@ -168,7 +168,9 @@ ActiveRecord::Schema.define(version: 20161011223955) do
     t.string   "apellido"
     t.date     "fecha_nac"
     t.integer  "tipo_doc1_id"
+    t.integer  "tipo_doc2_id"
     t.string   "num_doc1"
+    t.string   "num_doc2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

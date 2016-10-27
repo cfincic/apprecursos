@@ -1,9 +1,8 @@
 module ApplicationHelper
-
 	def obtener_fecha(fecha)
-		unless fecha.nil?	
-			I18n.l(fecha, :format => :myformat)
+		if !fecha.nil? && fecha.class.to_s == 'Date'
+			puts "feeeeeechaaaaaaaa #{fecha}"
+			I18n.l(fecha, :format => :short)
 		end
 	end
-	
 end

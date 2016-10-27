@@ -3,11 +3,11 @@ module DatoLaboralsHelper
 		if situacion.tipo_contratacion.nil?
 			puts "***nula*** #{DateTime.new}"
 		 	return DateTime.new
-		else			
+		else
 			puts "***fecha *** #{situacion.fecha_alta}"
 			return situacion.fecha_alta
 		end
-	end	
+	end
 
 	def traer_area_id_por_nombre(dato_laboral)
 		if !dato_laboral.nil? && !dato_laboral.area.blank?
@@ -16,9 +16,9 @@ module DatoLaboralsHelper
 		end
 	end
 
-	def obtener_fecha(fecha)
-		unless fecha.nil?	
-			I18n.l(fecha, :format => :myformat)
-		end
-	end
+	# def obtener_fecha(fecha)
+	# 	unless fecha.nil?
+	# 		I18n.l(fecha, :format => :myformat)
+	# 	end
+	# end
 end
