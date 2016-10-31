@@ -60,15 +60,15 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="field">    
+        <div class="field">
           <%= f.label "Fecha de Nacimiento" %><br />
-          <%= f.text_field :fecha_nac , { :value => DateTime.now.strftime("%d/%m/%Y")} %> 
+          <%= f.text_field :fecha_nac ,  { :value =>  obtener_fecha(f.object.fecha_nac)} %> 
         </div>
       </div>
 
     </div>
   </div>
-</div>    
+</div>
 
 <div class="row">
   <div class="panel panel-default">
@@ -101,7 +101,7 @@
     <%= f.label :es_discapacitado, 'Es discapacitado' %><br>
     <%= label_tag 'Si/No' %>
     <%= f.check_box :es_discapacitado %>
-  </div> 
+  </div>
   <div class="field">
     <%= f.label :expira_certificado %><br>
     <%= f.text_field :expira_certificado%>
@@ -139,7 +139,7 @@
     <%= f.label :Provincia %><br>
     <%= f.collection_select("provincia_id", @provincias, "id", "detalle", :include_blank => "Seleccione una provincia...", :selected => f.object.provincia_id ) %><br>
   </div>
-  
+
     <div class="field">
     <%= f.label :localidad, "Localidad *" %><br>
     <%= f.grouped_collection_select("localidad_id", @provincias, "localidades", "detalle", "id", "detalle", :include_blank => "Seleccione una localidad...", :selected => f.object.localidad_id ) %>
@@ -157,6 +157,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-
-
